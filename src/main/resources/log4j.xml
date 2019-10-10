@@ -13,7 +13,7 @@
 
     <appender name="mainlog" class="org.apache.log4j.DailyRollingFileAppender">
         <param name="Encoding" value="UTF-8"/>
-        <param name="File" value="/logs/ygg/admin/generation/ygg-generation.log"/>
+        <param name="File" value="/home/admin/generation/ygg-generation.log"/>
         <param name="DatePattern" value="'-'yyyy-MM-dd"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d{yyyy-MM-dd HH\:mm\:ss,SSS} %5p [%t] (%F\:%L) - %m%n"/>
