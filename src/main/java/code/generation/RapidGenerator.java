@@ -2,7 +2,6 @@ package code.generation;
 
 import cn.org.rapid_framework.generator.GeneratorFacade;
 import cn.org.rapid_framework.generator.GeneratorProperties;
-import com.clubfactory.center.common.util.DateUtil;
 import com.google.common.collect.Lists;
 
 import java.util.Calendar;
