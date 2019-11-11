@@ -18,7 +18,10 @@ package ${basepackage};
 
 import java.io.Serializable;
 import java.util.Date;
+import java.math.BigDecimal;
 import lombok.Data;
+import lombok.experimental.Accessors;
+
 /**
 * @ClassName: ${className}
 * @Description:${(table.remarks)!}
@@ -26,6 +29,7 @@ import lombok.Data;
 * @date ${createTime}
 */
 @Data
+@Accessors(chain = true)
 public class ${className}DO implements Serializable{
 
 	<#list table.columns as column>

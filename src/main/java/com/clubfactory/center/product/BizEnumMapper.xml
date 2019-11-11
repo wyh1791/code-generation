@@ -4,15 +4,15 @@
 <mapper namespace="com.clubfactory.center.product.BizEnumDao">
 
     <resultMap id="BaseResultMap" type="com.clubfactory.center.product.BizEnumDO">
-		<id property="id" column="ID"/><!--主键-->
-		<result property="createTime" column="CREATE_TIME"/><!--创建时间-->
-		<result property="updateTime" column="UPDATE_TIME"/><!--更新时间-->
-		<result property="isDelete" column="IS_DELETE"/><!--逻辑删除标示 1：删除-->
-		<result property="mainKey" column="MAIN_KEY"/><!--枚举key-->
-		<result property="mainValue" column="MAIN_VALUE"/><!--枚举名称-->
-		<result property="itemKey" column="ITEM_KEY"/><!--枚举子项key-->
-		<result property="itemValue" column="ITEM_VALUE"/><!--枚举子项value-->
-		<result property="sequence" column="SEQUENCE"/><!--排序-->
+        <id property="id" column="ID"/><!--主键-->
+        <result property="createTime" column="CREATE_TIME"/><!--创建时间-->
+        <result property="updateTime" column="UPDATE_TIME"/><!--更新时间-->
+        <result property="isDelete" column="IS_DELETE"/><!--逻辑删除标示 1：删除-->
+        <result property="mainKey" column="MAIN_KEY"/><!--枚举key-->
+        <result property="mainValue" column="MAIN_VALUE"/><!--枚举名称-->
+        <result property="itemKey" column="ITEM_KEY"/><!--枚举子项key-->
+        <result property="itemValue" column="ITEM_VALUE"/><!--枚举子项value-->
+        <result property="sequence" column="SEQUENCE"/><!--排序-->
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -42,26 +42,26 @@
         INSERT INTO
         biz_enum
         <trim prefix="(" suffix=")" suffixOverrides=",">
-		<if test="id!=null">ID,</if>
-		<if test="createTime!=null">CREATE_TIME,</if>
-		<if test="updateTime!=null">UPDATE_TIME,</if>
-		<if test="isDelete!=null">IS_DELETE,</if>
-		<if test="mainKey!=null">MAIN_KEY,</if>
-		<if test="mainValue!=null">MAIN_VALUE,</if>
-		<if test="itemKey!=null">ITEM_KEY,</if>
-		<if test="itemValue!=null">ITEM_VALUE,</if>
-		<if test="sequence!=null">SEQUENCE,</if>
+            <if test="id!=null">ID,</if>
+            <if test="createTime!=null">CREATE_TIME,</if>
+            <if test="updateTime!=null">UPDATE_TIME,</if>
+            <if test="isDelete!=null">IS_DELETE,</if>
+            <if test="mainKey!=null">MAIN_KEY,</if>
+            <if test="mainValue!=null">MAIN_VALUE,</if>
+            <if test="itemKey!=null">ITEM_KEY,</if>
+            <if test="itemValue!=null">ITEM_VALUE,</if>
+            <if test="sequence!=null">SEQUENCE,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-		<if test="id!=null">#{id,jdbcType=INTEGER},</if>
-		<if test="createTime!=null">#{createTime,jdbcType=TIMESTAMP},</if>
-		<if test="updateTime!=null">#{updateTime,jdbcType=TIMESTAMP},</if>
-		<if test="isDelete!=null">#{isDelete,jdbcType=TINYINT},</if>
-		<if test="mainKey!=null">#{mainKey,jdbcType=VARCHAR},</if>
-		<if test="mainValue!=null">#{mainValue,jdbcType=VARCHAR},</if>
-		<if test="itemKey!=null">#{itemKey,jdbcType=VARCHAR},</if>
-		<if test="itemValue!=null">#{itemValue,jdbcType=VARCHAR},</if>
-		<if test="sequence!=null">#{sequence,jdbcType=TINYINT},</if>
+            <if test="id!=null">#{id,jdbcType=INTEGER},</if>
+            <if test="createTime!=null">#{createTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateTime!=null">#{updateTime,jdbcType=TIMESTAMP},</if>
+            <if test="isDelete!=null">#{isDelete,jdbcType=TINYINT},</if>
+            <if test="mainKey!=null">#{mainKey,jdbcType=VARCHAR},</if>
+            <if test="mainValue!=null">#{mainValue,jdbcType=VARCHAR},</if>
+            <if test="itemKey!=null">#{itemKey,jdbcType=VARCHAR},</if>
+            <if test="itemValue!=null">#{itemValue,jdbcType=VARCHAR},</if>
+            <if test="sequence!=null">#{sequence,jdbcType=TINYINT},</if>
         </trim>
     </insert>
 
@@ -70,37 +70,37 @@
         INSERT INTO
         biz_enum
         <trim prefix="(" suffix=")" suffixOverrides=",">
-		<if test="id!=null">ID,</if>
-		<if test="createTime!=null">CREATE_TIME,</if>
-		<if test="updateTime!=null">UPDATE_TIME,</if>
-		<if test="isDelete!=null">IS_DELETE,</if>
-		<if test="mainKey!=null">MAIN_KEY,</if>
-		<if test="mainValue!=null">MAIN_VALUE,</if>
-		<if test="itemKey!=null">ITEM_KEY,</if>
-		<if test="itemValue!=null">ITEM_VALUE,</if>
-		<if test="sequence!=null">SEQUENCE,</if>
+            <if test="id!=null">ID,</if>
+            <if test="createTime!=null">CREATE_TIME,</if>
+            <if test="updateTime!=null">UPDATE_TIME,</if>
+            <if test="isDelete!=null">IS_DELETE,</if>
+            <if test="mainKey!=null">MAIN_KEY,</if>
+            <if test="mainValue!=null">MAIN_VALUE,</if>
+            <if test="itemKey!=null">ITEM_KEY,</if>
+            <if test="itemValue!=null">ITEM_VALUE,</if>
+            <if test="sequence!=null">SEQUENCE,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-		<if test="id!=null">#{id,jdbcType=INTEGER},</if>
-		<if test="createTime!=null">#{createTime,jdbcType=TIMESTAMP},</if>
-		<if test="updateTime!=null">#{updateTime,jdbcType=TIMESTAMP},</if>
-		<if test="isDelete!=null">#{isDelete,jdbcType=TINYINT},</if>
-		<if test="mainKey!=null">#{mainKey,jdbcType=VARCHAR},</if>
-		<if test="mainValue!=null">#{mainValue,jdbcType=VARCHAR},</if>
-		<if test="itemKey!=null">#{itemKey,jdbcType=VARCHAR},</if>
-		<if test="itemValue!=null">#{itemValue,jdbcType=VARCHAR},</if>
-		<if test="sequence!=null">#{sequence,jdbcType=TINYINT},</if>
+            <if test="id!=null">#{id,jdbcType=INTEGER},</if>
+            <if test="createTime!=null">#{createTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateTime!=null">#{updateTime,jdbcType=TIMESTAMP},</if>
+            <if test="isDelete!=null">#{isDelete,jdbcType=TINYINT},</if>
+            <if test="mainKey!=null">#{mainKey,jdbcType=VARCHAR},</if>
+            <if test="mainValue!=null">#{mainValue,jdbcType=VARCHAR},</if>
+            <if test="itemKey!=null">#{itemKey,jdbcType=VARCHAR},</if>
+            <if test="itemValue!=null">#{itemValue,jdbcType=VARCHAR},</if>
+            <if test="sequence!=null">#{sequence,jdbcType=TINYINT},</if>
         </trim>
         ON DUPLICATE KEY UPDATE
         <trim suffixOverrides=",">
-        <if test="createTime!=null">CREATE_TIME=#{createTime,jdbcType=TIMESTAMP},</if>
-        <if test="updateTime!=null">UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP},</if>
-        <if test="isDelete!=null">IS_DELETE=#{isDelete,jdbcType=TINYINT},</if>
-        <if test="mainKey!=null">MAIN_KEY=#{mainKey,jdbcType=VARCHAR},</if>
-        <if test="mainValue!=null">MAIN_VALUE=#{mainValue,jdbcType=VARCHAR},</if>
-        <if test="itemKey!=null">ITEM_KEY=#{itemKey,jdbcType=VARCHAR},</if>
-        <if test="itemValue!=null">ITEM_VALUE=#{itemValue,jdbcType=VARCHAR},</if>
-        <if test="sequence!=null">SEQUENCE=#{sequence,jdbcType=TINYINT},</if>
+            <if test="createTime!=null">CREATE_TIME=#{createTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateTime!=null">UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP},</if>
+            <if test="isDelete!=null">IS_DELETE=#{isDelete,jdbcType=TINYINT},</if>
+            <if test="mainKey!=null">MAIN_KEY=#{mainKey,jdbcType=VARCHAR},</if>
+            <if test="mainValue!=null">MAIN_VALUE=#{mainValue,jdbcType=VARCHAR},</if>
+            <if test="itemKey!=null">ITEM_KEY=#{itemKey,jdbcType=VARCHAR},</if>
+            <if test="itemValue!=null">ITEM_VALUE=#{itemValue,jdbcType=VARCHAR},</if>
+            <if test="sequence!=null">SEQUENCE=#{sequence,jdbcType=TINYINT},</if>
         </trim>
     </insert>
 
@@ -112,15 +112,15 @@
     <update id="updateByPrimaryKeySelective">
         UPDATE biz_enum
         <set>
-		<if test="id!=null">ID=#{id,jdbcType=INTEGER},</if>
-		<if test="createTime!=null">CREATE_TIME=#{createTime,jdbcType=TIMESTAMP},</if>
-		<if test="updateTime!=null">UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP},</if>
-		<if test="isDelete!=null">IS_DELETE=#{isDelete,jdbcType=TINYINT},</if>
-		<if test="mainKey!=null">MAIN_KEY=#{mainKey,jdbcType=VARCHAR},</if>
-		<if test="mainValue!=null">MAIN_VALUE=#{mainValue,jdbcType=VARCHAR},</if>
-		<if test="itemKey!=null">ITEM_KEY=#{itemKey,jdbcType=VARCHAR},</if>
-		<if test="itemValue!=null">ITEM_VALUE=#{itemValue,jdbcType=VARCHAR},</if>
-		<if test="sequence!=null">SEQUENCE=#{sequence,jdbcType=TINYINT},</if>
+            <if test="id!=null">ID=#{id,jdbcType=INTEGER},</if>
+            <if test="createTime!=null">CREATE_TIME=#{createTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateTime!=null">UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP},</if>
+            <if test="isDelete!=null">IS_DELETE=#{isDelete,jdbcType=TINYINT},</if>
+            <if test="mainKey!=null">MAIN_KEY=#{mainKey,jdbcType=VARCHAR},</if>
+            <if test="mainValue!=null">MAIN_VALUE=#{mainValue,jdbcType=VARCHAR},</if>
+            <if test="itemKey!=null">ITEM_KEY=#{itemKey,jdbcType=VARCHAR},</if>
+            <if test="itemValue!=null">ITEM_VALUE=#{itemValue,jdbcType=VARCHAR},</if>
+            <if test="sequence!=null">SEQUENCE=#{sequence,jdbcType=TINYINT},</if>
         </set>
         <include refid="idCnd"/>
     </update>
@@ -136,15 +136,15 @@
 
     <sql id="where_clause">
         <where>
-        <if test="id!=null">AND ID=#{id,jdbcType=INTEGER}</if>
-        <if test="createTime!=null">AND CREATE_TIME=#{createTime,jdbcType=TIMESTAMP}</if>
-        <if test="updateTime!=null">AND UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP}</if>
-        <if test="isDelete!=null">AND IS_DELETE=#{isDelete,jdbcType=TINYINT}</if>
-        <if test="mainKey!=null">AND MAIN_KEY=#{mainKey,jdbcType=VARCHAR}</if>
-        <if test="mainValue!=null">AND MAIN_VALUE=#{mainValue,jdbcType=VARCHAR}</if>
-        <if test="itemKey!=null">AND ITEM_KEY=#{itemKey,jdbcType=VARCHAR}</if>
-        <if test="itemValue!=null">AND ITEM_VALUE=#{itemValue,jdbcType=VARCHAR}</if>
-        <if test="sequence!=null">AND SEQUENCE=#{sequence,jdbcType=TINYINT}</if>
+            <if test="id!=null">AND ID=#{id,jdbcType=INTEGER}</if>
+            <if test="createTime!=null">AND CREATE_TIME=#{createTime,jdbcType=TIMESTAMP}</if>
+            <if test="updateTime!=null">AND UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP}</if>
+            <if test="isDelete!=null">AND IS_DELETE=#{isDelete,jdbcType=TINYINT}</if>
+            <if test="mainKey!=null">AND MAIN_KEY=#{mainKey,jdbcType=VARCHAR}</if>
+            <if test="mainValue!=null">AND MAIN_VALUE=#{mainValue,jdbcType=VARCHAR}</if>
+            <if test="itemKey!=null">AND ITEM_KEY=#{itemKey,jdbcType=VARCHAR}</if>
+            <if test="itemValue!=null">AND ITEM_VALUE=#{itemValue,jdbcType=VARCHAR}</if>
+            <if test="sequence!=null">AND SEQUENCE=#{sequence,jdbcType=TINYINT}</if>
         </where>
     </sql>
 
@@ -160,30 +160,30 @@
     <insert id="batchInsert" parameterType="com.clubfactory.center.product.BizEnumDO"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO
-    biz_enum
+        biz_enum
         <trim prefix="(" suffix=")" suffixOverrides=",">
-    <if test="list[0].id!=null">ID,</if>
-    <if test="list[0].createTime!=null">CREATE_TIME,</if>
-    <if test="list[0].updateTime!=null">UPDATE_TIME,</if>
-    <if test="list[0].isDelete!=null">IS_DELETE,</if>
-    <if test="list[0].mainKey!=null">MAIN_KEY,</if>
-    <if test="list[0].mainValue!=null">MAIN_VALUE,</if>
-    <if test="list[0].itemKey!=null">ITEM_KEY,</if>
-    <if test="list[0].itemValue!=null">ITEM_VALUE,</if>
-    <if test="list[0].sequence!=null">SEQUENCE,</if>
+            <if test="list[0].id!=null">ID,</if>
+            <if test="list[0].createTime!=null">CREATE_TIME,</if>
+            <if test="list[0].updateTime!=null">UPDATE_TIME,</if>
+            <if test="list[0].isDelete!=null">IS_DELETE,</if>
+            <if test="list[0].mainKey!=null">MAIN_KEY,</if>
+            <if test="list[0].mainValue!=null">MAIN_VALUE,</if>
+            <if test="list[0].itemKey!=null">ITEM_KEY,</if>
+            <if test="list[0].itemValue!=null">ITEM_VALUE,</if>
+            <if test="list[0].sequence!=null">SEQUENCE,</if>
         </trim>
         values
         <foreach collection="list" item="item" separator=",">
             <trim prefix="(" suffix=")" suffixOverrides=",">
-    <if test="list[0].id!=null">#{item.id,jdbcType=INTEGER},</if>
-    <if test="list[0].createTime!=null">#{item.createTime,jdbcType=TIMESTAMP},</if>
-    <if test="list[0].updateTime!=null">#{item.updateTime,jdbcType=TIMESTAMP},</if>
-    <if test="list[0].isDelete!=null">#{item.isDelete,jdbcType=TINYINT},</if>
-    <if test="list[0].mainKey!=null">#{item.mainKey,jdbcType=VARCHAR},</if>
-    <if test="list[0].mainValue!=null">#{item.mainValue,jdbcType=VARCHAR},</if>
-    <if test="list[0].itemKey!=null">#{item.itemKey,jdbcType=VARCHAR},</if>
-    <if test="list[0].itemValue!=null">#{item.itemValue,jdbcType=VARCHAR},</if>
-    <if test="list[0].sequence!=null">#{item.sequence,jdbcType=TINYINT},</if>
+                <if test="list[0].id!=null">#{item.id,jdbcType=INTEGER},</if>
+                <if test="list[0].createTime!=null">#{item.createTime,jdbcType=TIMESTAMP},</if>
+                <if test="list[0].updateTime!=null">#{item.updateTime,jdbcType=TIMESTAMP},</if>
+                <if test="list[0].isDelete!=null">#{item.isDelete,jdbcType=TINYINT},</if>
+                <if test="list[0].mainKey!=null">#{item.mainKey,jdbcType=VARCHAR},</if>
+                <if test="list[0].mainValue!=null">#{item.mainValue,jdbcType=VARCHAR},</if>
+                <if test="list[0].itemKey!=null">#{item.itemKey,jdbcType=VARCHAR},</if>
+                <if test="list[0].itemValue!=null">#{item.itemValue,jdbcType=VARCHAR},</if>
+                <if test="list[0].sequence!=null">#{item.sequence,jdbcType=TINYINT},</if>
             </trim>
         </foreach>
     </insert>
@@ -191,30 +191,30 @@
     <insert id="batchUpsert" parameterType="com.clubfactory.center.product.BizEnumDO"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO
-    biz_enum
+        biz_enum
         <trim prefix="(" suffix=")" suffixOverrides=",">
-    <if test="list[0].id!=null">ID,</if>
-    <if test="list[0].createTime!=null">CREATE_TIME,</if>
-    <if test="list[0].updateTime!=null">UPDATE_TIME,</if>
-    <if test="list[0].isDelete!=null">IS_DELETE,</if>
-    <if test="list[0].mainKey!=null">MAIN_KEY,</if>
-    <if test="list[0].mainValue!=null">MAIN_VALUE,</if>
-    <if test="list[0].itemKey!=null">ITEM_KEY,</if>
-    <if test="list[0].itemValue!=null">ITEM_VALUE,</if>
-    <if test="list[0].sequence!=null">SEQUENCE,</if>
+            <if test="list[0].id!=null">ID,</if>
+            <if test="list[0].createTime!=null">CREATE_TIME,</if>
+            <if test="list[0].updateTime!=null">UPDATE_TIME,</if>
+            <if test="list[0].isDelete!=null">IS_DELETE,</if>
+            <if test="list[0].mainKey!=null">MAIN_KEY,</if>
+            <if test="list[0].mainValue!=null">MAIN_VALUE,</if>
+            <if test="list[0].itemKey!=null">ITEM_KEY,</if>
+            <if test="list[0].itemValue!=null">ITEM_VALUE,</if>
+            <if test="list[0].sequence!=null">SEQUENCE,</if>
         </trim>
         values
         <foreach collection="list" item="item" separator=",">
             <trim prefix="(" suffix=")" suffixOverrides=",">
-    <if test="list[0].id!=null">#{item.id,jdbcType=INTEGER},</if>
-    <if test="list[0].createTime!=null">#{item.createTime,jdbcType=TIMESTAMP},</if>
-    <if test="list[0].updateTime!=null">#{item.updateTime,jdbcType=TIMESTAMP},</if>
-    <if test="list[0].isDelete!=null">#{item.isDelete,jdbcType=TINYINT},</if>
-    <if test="list[0].mainKey!=null">#{item.mainKey,jdbcType=VARCHAR},</if>
-    <if test="list[0].mainValue!=null">#{item.mainValue,jdbcType=VARCHAR},</if>
-    <if test="list[0].itemKey!=null">#{item.itemKey,jdbcType=VARCHAR},</if>
-    <if test="list[0].itemValue!=null">#{item.itemValue,jdbcType=VARCHAR},</if>
-    <if test="list[0].sequence!=null">#{item.sequence,jdbcType=TINYINT},</if>
+                <if test="list[0].id!=null">#{item.id,jdbcType=INTEGER},</if>
+                <if test="list[0].createTime!=null">#{item.createTime,jdbcType=TIMESTAMP},</if>
+                <if test="list[0].updateTime!=null">#{item.updateTime,jdbcType=TIMESTAMP},</if>
+                <if test="list[0].isDelete!=null">#{item.isDelete,jdbcType=TINYINT},</if>
+                <if test="list[0].mainKey!=null">#{item.mainKey,jdbcType=VARCHAR},</if>
+                <if test="list[0].mainValue!=null">#{item.mainValue,jdbcType=VARCHAR},</if>
+                <if test="list[0].itemKey!=null">#{item.itemKey,jdbcType=VARCHAR},</if>
+                <if test="list[0].itemValue!=null">#{item.itemValue,jdbcType=VARCHAR},</if>
+                <if test="list[0].sequence!=null">#{item.sequence,jdbcType=TINYINT},</if>
             </trim>
         </foreach>
         ON DUPLICATE KEY UPDATE
@@ -232,68 +232,40 @@
 
     <update id="batchUpdate" parameterType="com.clubfactory.center.product.BizEnumDO">
         update
-    biz_enum
+        biz_enum
         <trim prefix="set" suffixOverrides=",">
-        <if test="list[0].createTime!=null">
-            <trim prefix="CREATE_TIME = case" suffix="end,">
-                <foreach collection="list" item="item" index="index">
-                    when id=${item.ID} then #{item.createTime,jdbcType=TIMESTAMP}
-                </foreach>
-            </trim>
-        </if>
-        <if test="list[0].updateTime!=null">
-            <trim prefix="UPDATE_TIME = case" suffix="end,">
-                <foreach collection="list" item="item" index="index">
-                    when id=${item.ID} then #{item.updateTime,jdbcType=TIMESTAMP}
-                </foreach>
-            </trim>
-        </if>
-        <if test="list[0].isDelete!=null">
-            <trim prefix="IS_DELETE = case" suffix="end,">
-                <foreach collection="list" item="item" index="index">
-                    when id=${item.ID} then #{item.isDelete,jdbcType=TINYINT}
-                </foreach>
-            </trim>
-        </if>
-        <if test="list[0].mainKey!=null">
-            <trim prefix="MAIN_KEY = case" suffix="end,">
-                <foreach collection="list" item="item" index="index">
-                    when id=${item.ID} then #{item.mainKey,jdbcType=VARCHAR}
-                </foreach>
-            </trim>
-        </if>
-        <if test="list[0].mainValue!=null">
-            <trim prefix="MAIN_VALUE = case" suffix="end,">
-                <foreach collection="list" item="item" index="index">
-                    when id=${item.ID} then #{item.mainValue,jdbcType=VARCHAR}
-                </foreach>
-            </trim>
-        </if>
-        <if test="list[0].itemKey!=null">
-            <trim prefix="ITEM_KEY = case" suffix="end,">
-                <foreach collection="list" item="item" index="index">
-                    when id=${item.ID} then #{item.itemKey,jdbcType=VARCHAR}
-                </foreach>
-            </trim>
-        </if>
-        <if test="list[0].itemValue!=null">
-            <trim prefix="ITEM_VALUE = case" suffix="end,">
-                <foreach collection="list" item="item" index="index">
-                    when id=${item.ID} then #{item.itemValue,jdbcType=VARCHAR}
-                </foreach>
-            </trim>
-        </if>
-        <if test="list[0].sequence!=null">
-            <trim prefix="SEQUENCE = case" suffix="end,">
-                <foreach collection="list" item="item" index="index">
-                    when id=${item.ID} then #{item.sequence,jdbcType=TINYINT}
-                </foreach>
-            </trim>
-        </if>
+            <if test="list[0].mainKey!=null">
+                <trim prefix="MAIN_KEY = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=${item.ID} then #{item.mainKey,jdbcType=VARCHAR}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].mainValue!=null">
+                <trim prefix="MAIN_VALUE = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=${item.ID} then #{item.mainValue,jdbcType=VARCHAR}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].itemKey!=null">
+                <trim prefix="ITEM_KEY = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=${item.ID} then #{item.itemKey,jdbcType=VARCHAR}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].itemValue!=null">
+                <trim prefix="ITEM_VALUE = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=${item.ID} then #{item.itemValue,jdbcType=VARCHAR}
+                    </foreach>
+                </trim>
+            </if>
         </trim>
         where id in
         <foreach collection="list" index="index" item="item" separator="," open="(" close=")">
-${item.ID}
+            ${item.ID}
         </foreach>
     </update>
 

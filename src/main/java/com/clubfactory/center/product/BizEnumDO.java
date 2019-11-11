@@ -1,19 +1,23 @@
 /**
 *@Author: wyh
-*@Date: 2019-10-10
+*@Date: 2019-10-11
 */
 package com.clubfactory.center.product;
 
+import lombok.Data;
+import lombok.experimental.Accessors;
+
 import java.io.Serializable;
 import java.util.Date;
-import lombok.Data;
+
 /**
 * @ClassName: BizEnum
 * @Description:
 * @author wyh
-* @date 2019-10-10
+* @date 2019-10-11
 */
 @Data
+@Accessors(chain = true)
 public class BizEnumDO implements Serializable{
 
 
