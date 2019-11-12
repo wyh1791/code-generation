@@ -79,7 +79,7 @@ ${gg.setOutputFile(javaPath+"/${className}Mapper.xml")}<#t/>
         <include refid="idCnd"/>
     </delete>
 
-    <update id="updateByPrimaryKeySelective">
+    <update id="updateByPrimaryKey">
         UPDATE ${table.sqlName}
         <set>
             <@fieldEqPropertyIf/>

@@ -109,7 +109,7 @@
         <include refid="idCnd"/>
     </delete>
 
-    <update id="updateByPrimaryKeySelective">
+    <update id="updateByPrimaryKey">
         UPDATE biz_enum
         <set>
             <if test="id!=null">ID=#{id,jdbcType=INTEGER},</if>
