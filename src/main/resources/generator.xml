@@ -20,41 +20,9 @@
 
     <!--<entry key="basepackage">com.clubfactory.center.product</entry>-->
     <!--&lt;!&ndash; 定义文件输出路径 &ndash;&gt;-->
-    <!--<entry key="jdbc_username">pre_odoo</entry>-->
-    <!--<entry key="jdbc_password">xaeapre346-epiCLOUDS2018</entry>-->
 
-    <!--&lt;!&ndash; 数据库类型映射  &ndash;&gt;-->
-    <!--<entry key="java_typemapping.java.sql.Timestamp">java.util.Date</entry>-->
-    <!--<entry key="java_typemapping.java.sql.Date">java.util.Date</entry>-->
-    <!--<entry key="java_typemapping.java.sql.Time">java.util.Date</entry>-->
-    <!--<entry key="java_typemapping.java.lang.Byte">Integer</entry>-->
-    <!--<entry key="java_typemapping.java.sql.TinyInt">Integer</entry>-->
-    <!--<entry key="java_typemapping.java.lang.Short">Integer</entry>-->
-    <!--<entry key="java_typemapping.java.math.BigDecimal">BigDecimal</entry>-->
-    <!--<entry key="java_typemapping.java.sql.Clob">byte[]</entry>-->
-    <!--<entry key="jdbc_url">jdbc:mysql://rm-bp1964g11s3u70v5hno.mysql.rds.aliyuncs.com:3306/pre_odoo_test?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true&amp;allowMultiQueries=true&amp;tinyInt1isBit=false</entry>-->
-    <!--<entry key="jdbc_driver">com.mysql.jdbc.Driver</entry>-->
-
-
-    <!--<entry key="jdbc_username">etl_admin</entry>-->
-    <!--<entry key="jdbc_password">rtcu4476iy_epiCLOUDS2018</entry>-->
-
-    <!--&lt;!&ndash; 数据库类型映射  &ndash;&gt;-->
-    <!--<entry key="java_typemapping.java.sql.Timestamp">java.util.Date</entry>-->
-    <!--<entry key="java_typemapping.java.sql.Date">java.util.Date</entry>-->
-    <!--<entry key="java_typemapping.java.sql.Time">java.util.Date</entry>-->
-    <!--<entry key="java_typemapping.java.lang.Byte">Integer</entry>-->
-    <!--<entry key="java_typemapping.java.sql.TinyInt">Integer</entry>-->
-    <!--<entry key="java_typemapping.java.lang.Short">Integer</entry>-->
-    <!--<entry key="java_typemapping.java.math.BigDecimal">BigDecimal</entry>-->
-    <!--<entry key="java_typemapping.java.sql.Clob">byte[]</entry>-->
-    <!--<entry key="jdbc_url">jdbc:mysql://rm-bp1h6p0aj9nv67w4woo.mysql.rds.aliyuncs.com:3306/image_map?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true&amp;allowMultiQueries=true&amp;tinyInt1isBit=false</entry>-->
-    <!--<entry key="jdbc_driver">com.mysql.jdbc.Driver</entry>-->
-
-
-
-    <entry key="jdbc_username">web_master</entry>
-    <entry key="jdbc_password">t2vrc5XXfqwGcxAC</entry>
+    <entry key="jdbc_username">aaaa</entry>
+    <entry key="jdbc_password">6666</entry>
 
     <!-- 数据库类型映射  -->
     <entry key="java_typemapping.java.sql.Timestamp">java.util.Date</entry>
@@ -65,21 +33,6 @@
     <entry key="java_typemapping.java.lang.Short">Integer</entry>
     <entry key="java_typemapping.java.math.BigDecimal">BigDecimal</entry>
     <entry key="java_typemapping.java.sql.Clob">byte[]</entry>
-    <entry key="jdbc_url">jdbc:mysql://rm-bp1qt3d3572063s80co.mysql.rds.aliyuncs.com:3306/odoo_test?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true&amp;allowMultiQueries=true&amp;tinyInt1isBit=false</entry>
+    <entry key="jdbc_url">jdbc:mysql://144.34.242.92:3306/wyx?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true&amp;allowMultiQueries=true&amp;tinyInt1isBit=false</entry>
     <entry key="jdbc_driver">com.mysql.jdbc.Driver</entry>
-
-    <!--<entry key="jdbc_username">wyx</entry>-->
-    <!--<entry key="jdbc_password">WYHwyh@179191</entry>-->
-
-    <!--&lt;!&ndash; 数据库类型映射  &ndash;&gt;-->
-    <!--<entry key="java_typemapping.java.sql.Timestamp">java.util.Date</entry>-->
-    <!--<entry key="java_typemapping.java.sql.Date">java.util.Date</entry>-->
-    <!--<entry key="java_typemapping.java.sql.Time">java.util.Date</entry>-->
-    <!--<entry key="java_typemapping.java.lang.Byte">Integer</entry>-->
-    <!--<entry key="java_typemapping.java.sql.TinyInt">Integer</entry>-->
-    <!--<entry key="java_typemapping.java.lang.Short">Integer</entry>-->
-    <!--<entry key="java_typemapping.java.math.BigDecimal">BigDecimal</entry>-->
-    <!--<entry key="java_typemapping.java.sql.Clob">byte[]</entry>-->
-    <!--<entry key="jdbc_url">jdbc:mysql://144.34.242.92:3306/wyx?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true&amp;allowMultiQueries=true&amp;tinyInt1isBit=false</entry>-->
-    <!--<entry key="jdbc_driver">com.mysql.jdbc.Driver</entry>-->
 </properties>
