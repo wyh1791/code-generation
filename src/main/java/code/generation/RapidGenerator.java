@@ -57,7 +57,7 @@ public class RapidGenerator {
         String projectPath = System.getenv().get("PWD");
         String author = System.getenv().get("USER");
         //表名称
-        List<String> tableNames = Lists.newArrayList("product_template","product_product");
+        List<String> tableNames = Lists.newArrayList("product_template");
 
         for (String tableName : tableNames) {
             generatorOneTable(projectPath, author, tableName);
