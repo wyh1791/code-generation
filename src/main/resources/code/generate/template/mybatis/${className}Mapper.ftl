@@ -12,7 +12,7 @@
 
 <#macro mapperEl value type>${r"#{"}${value},jdbcType=${type}}</#macro>
 <#macro batchMapperEl value type>${r"#{item."}${value},jdbcType=${type}}</#macro>
-<#macro mapperElPr value>${r"${"}${value}}</#macro>
+<#macro mapperElPr value>${r"#{"}${value}}</#macro>
 ${gg.setOverride(true)}<#t/>
 ${gg.setOutputFile(javaPath+"/${className}Mapper.xml")}<#t/>
 <?xml version="1.0" encoding="UTF-8"?>
@@ -153,7 +153,7 @@ ${gg.setOutputFile(javaPath+"/${className}Mapper.xml")}<#t/>
         </trim>
         where id in
         <foreach collection="list" index="index" item="item" separator="," open="(" close=")">
-            <@mapperElPr "item.ID"/>
+            <@mapperElPr "item.id"/>
 
         </foreach>
     </update>
@@ -289,7 +289,7 @@ ${gg.setOutputFile(javaPath+"/${className}Mapper.xml")}<#t/>
         <if test="list[0].${column.columnNameFirstLower}!=null">
             <trim prefix="${column.sqlName?upper_case} = case" suffix="end,">
                 <foreach collection="list" item="item" index="index">
-                    when id=<@mapperElPr "item.ID"></@> then <@batchMapperEl column.columnNameFirstLower column.jdbcSqlTypeName></@>
+                    when id=<@mapperElPr "item.id"></@> then <@batchMapperEl column.columnNameFirstLower column.jdbcSqlTypeName></@>
                 </foreach>
             </trim>
         </if>
