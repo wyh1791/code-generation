@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.clubfactory.center.product.mapper.ItemSku0Mapper">
+<mapper namespace="com.clubfactory.item.center.core.mapper.ItemSku0Mapper">
 
-    <resultMap id="BaseResultMap" type="com.clubfactory.center.product.dataobject.ItemSku0DO">
+    <resultMap id="BaseResultMap" type="com.clubfactory.item.center.core.dataobject.ItemSku0DO">
 		<id property="id" column="ID"/><!---->
 		<result property="createTime" column="CREATE_TIME"/><!---->
 		<result property="updateTime" column="UPDATE_TIME"/><!---->
@@ -53,7 +53,7 @@
         </where>
     </sql>
 
-    <insert id="insert" parameterType="com.clubfactory.center.product.dataobject.ItemSku0DO"
+    <insert id="insert" parameterType="com.clubfactory.item.center.core.dataobject.ItemSku0DO"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO
         item_sku_0
@@ -97,7 +97,7 @@
         </trim>
     </insert>
 
-    <insert id="upsert" parameterType="com.clubfactory.center.product.dataobject.ItemSku0DO"
+    <insert id="upsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemSku0DO"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO
         item_sku_0
@@ -229,7 +229,7 @@
     </select>
 
 
-    <insert id="batchInsert" parameterType="com.clubfactory.center.product.dataobject.ItemSku0DO"
+    <insert id="batchInsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemSku0DO"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO
     item_sku_0
@@ -276,7 +276,7 @@
         </foreach>
     </insert>
 
-    <insert id="batchUpsert" parameterType="com.clubfactory.center.product.dataobject.ItemSku0DO"
+    <insert id="batchUpsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemSku0DO"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO
     item_sku_0
@@ -342,7 +342,7 @@
         </trim>
     </insert>
 
-    <update id="batchUpdate" parameterType="com.clubfactory.center.product.dataobject.ItemSku0DO">
+    <update id="batchUpdate" parameterType="com.clubfactory.item.center.core.dataobject.ItemSku0DO">
         update
     item_sku_0
         <trim prefix="set" suffixOverrides=",">

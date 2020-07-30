@@ -2,7 +2,7 @@
 *@Author: wyh
 *@Date: 2020-07-30
 */
-package com.clubfactory.center.product.dataobject;
+package com.clubfactory.item.center.core.dataobject;
 
 import java.io.Serializable;
 import java.util.Date;

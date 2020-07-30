@@ -1,4 +1,4 @@
-package com.clubfactory.center.product.mapper;
+package com.clubfactory.item.center.core.mapper;
 
 import org.apache.ibatis.annotations.Param;
 

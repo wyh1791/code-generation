@@ -2,8 +2,8 @@
 *@Author: wyh
 *@Date: 2020-07-30
 */
-package com.clubfactory.center.product.mapper;
-import com.clubfactory.center.product.dataobject.ItemImages0DO;
+package com.clubfactory.item.center.core.mapper;
+import com.clubfactory.item.center.core.dataobject.ItemImages0DO;
 import org.springframework.stereotype.Repository;
 
 /**

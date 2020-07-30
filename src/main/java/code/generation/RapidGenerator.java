@@ -18,9 +18,11 @@ public class RapidGenerator {
     //代码根路径
     public static final String TEMPLATE_ROOT_DIR = "/src/main/resources/code/generate/template";
     //java源代码路径
-    public static final String JAVA_PATH = "/src/main/java/com/clubfactory/center/product";
+    public static final String JAVA_PATH = "/src/main/java/com/clubfactory/item/center/core";
     //mybatis配置文件路径
     public static final String MYBATIS_XML_PATH = "/src/main/resources/mapper";
+    //
+    public static final String BASE_PACKAGE = "com.clubfactory.item.center.core";
 
 
     /**
@@ -38,6 +40,7 @@ public class RapidGenerator {
         g.getGenerator().setOutRootDir(projectPath);
         GeneratorProperties.setProperty("javaPath", projectPath + JAVA_PATH);
         GeneratorProperties.setProperty("mybatisXMLPath", projectPath + MYBATIS_XML_PATH);
+        GeneratorProperties.setProperty("basepackage", BASE_PACKAGE);
         //设置自己的名字
         GeneratorProperties.setProperty("author", author);
         GeneratorProperties.setProperty("createTime", DateUtil.nowFormat(DateUtil.YMD));
@@ -48,7 +51,7 @@ public class RapidGenerator {
         String projectPath = System.getenv().get("PWD");
         String author = System.getenv().get("USER");
         //表名称
-        List<String> tableNames = Lists.newArrayList("item_0","item_images_0","item_sku_0","item_sku_price_0");
+        List<String> tableNames = Lists.newArrayList("item_0", "item_images_0", "item_sku_0", "item_sku_price_0");
 
         for (String tableName : tableNames) {
             generatorOneTable(projectPath, author, tableName);
