@@ -9,13 +9,13 @@
 </#if>
 -->
 ${gg.setOverride(false)}<#t/>
-${gg.setOutputFile(javaPath+"/"+className+"Dao.java")}<#t/>
+${gg.setOutputFile(javaPath+"/mapper/"+className+"Mapper.java")}<#t/>
 /**
 *@Author: ${author}
 *@Date: ${createTime}
 */
-package ${basepackage};
-import ${basepackage}.${className}DO;
+package ${basepackage}.mapper;
+import ${basepackage}.dataobject.${className}DO;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -23,6 +23,6 @@ import org.springframework.stereotype.Repository;
 * @date ${createTime}
 */
 @Repository
-public interface ${className}Dao extends IBaseDao<${className}DO> {
+public interface ${className}Mapper extends IBaseDao<${className}DO> {
 
     }

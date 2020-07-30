@@ -26,8 +26,13 @@
     <entry key="java_typemapping.java.sql.Clob">byte[]</entry>
     <entry key="jdbc_driver">com.mysql.jdbc.Driver</entry>
 
-    <entry key="jdbc_username">xxx</entry>
-    <entry key="jdbc_password">xxx</entry>
-    <entry key="jdbc_url">jdbc:mysql://rm-bp1qt3d3572063s80co.mysql.rds.aliyuncs.com:3306/odoo_test?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true&amp;allowMultiQueries=true&amp;tinyInt1isBit=false</entry>
+    <!--<entry key="jdbc_username">web_master</entry>-->
+    <!--<entry key="jdbc_password">t2vrc5XXfqwGcxAC</entry>-->
+    <!--<entry key="jdbc_url">jdbc:mysql://rm-bp1qt3d3572063s80co.mysql.rds.aliyuncs.com:3306/odoo_test?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true&amp;allowMultiQueries=true&amp;tinyInt1isBit=false</entry>-->
+
+
+    <entry key="jdbc_username">public_admin</entry>
+    <entry key="jdbc_password">D3QhP13f2wQ63SAURo0R</entry>
+    <entry key="jdbc_url">jdbc:mysql://rm-bp10wm344sk91hmle.mysql.rds.aliyuncs.com/item_dev_new?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true&amp;allowMultiQueries=true&amp;tinyInt1isBit=false</entry>
 
 </properties>

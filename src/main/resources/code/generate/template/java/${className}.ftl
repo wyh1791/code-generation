@@ -9,12 +9,12 @@
 </#if>
 -->
 ${gg.setOverride(true)}<#t/>
-${gg.setOutputFile(javaPath+"/"+className+"DO.java")}<#t/>
+${gg.setOutputFile(javaPath+"/dataobject/"+className+"DO.java")}<#t/>
 /**
 *@Author: ${author}
 *@Date: ${createTime}
 */
-package ${basepackage};
+package ${basepackage}.dataobject;
 
 import java.io.Serializable;
 import java.util.Date;

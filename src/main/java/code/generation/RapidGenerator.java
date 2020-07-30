@@ -4,7 +4,6 @@ import cn.org.rapid_framework.generator.GeneratorFacade;
 import cn.org.rapid_framework.generator.GeneratorProperties;
 import com.google.common.collect.Lists;
 
-import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -18,12 +17,10 @@ public class RapidGenerator {
 
     //代码根路径
     public static final String TEMPLATE_ROOT_DIR = "/src/main/resources/code/generate/template";
-    //生成代码输出路径
-    public static final String OUT_ROOT_DIR = "/src/main/java/com/clubfactory/center/product";
     //java源代码路径
     public static final String JAVA_PATH = "/src/main/java/com/clubfactory/center/product";
     //mybatis配置文件路径
-    public static final String MYBATIS_XML_PATH = "/src/main/resources/mapper/generated";
+    public static final String MYBATIS_XML_PATH = "/src/main/resources/mapper";
 
 
     /**
@@ -38,9 +35,8 @@ public class RapidGenerator {
             throws Exception {
         GeneratorFacade g = new GeneratorFacade();
         g.getGenerator().setTemplateRootDir(projectPath + TEMPLATE_ROOT_DIR);
-        g.getGenerator().setOutRootDir(projectPath + OUT_ROOT_DIR);
-        GeneratorProperties
-                .setProperty("javaPath", projectPath + JAVA_PATH);
+        g.getGenerator().setOutRootDir(projectPath);
+        GeneratorProperties.setProperty("javaPath", projectPath + JAVA_PATH);
         GeneratorProperties.setProperty("mybatisXMLPath", projectPath + MYBATIS_XML_PATH);
         //设置自己的名字
         GeneratorProperties.setProperty("author", author);
@@ -48,16 +44,11 @@ public class RapidGenerator {
         g.generateByTable(tableName);
     }
 
-    private static String getCreateTime() {
-        Calendar now = Calendar.getInstance();
-        return now.get(Calendar.YEAR) + "-" + (now.get(Calendar.MONTH) + 1) + "-" + now.get(Calendar.DAY_OF_MONTH);
-    }
-
     public static void main(String[] args) throws Exception {
         String projectPath = System.getenv().get("PWD");
         String author = System.getenv().get("USER");
         //表名称
-        List<String> tableNames = Lists.newArrayList("product_template");
+        List<String> tableNames = Lists.newArrayList("item_0","item_images_0","item_sku_0","item_sku_price_0");
 
         for (String tableName : tableNames) {
             generatorOneTable(projectPath, author, tableName);

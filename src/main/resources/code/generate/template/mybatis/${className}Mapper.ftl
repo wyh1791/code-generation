@@ -14,13 +14,13 @@
 <#macro batchMapperEl value type>${r"#{item."}${value},jdbcType=${type}}</#macro>
 <#macro mapperElPr value>${r"#{"}${value}}</#macro>
 ${gg.setOverride(true)}<#t/>
-${gg.setOutputFile(javaPath+"/${className}Mapper.xml")}<#t/>
+${gg.setOutputFile(mybatisXMLPath+"/generate/${className}Mapper.xml")}<#t/>
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="${basepackage}.${className}Dao">
+<mapper namespace="${basepackage}.mapper.${className}Mapper">
 
-    <resultMap id="BaseResultMap" type="${basepackage}.${className}DO">
+    <resultMap id="BaseResultMap" type="${basepackage}.dataobject.${className}DO">
 		<#list table.pkColumns as pk>
 		<id property="${pk.columnNameFirstLower}" column="${pk.sqlName?upper_case}"/><!--${pk.remarks!}-->
         </#list>
@@ -46,7 +46,7 @@ ${gg.setOutputFile(javaPath+"/${className}Mapper.xml")}<#t/>
         </where>
     </sql>
 
-    <insert id="insert" parameterType="${basepackage}.${className}DO"
+    <insert id="insert" parameterType="${basepackage}.dataobject.${className}DO"
             keyProperty="${table.pkColumns?first}" useGeneratedKeys="true">
         INSERT INTO
         ${table.sqlName}
@@ -58,7 +58,7 @@ ${gg.setOutputFile(javaPath+"/${className}Mapper.xml")}<#t/>
         </trim>
     </insert>
 
-    <insert id="upsert" parameterType="${basepackage}.${className}DO"
+    <insert id="upsert" parameterType="${basepackage}.dataobject.${className}DO"
             keyProperty="${table.pkColumns?first}" useGeneratedKeys="true">
         INSERT INTO
         ${table.sqlName}
@@ -111,7 +111,7 @@ ${gg.setOutputFile(javaPath+"/${className}Mapper.xml")}<#t/>
     </select>
 
 
-    <insert id="batchInsert" parameterType="${basepackage}.${className}DO"
+    <insert id="batchInsert" parameterType="${basepackage}.dataobject.${className}DO"
             keyProperty="${table.pkColumns?first}" useGeneratedKeys="true">
         INSERT INTO
     ${table.sqlName}
@@ -126,7 +126,7 @@ ${gg.setOutputFile(javaPath+"/${className}Mapper.xml")}<#t/>
         </foreach>
     </insert>
 
-    <insert id="batchUpsert" parameterType="${basepackage}.${className}DO"
+    <insert id="batchUpsert" parameterType="${basepackage}.dataobject.${className}DO"
             keyProperty="${table.pkColumns?first}" useGeneratedKeys="true">
         INSERT INTO
     ${table.sqlName}
@@ -145,7 +145,7 @@ ${gg.setOutputFile(javaPath+"/${className}Mapper.xml")}<#t/>
         </trim>
     </insert>
 
-    <update id="batchUpdate" parameterType="${basepackage}.${className}DO">
+    <update id="batchUpdate" parameterType="${basepackage}.dataobject.${className}DO">
         update
     ${table.sqlName}
         <trim prefix="set" suffixOverrides=",">
