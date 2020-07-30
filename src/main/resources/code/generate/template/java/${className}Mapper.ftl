@@ -23,6 +23,6 @@ import org.springframework.stereotype.Repository;
 * @date ${createTime}
 */
 @Repository
-public interface ${className}Mapper extends IBaseDao<${className}DO> {
+public interface ${className}Mapper extends IBaseMapper<${className}DO> {
 
-    }
+}

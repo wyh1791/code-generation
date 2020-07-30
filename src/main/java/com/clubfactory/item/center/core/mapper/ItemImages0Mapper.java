@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
 * @date 2020-07-30
 */
 @Repository
-public interface ItemImages0Mapper extends IBaseDao<ItemImages0DO> {
+public interface ItemImages0Mapper extends IBaseMapper<ItemImages0DO> {
 
     }

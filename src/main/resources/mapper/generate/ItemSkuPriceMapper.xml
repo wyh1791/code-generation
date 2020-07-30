@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.clubfactory.item.center.core.mapper.ItemSkuPriceMapper">
+
+    <resultMap id="BaseResultMap" type="com.clubfactory.item.center.core.dataobject.ItemSkuPriceDO">
+        <id property="id" column="ID"/><!--id-->
+        <result property="updateTime" column="UPDATE_TIME"/><!--更新时间精确到毫秒-->
+        <result property="createTime" column="CREATE_TIME"/><!---->
+        <result property="itemId" column="ITEM_ID"/><!--item_id-->
+        <result property="itemSkuId" column="ITEM_SKU_ID"/><!--item_sku_id-->
+        <result property="country" column="COUNTRY"/><!--国家-->
+        <result property="compareAtPrice" column="COMPARE_AT_PRICE"/><!--展示价(吊牌价, 原价, 市场价,  划线价)-->
+        <result property="price" column="PRICE"/><!--普通购买价(销售价)-->
+        <result property="memberOnlyPrice" column="MEMBER_ONLY_PRICE"/><!--会员购买价(会员价)-->
+        <result property="currency" column="CURRENCY"/><!--币种-->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        <trim suffixOverrides=",">
+            ID,
+            UPDATE_TIME,
+            CREATE_TIME,
+            ITEM_ID,
+            ITEM_SKU_ID,
+            COUNTRY,
+            COMPARE_AT_PRICE,
+            PRICE,
+            MEMBER_ONLY_PRICE,
+            CURRENCY,
+        </trim>
+    </sql>
+
+
+    <sql id="idCnd">
+        <where>
+            <if test="id!=null">ID=#{id,jdbcType=BIGINT}</if>
+            <if test="id==null">1=0</if>
+        </where>
+    </sql>
+
+    <insert id="insert" parameterType="com.clubfactory.item.center.core.dataobject.ItemSkuPriceDO"
+            keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO
+        item_sku_price_0
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id!=null">ID,</if>
+            <if test="updateTime!=null">UPDATE_TIME,</if>
+            <if test="createTime!=null">CREATE_TIME,</if>
+            <if test="itemId!=null">ITEM_ID,</if>
+            <if test="itemSkuId!=null">ITEM_SKU_ID,</if>
+            <if test="country!=null">COUNTRY,</if>
+            <if test="compareAtPrice!=null">COMPARE_AT_PRICE,</if>
+            <if test="price!=null">PRICE,</if>
+            <if test="memberOnlyPrice!=null">MEMBER_ONLY_PRICE,</if>
+            <if test="currency!=null">CURRENCY,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id!=null">#{id,jdbcType=BIGINT},</if>
+            <if test="updateTime!=null">#{updateTime,jdbcType=TIMESTAMP},</if>
+            <if test="createTime!=null">#{createTime,jdbcType=TIMESTAMP},</if>
+            <if test="itemId!=null">#{itemId,jdbcType=BIGINT},</if>
+            <if test="itemSkuId!=null">#{itemSkuId,jdbcType=BIGINT},</if>
+            <if test="country!=null">#{country,jdbcType=VARCHAR},</if>
+            <if test="compareAtPrice!=null">#{compareAtPrice,jdbcType=DECIMAL},</if>
+            <if test="price!=null">#{price,jdbcType=DECIMAL},</if>
+            <if test="memberOnlyPrice!=null">#{memberOnlyPrice,jdbcType=DECIMAL},</if>
+            <if test="currency!=null">#{currency,jdbcType=CHAR},</if>
+        </trim>
+    </insert>
+
+    <insert id="upsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemSkuPriceDO"
+            keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO
+        item_sku_price_0
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id!=null">ID,</if>
+            <if test="updateTime!=null">UPDATE_TIME,</if>
+            <if test="createTime!=null">CREATE_TIME,</if>
+            <if test="itemId!=null">ITEM_ID,</if>
+            <if test="itemSkuId!=null">ITEM_SKU_ID,</if>
+            <if test="country!=null">COUNTRY,</if>
+            <if test="compareAtPrice!=null">COMPARE_AT_PRICE,</if>
+            <if test="price!=null">PRICE,</if>
+            <if test="memberOnlyPrice!=null">MEMBER_ONLY_PRICE,</if>
+            <if test="currency!=null">CURRENCY,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id!=null">#{id,jdbcType=BIGINT},</if>
+            <if test="updateTime!=null">#{updateTime,jdbcType=TIMESTAMP},</if>
+            <if test="createTime!=null">#{createTime,jdbcType=TIMESTAMP},</if>
+            <if test="itemId!=null">#{itemId,jdbcType=BIGINT},</if>
+            <if test="itemSkuId!=null">#{itemSkuId,jdbcType=BIGINT},</if>
+            <if test="country!=null">#{country,jdbcType=VARCHAR},</if>
+            <if test="compareAtPrice!=null">#{compareAtPrice,jdbcType=DECIMAL},</if>
+            <if test="price!=null">#{price,jdbcType=DECIMAL},</if>
+            <if test="memberOnlyPrice!=null">#{memberOnlyPrice,jdbcType=DECIMAL},</if>
+            <if test="currency!=null">#{currency,jdbcType=CHAR},</if>
+        </trim>
+        ON DUPLICATE KEY UPDATE
+        <trim suffixOverrides=",">
+            <if test="updateTime!=null">UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP},</if>
+            <if test="createTime!=null">CREATE_TIME=#{createTime,jdbcType=TIMESTAMP},</if>
+            <if test="itemId!=null">ITEM_ID=#{itemId,jdbcType=BIGINT},</if>
+            <if test="itemSkuId!=null">ITEM_SKU_ID=#{itemSkuId,jdbcType=BIGINT},</if>
+            <if test="country!=null">COUNTRY=#{country,jdbcType=VARCHAR},</if>
+            <if test="compareAtPrice!=null">COMPARE_AT_PRICE=#{compareAtPrice,jdbcType=DECIMAL},</if>
+            <if test="price!=null">PRICE=#{price,jdbcType=DECIMAL},</if>
+            <if test="memberOnlyPrice!=null">MEMBER_ONLY_PRICE=#{memberOnlyPrice,jdbcType=DECIMAL},</if>
+            <if test="currency!=null">CURRENCY=#{currency,jdbcType=CHAR},</if>
+        </trim>
+    </insert>
+
+    <delete id="deleteByPrimaryKey">
+        DELETE FROM item_sku_price_0
+        <include refid="idCnd"/>
+    </delete>
+
+    <update id="updateByPrimaryKey">
+        UPDATE item_sku_price_0
+        <set>
+            <if test="id!=null">ID=#{id,jdbcType=BIGINT},</if>
+            <if test="updateTime!=null">UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP},</if>
+            <if test="createTime!=null">CREATE_TIME=#{createTime,jdbcType=TIMESTAMP},</if>
+            <if test="itemId!=null">ITEM_ID=#{itemId,jdbcType=BIGINT},</if>
+            <if test="itemSkuId!=null">ITEM_SKU_ID=#{itemSkuId,jdbcType=BIGINT},</if>
+            <if test="country!=null">COUNTRY=#{country,jdbcType=VARCHAR},</if>
+            <if test="compareAtPrice!=null">COMPARE_AT_PRICE=#{compareAtPrice,jdbcType=DECIMAL},</if>
+            <if test="price!=null">PRICE=#{price,jdbcType=DECIMAL},</if>
+            <if test="memberOnlyPrice!=null">MEMBER_ONLY_PRICE=#{memberOnlyPrice,jdbcType=DECIMAL},</if>
+            <if test="currency!=null">CURRENCY=#{currency,jdbcType=CHAR},</if>
+        </set>
+        <include refid="idCnd"/>
+    </update>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        item_sku_price_0
+        <include refid="idCnd"/>
+    </select>
+
+
+    <sql id="where_clause">
+        <where>
+            <if test="id!=null">AND ID=#{id,jdbcType=BIGINT}</if>
+            <if test="updateTime!=null">AND UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP}</if>
+            <if test="createTime!=null">AND CREATE_TIME=#{createTime,jdbcType=TIMESTAMP}</if>
+            <if test="itemId!=null">AND ITEM_ID=#{itemId,jdbcType=BIGINT}</if>
+            <if test="itemSkuId!=null">AND ITEM_SKU_ID=#{itemSkuId,jdbcType=BIGINT}</if>
+            <if test="country!=null">AND COUNTRY=#{country,jdbcType=VARCHAR}</if>
+            <if test="compareAtPrice!=null">AND COMPARE_AT_PRICE=#{compareAtPrice,jdbcType=DECIMAL}</if>
+            <if test="price!=null">AND PRICE=#{price,jdbcType=DECIMAL}</if>
+            <if test="memberOnlyPrice!=null">AND MEMBER_ONLY_PRICE=#{memberOnlyPrice,jdbcType=DECIMAL}</if>
+            <if test="currency!=null">AND CURRENCY=#{currency,jdbcType=CHAR}</if>
+        </where>
+    </sql>
+
+    <select id="listByParams" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        item_sku_price_0
+        <include refid="where_clause"/>
+    </select>
+
+
+    <insert id="batchInsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemSkuPriceDO"
+            keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO
+        item_sku_price_0
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="list[0].id!=null">ID,</if>
+            <if test="list[0].updateTime!=null">UPDATE_TIME,</if>
+            <if test="list[0].createTime!=null">CREATE_TIME,</if>
+            <if test="list[0].itemId!=null">ITEM_ID,</if>
+            <if test="list[0].itemSkuId!=null">ITEM_SKU_ID,</if>
+            <if test="list[0].country!=null">COUNTRY,</if>
+            <if test="list[0].compareAtPrice!=null">COMPARE_AT_PRICE,</if>
+            <if test="list[0].price!=null">PRICE,</if>
+            <if test="list[0].memberOnlyPrice!=null">MEMBER_ONLY_PRICE,</if>
+            <if test="list[0].currency!=null">CURRENCY,</if>
+        </trim>
+        values
+        <foreach collection="list" item="item" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="list[0].id!=null">#{item.id,jdbcType=BIGINT},</if>
+                <if test="list[0].updateTime!=null">#{item.updateTime,jdbcType=TIMESTAMP},</if>
+                <if test="list[0].createTime!=null">#{item.createTime,jdbcType=TIMESTAMP},</if>
+                <if test="list[0].itemId!=null">#{item.itemId,jdbcType=BIGINT},</if>
+                <if test="list[0].itemSkuId!=null">#{item.itemSkuId,jdbcType=BIGINT},</if>
+                <if test="list[0].country!=null">#{item.country,jdbcType=VARCHAR},</if>
+                <if test="list[0].compareAtPrice!=null">#{item.compareAtPrice,jdbcType=DECIMAL},</if>
+                <if test="list[0].price!=null">#{item.price,jdbcType=DECIMAL},</if>
+                <if test="list[0].memberOnlyPrice!=null">#{item.memberOnlyPrice,jdbcType=DECIMAL},</if>
+                <if test="list[0].currency!=null">#{item.currency,jdbcType=CHAR},</if>
+            </trim>
+        </foreach>
+    </insert>
+
+    <insert id="batchUpsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemSkuPriceDO"
+            keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO
+        item_sku_price_0
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="list[0].id!=null">ID,</if>
+            <if test="list[0].updateTime!=null">UPDATE_TIME,</if>
+            <if test="list[0].createTime!=null">CREATE_TIME,</if>
+            <if test="list[0].itemId!=null">ITEM_ID,</if>
+            <if test="list[0].itemSkuId!=null">ITEM_SKU_ID,</if>
+            <if test="list[0].country!=null">COUNTRY,</if>
+            <if test="list[0].compareAtPrice!=null">COMPARE_AT_PRICE,</if>
+            <if test="list[0].price!=null">PRICE,</if>
+            <if test="list[0].memberOnlyPrice!=null">MEMBER_ONLY_PRICE,</if>
+            <if test="list[0].currency!=null">CURRENCY,</if>
+        </trim>
+        values
+        <foreach collection="list" item="item" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="list[0].id!=null">#{item.id,jdbcType=BIGINT},</if>
+                <if test="list[0].updateTime!=null">#{item.updateTime,jdbcType=TIMESTAMP},</if>
+                <if test="list[0].createTime!=null">#{item.createTime,jdbcType=TIMESTAMP},</if>
+                <if test="list[0].itemId!=null">#{item.itemId,jdbcType=BIGINT},</if>
+                <if test="list[0].itemSkuId!=null">#{item.itemSkuId,jdbcType=BIGINT},</if>
+                <if test="list[0].country!=null">#{item.country,jdbcType=VARCHAR},</if>
+                <if test="list[0].compareAtPrice!=null">#{item.compareAtPrice,jdbcType=DECIMAL},</if>
+                <if test="list[0].price!=null">#{item.price,jdbcType=DECIMAL},</if>
+                <if test="list[0].memberOnlyPrice!=null">#{item.memberOnlyPrice,jdbcType=DECIMAL},</if>
+                <if test="list[0].currency!=null">#{item.currency,jdbcType=CHAR},</if>
+            </trim>
+        </foreach>
+        ON DUPLICATE KEY UPDATE
+        <trim suffixOverrides=",">
+            <if test="list[0].updateTime!=null">UPDATE_TIME=values(UPDATE_TIME),</if>
+            <if test="list[0].createTime!=null">CREATE_TIME=values(CREATE_TIME),</if>
+            <if test="list[0].itemId!=null">ITEM_ID=values(ITEM_ID),</if>
+            <if test="list[0].itemSkuId!=null">ITEM_SKU_ID=values(ITEM_SKU_ID),</if>
+            <if test="list[0].country!=null">COUNTRY=values(COUNTRY),</if>
+            <if test="list[0].compareAtPrice!=null">COMPARE_AT_PRICE=values(COMPARE_AT_PRICE),</if>
+            <if test="list[0].price!=null">PRICE=values(PRICE),</if>
+            <if test="list[0].memberOnlyPrice!=null">MEMBER_ONLY_PRICE=values(MEMBER_ONLY_PRICE),</if>
+            <if test="list[0].currency!=null">CURRENCY=values(CURRENCY),</if>
+        </trim>
+    </insert>
+
+    <update id="batchUpdate" parameterType="com.clubfactory.item.center.core.dataobject.ItemSkuPriceDO">
+        update
+        item_sku_price_0
+        <trim prefix="set" suffixOverrides=",">
+            <if test="list[0].updateTime!=null">
+                <trim prefix="UPDATE_TIME = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.updateTime,jdbcType=TIMESTAMP}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].createTime!=null">
+                <trim prefix="CREATE_TIME = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.createTime,jdbcType=TIMESTAMP}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].itemId!=null">
+                <trim prefix="ITEM_ID = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.itemId,jdbcType=BIGINT}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].itemSkuId!=null">
+                <trim prefix="ITEM_SKU_ID = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.itemSkuId,jdbcType=BIGINT}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].country!=null">
+                <trim prefix="COUNTRY = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.country,jdbcType=VARCHAR}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].compareAtPrice!=null">
+                <trim prefix="COMPARE_AT_PRICE = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.compareAtPrice,jdbcType=DECIMAL}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].price!=null">
+                <trim prefix="PRICE = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.price,jdbcType=DECIMAL}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].memberOnlyPrice!=null">
+                <trim prefix="MEMBER_ONLY_PRICE = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.memberOnlyPrice,jdbcType=DECIMAL}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].currency!=null">
+                <trim prefix="CURRENCY = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.currency,jdbcType=CHAR}
+                    </foreach>
+                </trim>
+            </if>
+        </trim>
+        where id in
+        <foreach collection="list" index="index" item="item" separator="," open="(" close=")">
+            #{item.id}
+        </foreach>
+    </update>
+
+</mapper>
+

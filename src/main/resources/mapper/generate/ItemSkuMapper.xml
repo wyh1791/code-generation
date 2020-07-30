@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.clubfactory.item.center.core.mapper.ItemSkuMapper">
+
+    <resultMap id="BaseResultMap" type="com.clubfactory.item.center.core.dataobject.ItemSkuDO">
+        <id property="id" column="ID"/><!---->
+        <result property="createTime" column="CREATE_TIME"/><!---->
+        <result property="updateTime" column="UPDATE_TIME"/><!---->
+        <result property="isDelete" column="IS_DELETE"/><!--逻辑删除标示 1：删除-->
+        <result property="itemId" column="ITEM_ID"/><!--关联的item_id-->
+        <result property="itemSkuId" column="ITEM_SKU_ID"/><!--item_sku_id-->
+        <result property="productId" column="PRODUCT_ID"/><!--b端货品id-->
+        <result property="productSkuId" column="PRODUCT_SKU_ID"/><!--b端sku id-->
+        <result property="version" column="VERSION"/><!--item_sku版本号-->
+        <result property="status" column="STATUS"/><!--sku状态-->
+        <result property="inventoryStatus" column="INVENTORY_STATUS"/><!--库存状态,默认不售罄 dto不透出-->
+        <result property="imageUrl" column="IMAGE_URL"/><!--sku图片-->
+        <result property="feature" column="FEATURE"/><!--b端sku维度feature-->
+        <result property="confirmWeight" column="CONFIRM_WEIGHT"/><!--可信赖的重量, 不管重量来源-->
+        <result property="merchantSkuCode" column="MERCHANT_SKU_CODE"/><!--seller_sku编码,大卖家才有-->
+        <result property="hsTable" column="HS_TABLE"/><!--多国hs_code, 税率-->
+        <result property="attributeInfo" column="ATTRIBUTE_INFO"/><!--sku属性kv串-->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        <trim suffixOverrides=",">
+            ID,
+            CREATE_TIME,
+            UPDATE_TIME,
+            IS_DELETE,
+            ITEM_ID,
+            ITEM_SKU_ID,
+            PRODUCT_ID,
+            PRODUCT_SKU_ID,
+            VERSION,
+            STATUS,
+            INVENTORY_STATUS,
+            IMAGE_URL,
+            FEATURE,
+            CONFIRM_WEIGHT,
+            MERCHANT_SKU_CODE,
+            HS_TABLE,
+            ATTRIBUTE_INFO,
+        </trim>
+    </sql>
+
+
+    <sql id="idCnd">
+        <where>
+            <if test="id!=null">ID=#{id,jdbcType=BIGINT}</if>
+            <if test="id==null">1=0</if>
+        </where>
+    </sql>
+
+    <insert id="insert" parameterType="com.clubfactory.item.center.core.dataobject.ItemSkuDO"
+            keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO
+        item_sku_0
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id!=null">ID,</if>
+            <if test="createTime!=null">CREATE_TIME,</if>
+            <if test="updateTime!=null">UPDATE_TIME,</if>
+            <if test="isDelete!=null">IS_DELETE,</if>
+            <if test="itemId!=null">ITEM_ID,</if>
+            <if test="itemSkuId!=null">ITEM_SKU_ID,</if>
+            <if test="productId!=null">PRODUCT_ID,</if>
+            <if test="productSkuId!=null">PRODUCT_SKU_ID,</if>
+            <if test="version!=null">VERSION,</if>
+            <if test="status!=null">STATUS,</if>
+            <if test="inventoryStatus!=null">INVENTORY_STATUS,</if>
+            <if test="imageUrl!=null">IMAGE_URL,</if>
+            <if test="feature!=null">FEATURE,</if>
+            <if test="confirmWeight!=null">CONFIRM_WEIGHT,</if>
+            <if test="merchantSkuCode!=null">MERCHANT_SKU_CODE,</if>
+            <if test="hsTable!=null">HS_TABLE,</if>
+            <if test="attributeInfo!=null">ATTRIBUTE_INFO,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id!=null">#{id,jdbcType=BIGINT},</if>
+            <if test="createTime!=null">#{createTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateTime!=null">#{updateTime,jdbcType=TIMESTAMP},</if>
+            <if test="isDelete!=null">#{isDelete,jdbcType=TINYINT},</if>
+            <if test="itemId!=null">#{itemId,jdbcType=BIGINT},</if>
+            <if test="itemSkuId!=null">#{itemSkuId,jdbcType=BIGINT},</if>
+            <if test="productId!=null">#{productId,jdbcType=BIGINT},</if>
+            <if test="productSkuId!=null">#{productSkuId,jdbcType=BIGINT},</if>
+            <if test="version!=null">#{version,jdbcType=BIGINT},</if>
+            <if test="status!=null">#{status,jdbcType=TINYINT},</if>
+            <if test="inventoryStatus!=null">#{inventoryStatus,jdbcType=TINYINT},</if>
+            <if test="imageUrl!=null">#{imageUrl,jdbcType=VARCHAR},</if>
+            <if test="feature!=null">#{feature,jdbcType=VARCHAR},</if>
+            <if test="confirmWeight!=null">#{confirmWeight,jdbcType=DECIMAL},</if>
+            <if test="merchantSkuCode!=null">#{merchantSkuCode,jdbcType=VARCHAR},</if>
+            <if test="hsTable!=null">#{hsTable,jdbcType=VARCHAR},</if>
+            <if test="attributeInfo!=null">#{attributeInfo,jdbcType=VARCHAR},</if>
+        </trim>
+    </insert>
+
+    <insert id="upsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemSkuDO"
+            keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO
+        item_sku_0
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id!=null">ID,</if>
+            <if test="createTime!=null">CREATE_TIME,</if>
+            <if test="updateTime!=null">UPDATE_TIME,</if>
+            <if test="isDelete!=null">IS_DELETE,</if>
+            <if test="itemId!=null">ITEM_ID,</if>
+            <if test="itemSkuId!=null">ITEM_SKU_ID,</if>
+            <if test="productId!=null">PRODUCT_ID,</if>
+            <if test="productSkuId!=null">PRODUCT_SKU_ID,</if>
+            <if test="version!=null">VERSION,</if>
+            <if test="status!=null">STATUS,</if>
+            <if test="inventoryStatus!=null">INVENTORY_STATUS,</if>
+            <if test="imageUrl!=null">IMAGE_URL,</if>
+            <if test="feature!=null">FEATURE,</if>
+            <if test="confirmWeight!=null">CONFIRM_WEIGHT,</if>
+            <if test="merchantSkuCode!=null">MERCHANT_SKU_CODE,</if>
+            <if test="hsTable!=null">HS_TABLE,</if>
+            <if test="attributeInfo!=null">ATTRIBUTE_INFO,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id!=null">#{id,jdbcType=BIGINT},</if>
+            <if test="createTime!=null">#{createTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateTime!=null">#{updateTime,jdbcType=TIMESTAMP},</if>
+            <if test="isDelete!=null">#{isDelete,jdbcType=TINYINT},</if>
+            <if test="itemId!=null">#{itemId,jdbcType=BIGINT},</if>
+            <if test="itemSkuId!=null">#{itemSkuId,jdbcType=BIGINT},</if>
+            <if test="productId!=null">#{productId,jdbcType=BIGINT},</if>
+            <if test="productSkuId!=null">#{productSkuId,jdbcType=BIGINT},</if>
+            <if test="version!=null">#{version,jdbcType=BIGINT},</if>
+            <if test="status!=null">#{status,jdbcType=TINYINT},</if>
+            <if test="inventoryStatus!=null">#{inventoryStatus,jdbcType=TINYINT},</if>
+            <if test="imageUrl!=null">#{imageUrl,jdbcType=VARCHAR},</if>
+            <if test="feature!=null">#{feature,jdbcType=VARCHAR},</if>
+            <if test="confirmWeight!=null">#{confirmWeight,jdbcType=DECIMAL},</if>
+            <if test="merchantSkuCode!=null">#{merchantSkuCode,jdbcType=VARCHAR},</if>
+            <if test="hsTable!=null">#{hsTable,jdbcType=VARCHAR},</if>
+            <if test="attributeInfo!=null">#{attributeInfo,jdbcType=VARCHAR},</if>
+        </trim>
+        ON DUPLICATE KEY UPDATE
+        <trim suffixOverrides=",">
+            <if test="createTime!=null">CREATE_TIME=#{createTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateTime!=null">UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP},</if>
+            <if test="isDelete!=null">IS_DELETE=#{isDelete,jdbcType=TINYINT},</if>
+            <if test="itemId!=null">ITEM_ID=#{itemId,jdbcType=BIGINT},</if>
+            <if test="itemSkuId!=null">ITEM_SKU_ID=#{itemSkuId,jdbcType=BIGINT},</if>
+            <if test="productId!=null">PRODUCT_ID=#{productId,jdbcType=BIGINT},</if>
+            <if test="productSkuId!=null">PRODUCT_SKU_ID=#{productSkuId,jdbcType=BIGINT},</if>
+            <if test="version!=null">VERSION=#{version,jdbcType=BIGINT},</if>
+            <if test="status!=null">STATUS=#{status,jdbcType=TINYINT},</if>
+            <if test="inventoryStatus!=null">INVENTORY_STATUS=#{inventoryStatus,jdbcType=TINYINT},</if>
+            <if test="imageUrl!=null">IMAGE_URL=#{imageUrl,jdbcType=VARCHAR},</if>
+            <if test="feature!=null">FEATURE=#{feature,jdbcType=VARCHAR},</if>
+            <if test="confirmWeight!=null">CONFIRM_WEIGHT=#{confirmWeight,jdbcType=DECIMAL},</if>
+            <if test="merchantSkuCode!=null">MERCHANT_SKU_CODE=#{merchantSkuCode,jdbcType=VARCHAR},</if>
+            <if test="hsTable!=null">HS_TABLE=#{hsTable,jdbcType=VARCHAR},</if>
+            <if test="attributeInfo!=null">ATTRIBUTE_INFO=#{attributeInfo,jdbcType=VARCHAR},</if>
+        </trim>
+    </insert>
+
+    <delete id="deleteByPrimaryKey">
+        DELETE FROM item_sku_0
+        <include refid="idCnd"/>
+    </delete>
+
+    <update id="updateByPrimaryKey">
+        UPDATE item_sku_0
+        <set>
+            <if test="id!=null">ID=#{id,jdbcType=BIGINT},</if>
+            <if test="createTime!=null">CREATE_TIME=#{createTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateTime!=null">UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP},</if>
+            <if test="isDelete!=null">IS_DELETE=#{isDelete,jdbcType=TINYINT},</if>
+            <if test="itemId!=null">ITEM_ID=#{itemId,jdbcType=BIGINT},</if>
+            <if test="itemSkuId!=null">ITEM_SKU_ID=#{itemSkuId,jdbcType=BIGINT},</if>
+            <if test="productId!=null">PRODUCT_ID=#{productId,jdbcType=BIGINT},</if>
+            <if test="productSkuId!=null">PRODUCT_SKU_ID=#{productSkuId,jdbcType=BIGINT},</if>
+            <if test="version!=null">VERSION=#{version,jdbcType=BIGINT},</if>
+            <if test="status!=null">STATUS=#{status,jdbcType=TINYINT},</if>
+            <if test="inventoryStatus!=null">INVENTORY_STATUS=#{inventoryStatus,jdbcType=TINYINT},</if>
+            <if test="imageUrl!=null">IMAGE_URL=#{imageUrl,jdbcType=VARCHAR},</if>
+            <if test="feature!=null">FEATURE=#{feature,jdbcType=VARCHAR},</if>
+            <if test="confirmWeight!=null">CONFIRM_WEIGHT=#{confirmWeight,jdbcType=DECIMAL},</if>
+            <if test="merchantSkuCode!=null">MERCHANT_SKU_CODE=#{merchantSkuCode,jdbcType=VARCHAR},</if>
+            <if test="hsTable!=null">HS_TABLE=#{hsTable,jdbcType=VARCHAR},</if>
+            <if test="attributeInfo!=null">ATTRIBUTE_INFO=#{attributeInfo,jdbcType=VARCHAR},</if>
+        </set>
+        <include refid="idCnd"/>
+    </update>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        item_sku_0
+        <include refid="idCnd"/>
+    </select>
+
+
+    <sql id="where_clause">
+        <where>
+            <if test="id!=null">AND ID=#{id,jdbcType=BIGINT}</if>
+            <if test="createTime!=null">AND CREATE_TIME=#{createTime,jdbcType=TIMESTAMP}</if>
+            <if test="updateTime!=null">AND UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP}</if>
+            <if test="isDelete!=null">AND IS_DELETE=#{isDelete,jdbcType=TINYINT}</if>
+            <if test="itemId!=null">AND ITEM_ID=#{itemId,jdbcType=BIGINT}</if>
+            <if test="itemSkuId!=null">AND ITEM_SKU_ID=#{itemSkuId,jdbcType=BIGINT}</if>
+            <if test="productId!=null">AND PRODUCT_ID=#{productId,jdbcType=BIGINT}</if>
+            <if test="productSkuId!=null">AND PRODUCT_SKU_ID=#{productSkuId,jdbcType=BIGINT}</if>
+            <if test="version!=null">AND VERSION=#{version,jdbcType=BIGINT}</if>
+            <if test="status!=null">AND STATUS=#{status,jdbcType=TINYINT}</if>
+            <if test="inventoryStatus!=null">AND INVENTORY_STATUS=#{inventoryStatus,jdbcType=TINYINT}</if>
+            <if test="imageUrl!=null">AND IMAGE_URL=#{imageUrl,jdbcType=VARCHAR}</if>
+            <if test="feature!=null">AND FEATURE=#{feature,jdbcType=VARCHAR}</if>
+            <if test="confirmWeight!=null">AND CONFIRM_WEIGHT=#{confirmWeight,jdbcType=DECIMAL}</if>
+            <if test="merchantSkuCode!=null">AND MERCHANT_SKU_CODE=#{merchantSkuCode,jdbcType=VARCHAR}</if>
+            <if test="hsTable!=null">AND HS_TABLE=#{hsTable,jdbcType=VARCHAR}</if>
+            <if test="attributeInfo!=null">AND ATTRIBUTE_INFO=#{attributeInfo,jdbcType=VARCHAR}</if>
+        </where>
+    </sql>
+
+    <select id="listByParams" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        item_sku_0
+        <include refid="where_clause"/>
+    </select>
+
+
+    <insert id="batchInsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemSkuDO"
+            keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO
+        item_sku_0
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="list[0].id!=null">ID,</if>
+            <if test="list[0].createTime!=null">CREATE_TIME,</if>
+            <if test="list[0].updateTime!=null">UPDATE_TIME,</if>
+            <if test="list[0].isDelete!=null">IS_DELETE,</if>
+            <if test="list[0].itemId!=null">ITEM_ID,</if>
+            <if test="list[0].itemSkuId!=null">ITEM_SKU_ID,</if>
+            <if test="list[0].productId!=null">PRODUCT_ID,</if>
+            <if test="list[0].productSkuId!=null">PRODUCT_SKU_ID,</if>
+            <if test="list[0].version!=null">VERSION,</if>
+            <if test="list[0].status!=null">STATUS,</if>
+            <if test="list[0].inventoryStatus!=null">INVENTORY_STATUS,</if>
+            <if test="list[0].imageUrl!=null">IMAGE_URL,</if>
+            <if test="list[0].feature!=null">FEATURE,</if>
+            <if test="list[0].confirmWeight!=null">CONFIRM_WEIGHT,</if>
+            <if test="list[0].merchantSkuCode!=null">MERCHANT_SKU_CODE,</if>
+            <if test="list[0].hsTable!=null">HS_TABLE,</if>
+            <if test="list[0].attributeInfo!=null">ATTRIBUTE_INFO,</if>
+        </trim>
+        values
+        <foreach collection="list" item="item" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="list[0].id!=null">#{item.id,jdbcType=BIGINT},</if>
+                <if test="list[0].createTime!=null">#{item.createTime,jdbcType=TIMESTAMP},</if>
+                <if test="list[0].updateTime!=null">#{item.updateTime,jdbcType=TIMESTAMP},</if>
+                <if test="list[0].isDelete!=null">#{item.isDelete,jdbcType=TINYINT},</if>
+                <if test="list[0].itemId!=null">#{item.itemId,jdbcType=BIGINT},</if>
+                <if test="list[0].itemSkuId!=null">#{item.itemSkuId,jdbcType=BIGINT},</if>
+                <if test="list[0].productId!=null">#{item.productId,jdbcType=BIGINT},</if>
+                <if test="list[0].productSkuId!=null">#{item.productSkuId,jdbcType=BIGINT},</if>
+                <if test="list[0].version!=null">#{item.version,jdbcType=BIGINT},</if>
+                <if test="list[0].status!=null">#{item.status,jdbcType=TINYINT},</if>
+                <if test="list[0].inventoryStatus!=null">#{item.inventoryStatus,jdbcType=TINYINT},</if>
+                <if test="list[0].imageUrl!=null">#{item.imageUrl,jdbcType=VARCHAR},</if>
+                <if test="list[0].feature!=null">#{item.feature,jdbcType=VARCHAR},</if>
+                <if test="list[0].confirmWeight!=null">#{item.confirmWeight,jdbcType=DECIMAL},</if>
+                <if test="list[0].merchantSkuCode!=null">#{item.merchantSkuCode,jdbcType=VARCHAR},</if>
+                <if test="list[0].hsTable!=null">#{item.hsTable,jdbcType=VARCHAR},</if>
+                <if test="list[0].attributeInfo!=null">#{item.attributeInfo,jdbcType=VARCHAR},</if>
+            </trim>
+        </foreach>
+    </insert>
+
+    <insert id="batchUpsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemSkuDO"
+            keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO
+        item_sku_0
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="list[0].id!=null">ID,</if>
+            <if test="list[0].createTime!=null">CREATE_TIME,</if>
+            <if test="list[0].updateTime!=null">UPDATE_TIME,</if>
+            <if test="list[0].isDelete!=null">IS_DELETE,</if>
+            <if test="list[0].itemId!=null">ITEM_ID,</if>
+            <if test="list[0].itemSkuId!=null">ITEM_SKU_ID,</if>
+            <if test="list[0].productId!=null">PRODUCT_ID,</if>
+            <if test="list[0].productSkuId!=null">PRODUCT_SKU_ID,</if>
+            <if test="list[0].version!=null">VERSION,</if>
+            <if test="list[0].status!=null">STATUS,</if>
+            <if test="list[0].inventoryStatus!=null">INVENTORY_STATUS,</if>
+            <if test="list[0].imageUrl!=null">IMAGE_URL,</if>
+            <if test="list[0].feature!=null">FEATURE,</if>
+            <if test="list[0].confirmWeight!=null">CONFIRM_WEIGHT,</if>
+            <if test="list[0].merchantSkuCode!=null">MERCHANT_SKU_CODE,</if>
+            <if test="list[0].hsTable!=null">HS_TABLE,</if>
+            <if test="list[0].attributeInfo!=null">ATTRIBUTE_INFO,</if>
+        </trim>
+        values
+        <foreach collection="list" item="item" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="list[0].id!=null">#{item.id,jdbcType=BIGINT},</if>
+                <if test="list[0].createTime!=null">#{item.createTime,jdbcType=TIMESTAMP},</if>
+                <if test="list[0].updateTime!=null">#{item.updateTime,jdbcType=TIMESTAMP},</if>
+                <if test="list[0].isDelete!=null">#{item.isDelete,jdbcType=TINYINT},</if>
+                <if test="list[0].itemId!=null">#{item.itemId,jdbcType=BIGINT},</if>
+                <if test="list[0].itemSkuId!=null">#{item.itemSkuId,jdbcType=BIGINT},</if>
+                <if test="list[0].productId!=null">#{item.productId,jdbcType=BIGINT},</if>
+                <if test="list[0].productSkuId!=null">#{item.productSkuId,jdbcType=BIGINT},</if>
+                <if test="list[0].version!=null">#{item.version,jdbcType=BIGINT},</if>
+                <if test="list[0].status!=null">#{item.status,jdbcType=TINYINT},</if>
+                <if test="list[0].inventoryStatus!=null">#{item.inventoryStatus,jdbcType=TINYINT},</if>
+                <if test="list[0].imageUrl!=null">#{item.imageUrl,jdbcType=VARCHAR},</if>
+                <if test="list[0].feature!=null">#{item.feature,jdbcType=VARCHAR},</if>
+                <if test="list[0].confirmWeight!=null">#{item.confirmWeight,jdbcType=DECIMAL},</if>
+                <if test="list[0].merchantSkuCode!=null">#{item.merchantSkuCode,jdbcType=VARCHAR},</if>
+                <if test="list[0].hsTable!=null">#{item.hsTable,jdbcType=VARCHAR},</if>
+                <if test="list[0].attributeInfo!=null">#{item.attributeInfo,jdbcType=VARCHAR},</if>
+            </trim>
+        </foreach>
+        ON DUPLICATE KEY UPDATE
+        <trim suffixOverrides=",">
+            <if test="list[0].createTime!=null">CREATE_TIME=values(CREATE_TIME),</if>
+            <if test="list[0].updateTime!=null">UPDATE_TIME=values(UPDATE_TIME),</if>
+            <if test="list[0].isDelete!=null">IS_DELETE=values(IS_DELETE),</if>
+            <if test="list[0].itemId!=null">ITEM_ID=values(ITEM_ID),</if>
+            <if test="list[0].itemSkuId!=null">ITEM_SKU_ID=values(ITEM_SKU_ID),</if>
+            <if test="list[0].productId!=null">PRODUCT_ID=values(PRODUCT_ID),</if>
+            <if test="list[0].productSkuId!=null">PRODUCT_SKU_ID=values(PRODUCT_SKU_ID),</if>
+            <if test="list[0].version!=null">VERSION=values(VERSION),</if>
+            <if test="list[0].status!=null">STATUS=values(STATUS),</if>
+            <if test="list[0].inventoryStatus!=null">INVENTORY_STATUS=values(INVENTORY_STATUS),</if>
+            <if test="list[0].imageUrl!=null">IMAGE_URL=values(IMAGE_URL),</if>
+            <if test="list[0].feature!=null">FEATURE=values(FEATURE),</if>
+            <if test="list[0].confirmWeight!=null">CONFIRM_WEIGHT=values(CONFIRM_WEIGHT),</if>
+            <if test="list[0].merchantSkuCode!=null">MERCHANT_SKU_CODE=values(MERCHANT_SKU_CODE),</if>
+            <if test="list[0].hsTable!=null">HS_TABLE=values(HS_TABLE),</if>
+            <if test="list[0].attributeInfo!=null">ATTRIBUTE_INFO=values(ATTRIBUTE_INFO),</if>
+        </trim>
+    </insert>
+
+    <update id="batchUpdate" parameterType="com.clubfactory.item.center.core.dataobject.ItemSkuDO">
+        update
+        item_sku_0
+        <trim prefix="set" suffixOverrides=",">
+            <if test="list[0].createTime!=null">
+                <trim prefix="CREATE_TIME = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.createTime,jdbcType=TIMESTAMP}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].updateTime!=null">
+                <trim prefix="UPDATE_TIME = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.updateTime,jdbcType=TIMESTAMP}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].isDelete!=null">
+                <trim prefix="IS_DELETE = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.isDelete,jdbcType=TINYINT}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].itemId!=null">
+                <trim prefix="ITEM_ID = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.itemId,jdbcType=BIGINT}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].itemSkuId!=null">
+                <trim prefix="ITEM_SKU_ID = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.itemSkuId,jdbcType=BIGINT}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].productId!=null">
+                <trim prefix="PRODUCT_ID = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.productId,jdbcType=BIGINT}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].productSkuId!=null">
+                <trim prefix="PRODUCT_SKU_ID = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.productSkuId,jdbcType=BIGINT}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].version!=null">
+                <trim prefix="VERSION = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.version,jdbcType=BIGINT}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].status!=null">
+                <trim prefix="STATUS = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.status,jdbcType=TINYINT}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].inventoryStatus!=null">
+                <trim prefix="INVENTORY_STATUS = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.inventoryStatus,jdbcType=TINYINT}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].imageUrl!=null">
+                <trim prefix="IMAGE_URL = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.imageUrl,jdbcType=VARCHAR}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].feature!=null">
+                <trim prefix="FEATURE = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.feature,jdbcType=VARCHAR}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].confirmWeight!=null">
+                <trim prefix="CONFIRM_WEIGHT = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.confirmWeight,jdbcType=DECIMAL}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].merchantSkuCode!=null">
+                <trim prefix="MERCHANT_SKU_CODE = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.merchantSkuCode,jdbcType=VARCHAR}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].hsTable!=null">
+                <trim prefix="HS_TABLE = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.hsTable,jdbcType=VARCHAR}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].attributeInfo!=null">
+                <trim prefix="ATTRIBUTE_INFO = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when id=#{item.id} then #{item.attributeInfo,jdbcType=VARCHAR}
+                    </foreach>
+                </trim>
+            </if>
+        </trim>
+        where id in
+        <foreach collection="list" index="index" item="item" separator="," open="(" close=")">
+            #{item.id}
+        </foreach>
+    </update>
+
+</mapper>
+

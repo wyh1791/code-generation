@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * 基础类 MAPPER
  */
-public interface IBaseDao<T> {
+public interface IBaseMapper<T> {
 
     /**
      * 插入记录
