@@ -10,8 +10,8 @@
 </#if>
 -->
 
-<#macro mapperEl value type>${r"#{"}${value},jdbcType=${type}}</#macro>
-<#macro batchMapperEl value type>${r"#{item."}${value},jdbcType=${type}}</#macro>
+<#macro mapperEl value>${r"#{"}${value}}</#macro>
+<#macro batchMapperEl value>${r"#{item."}${value}}</#macro>
 <#macro mapperElPr value>${r"#{"}${value}}</#macro>
 ${gg.setOverride(true)}<#t/>
 ${gg.setOutputFile(mybatisXMLPath+"/generate/${className}Mapper.xml")}<#t/>
@@ -41,8 +41,7 @@ ${gg.setOutputFile(mybatisXMLPath+"/generate/${className}Mapper.xml")}<#t/>
 
     <sql id="idCnd">
         <where>
-            <@idCndNotNull table.pkColumns/>
-            <if test="<@idCnd table.pkColumns/>">1=0</if>
+            item_id=<@mapperEl "itemId"/>
         </where>
     </sql>
 
@@ -151,9 +150,9 @@ ${gg.setOutputFile(mybatisXMLPath+"/generate/${className}Mapper.xml")}<#t/>
         <trim prefix="set" suffixOverrides=",">
             <@batchFieldEqPropertyUpdate/>
         </trim>
-        where id in
+        where item_id in
         <foreach collection="list" index="index" item="item" separator="," open="(" close=")">
-            <@mapperElPr "item.id"/>
+            <@mapperElPr "item.itemId"/>
 
         </foreach>
     </update>
@@ -185,11 +184,11 @@ ${gg.setOutputFile(mybatisXMLPath+"/generate/${className}Mapper.xml")}<#t/>
     <#if pkColumns?? >
         <#if pkColumns?size==1 >
             <#assign  pk = pkColumns?first />
-            <if test="${pk.columnNameFirstLower}!=null">${pk.sqlName?upper_case}=<@mapperEl pk.columnNameFirstLower pk.jdbcSqlTypeName/></if>
+            <if test="${pk.columnNameFirstLower}!=null">${pk.sqlName?upper_case}=<@mapperEl pk.columnNameFirstLower/></if>
         <#else >
             <trim suffixOverrides=" AND ">
             <#list pkColumns as pk>
-                <if test="${pk.columnNameFirstLower}!=null">${column.sqlName?upper_case}=<@mapperEl pk.columnNameFirstLower pk.jdbcSqlTypeName/> AND </if>
+                <if test="${pk.columnNameFirstLower}!=null">${column.sqlName?upper_case}=<@mapperEl pk.columnNameFirstLower/> AND </if>
             </#list>
             </trim>
         </#if>
@@ -204,6 +203,9 @@ ${gg.setOutputFile(mybatisXMLPath+"/generate/${className}Mapper.xml")}<#t/>
                 <#assign  isPkColumn = "true"/>
             </#if>
         </#list>
+        <#if column.sqlName?upper_case == "ITEM_ID">
+            <#assign  isPkColumn = "true"/>
+        </#if>
     </#if>
 </#macro>
 
@@ -214,7 +216,7 @@ ${gg.setOutputFile(mybatisXMLPath+"/generate/${className}Mapper.xml")}<#t/>
 </#macro>
 <#macro property>
     <#list table.columns as column>
-        <@mapperEl column.columnNameFirstLower column.jdbcSqlTypeName/>,
+        <@mapperEl column.columnNameFirstLower/>,
     </#list>
 </#macro>
 
@@ -225,7 +227,7 @@ ${gg.setOutputFile(mybatisXMLPath+"/generate/${className}Mapper.xml")}<#t/>
 </#macro>
 <#macro propertyIf>
     <#list table.columns as column>
-		<if test="${column.columnNameFirstLower}!=null"><@mapperEl column.columnNameFirstLower column.jdbcSqlTypeName/>,</if>
+		<if test="${column.columnNameFirstLower}!=null"><@mapperEl column.columnNameFirstLower />,</if>
     </#list>
 </#macro>
 
@@ -233,18 +235,18 @@ ${gg.setOutputFile(mybatisXMLPath+"/generate/${className}Mapper.xml")}<#t/>
 
 <#macro fieldEqProperty>
     <#list table.columns as column>
-        ${column.sqlName?upper_case}=<@mapperEl column.columnNameFirstLower column.jdbcSqlTypeName/>,
+        ${column.sqlName?upper_case}=<@mapperEl column.columnNameFirstLower />,
     </#list>
 </#macro>
 
 <#macro fieldEqPropertyIf>
     <#list table.columns as column>
-		<if test="${column.columnNameFirstLower}!=null">${column.sqlName?upper_case}=<@mapperEl column.columnNameFirstLower column.jdbcSqlTypeName/>,</if>
+		<if test="${column.columnNameFirstLower}!=null">${column.sqlName?upper_case}=<@mapperEl column.columnNameFirstLower />,</if>
     </#list>
 </#macro>
 <#macro fieldEqPropertyWhere>
     <#list table.columns as column>
-        <if test="${column.columnNameFirstLower}!=null">AND ${column.sqlName?upper_case}=<@mapperEl column.columnNameFirstLower column.jdbcSqlTypeName/></if>
+        <if test="${column.columnNameFirstLower}!=null">AND ${column.sqlName?upper_case}=<@mapperEl column.columnNameFirstLower /></if>
     </#list>
 </#macro>
 
@@ -253,7 +255,7 @@ ${gg.setOutputFile(mybatisXMLPath+"/generate/${className}Mapper.xml")}<#t/>
     <#list table.columns as column>
         <@isPkColumnCheck column/>
         <#if isPkColumn == "false">
-        <if test="${column.columnNameFirstLower}!=null">${column.sqlName?upper_case}=<@mapperEl column.columnNameFirstLower column.jdbcSqlTypeName/>,</if>
+        <if test="${column.columnNameFirstLower}!=null">${column.sqlName?upper_case}=<@mapperEl column.columnNameFirstLower />,</if>
         </#if>
     </#list>
 </#macro>
@@ -267,7 +269,7 @@ ${gg.setOutputFile(mybatisXMLPath+"/generate/${className}Mapper.xml")}<#t/>
 
 <#macro batchPropertyIf>
     <#list table.columns as column>
-    <if test="list[0].${column.columnNameFirstLower}!=null"><@batchMapperEl column.columnNameFirstLower column.jdbcSqlTypeName/>,</if>
+    <if test="list[0].${column.columnNameFirstLower}!=null"><@batchMapperEl column.columnNameFirstLower />,</if>
     </#list>
 </#macro>
 
@@ -289,7 +291,7 @@ ${gg.setOutputFile(mybatisXMLPath+"/generate/${className}Mapper.xml")}<#t/>
         <if test="list[0].${column.columnNameFirstLower}!=null">
             <trim prefix="${column.sqlName?upper_case} = case" suffix="end,">
                 <foreach collection="list" item="item" index="index">
-                    when id=<@mapperElPr "item.id"></@> then <@batchMapperEl column.columnNameFirstLower column.jdbcSqlTypeName></@>
+                    when item_id=<@mapperElPr "item.itemId"></@> then <@batchMapperEl column.columnNameFirstLower ></@>
                 </foreach>
             </trim>
         </if>

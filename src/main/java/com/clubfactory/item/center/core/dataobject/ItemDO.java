@@ -1,6 +1,6 @@
 /**
 *@Author: wyh
-*@Date: 2020-07-30
+*@Date: 2020-08-05
 */
 package com.clubfactory.item.center.core.dataobject;
 
@@ -12,10 +12,10 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
-* @ClassName: Item0
+* @ClassName: Item
 * @Description:
 * @author wyh
-* @date 2020-07-30
+* @date 2020-08-05
 */
 @Data
 @Accessors(chain = true)
@@ -105,7 +105,7 @@ public class ItemDO implements Serializable{
     /**
      * 详细描述
      */
-	private String bspecifics;
+	private String specification;
 
     /**
      * 商品属性

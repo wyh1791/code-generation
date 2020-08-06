@@ -26,15 +26,14 @@
 
     <sql id="idCnd">
         <where>
-            <if test="id!=null">ID=#{id,jdbcType=BIGINT}</if>
-            <if test="id==null">1=0</if>
+            item_id=#{itemId}
         </where>
     </sql>
 
     <insert id="insert" parameterType="com.clubfactory.item.center.core.dataobject.ItemImagesDO"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO
-        item_images_0
+        item_images
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id!=null">ID,</if>
             <if test="updateTime!=null">UPDATE_TIME,</if>
@@ -44,19 +43,19 @@
             <if test="sequence!=null">SEQUENCE,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id!=null">#{id,jdbcType=BIGINT},</if>
-            <if test="updateTime!=null">#{updateTime,jdbcType=TIMESTAMP},</if>
-            <if test="createTime!=null">#{createTime,jdbcType=TIMESTAMP},</if>
-            <if test="itemId!=null">#{itemId,jdbcType=BIGINT},</if>
-            <if test="url!=null">#{url,jdbcType=VARCHAR},</if>
-            <if test="sequence!=null">#{sequence,jdbcType=INTEGER},</if>
+            <if test="id!=null">#{id},</if>
+            <if test="updateTime!=null">#{updateTime},</if>
+            <if test="createTime!=null">#{createTime},</if>
+            <if test="itemId!=null">#{itemId},</if>
+            <if test="url!=null">#{url},</if>
+            <if test="sequence!=null">#{sequence},</if>
         </trim>
     </insert>
 
     <insert id="upsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemImagesDO"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO
-        item_images_0
+        item_images
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id!=null">ID,</if>
             <if test="updateTime!=null">UPDATE_TIME,</if>
@@ -66,37 +65,36 @@
             <if test="sequence!=null">SEQUENCE,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id!=null">#{id,jdbcType=BIGINT},</if>
-            <if test="updateTime!=null">#{updateTime,jdbcType=TIMESTAMP},</if>
-            <if test="createTime!=null">#{createTime,jdbcType=TIMESTAMP},</if>
-            <if test="itemId!=null">#{itemId,jdbcType=BIGINT},</if>
-            <if test="url!=null">#{url,jdbcType=VARCHAR},</if>
-            <if test="sequence!=null">#{sequence,jdbcType=INTEGER},</if>
+            <if test="id!=null">#{id},</if>
+            <if test="updateTime!=null">#{updateTime},</if>
+            <if test="createTime!=null">#{createTime},</if>
+            <if test="itemId!=null">#{itemId},</if>
+            <if test="url!=null">#{url},</if>
+            <if test="sequence!=null">#{sequence},</if>
         </trim>
         ON DUPLICATE KEY UPDATE
         <trim suffixOverrides=",">
-            <if test="updateTime!=null">UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP},</if>
-            <if test="createTime!=null">CREATE_TIME=#{createTime,jdbcType=TIMESTAMP},</if>
-            <if test="itemId!=null">ITEM_ID=#{itemId,jdbcType=BIGINT},</if>
-            <if test="url!=null">URL=#{url,jdbcType=VARCHAR},</if>
-            <if test="sequence!=null">SEQUENCE=#{sequence,jdbcType=INTEGER},</if>
+            <if test="updateTime!=null">UPDATE_TIME=#{updateTime},</if>
+            <if test="createTime!=null">CREATE_TIME=#{createTime},</if>
+            <if test="url!=null">URL=#{url},</if>
+            <if test="sequence!=null">SEQUENCE=#{sequence},</if>
         </trim>
     </insert>
 
     <delete id="deleteByPrimaryKey">
-        DELETE FROM item_images_0
+        DELETE FROM item_images
         <include refid="idCnd"/>
     </delete>
 
     <update id="updateByPrimaryKey">
-        UPDATE item_images_0
+        UPDATE item_images
         <set>
-            <if test="id!=null">ID=#{id,jdbcType=BIGINT},</if>
-            <if test="updateTime!=null">UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP},</if>
-            <if test="createTime!=null">CREATE_TIME=#{createTime,jdbcType=TIMESTAMP},</if>
-            <if test="itemId!=null">ITEM_ID=#{itemId,jdbcType=BIGINT},</if>
-            <if test="url!=null">URL=#{url,jdbcType=VARCHAR},</if>
-            <if test="sequence!=null">SEQUENCE=#{sequence,jdbcType=INTEGER},</if>
+            <if test="id!=null">ID=#{id},</if>
+            <if test="updateTime!=null">UPDATE_TIME=#{updateTime},</if>
+            <if test="createTime!=null">CREATE_TIME=#{createTime},</if>
+            <if test="itemId!=null">ITEM_ID=#{itemId},</if>
+            <if test="url!=null">URL=#{url},</if>
+            <if test="sequence!=null">SEQUENCE=#{sequence},</if>
         </set>
         <include refid="idCnd"/>
     </update>
@@ -105,19 +103,19 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        item_images_0
+        item_images
         <include refid="idCnd"/>
     </select>
 
 
     <sql id="where_clause">
         <where>
-            <if test="id!=null">AND ID=#{id,jdbcType=BIGINT}</if>
-            <if test="updateTime!=null">AND UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP}</if>
-            <if test="createTime!=null">AND CREATE_TIME=#{createTime,jdbcType=TIMESTAMP}</if>
-            <if test="itemId!=null">AND ITEM_ID=#{itemId,jdbcType=BIGINT}</if>
-            <if test="url!=null">AND URL=#{url,jdbcType=VARCHAR}</if>
-            <if test="sequence!=null">AND SEQUENCE=#{sequence,jdbcType=INTEGER}</if>
+            <if test="id!=null">AND ID=#{id}</if>
+            <if test="updateTime!=null">AND UPDATE_TIME=#{updateTime}</if>
+            <if test="createTime!=null">AND CREATE_TIME=#{createTime}</if>
+            <if test="itemId!=null">AND ITEM_ID=#{itemId}</if>
+            <if test="url!=null">AND URL=#{url}</if>
+            <if test="sequence!=null">AND SEQUENCE=#{sequence}</if>
         </where>
     </sql>
 
@@ -125,7 +123,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        item_images_0
+        item_images
         <include refid="where_clause"/>
     </select>
 
@@ -133,7 +131,7 @@
     <insert id="batchInsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemImagesDO"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO
-        item_images_0
+        item_images
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="list[0].id!=null">ID,</if>
             <if test="list[0].updateTime!=null">UPDATE_TIME,</if>
@@ -145,12 +143,12 @@
         values
         <foreach collection="list" item="item" separator=",">
             <trim prefix="(" suffix=")" suffixOverrides=",">
-                <if test="list[0].id!=null">#{item.id,jdbcType=BIGINT},</if>
-                <if test="list[0].updateTime!=null">#{item.updateTime,jdbcType=TIMESTAMP},</if>
-                <if test="list[0].createTime!=null">#{item.createTime,jdbcType=TIMESTAMP},</if>
-                <if test="list[0].itemId!=null">#{item.itemId,jdbcType=BIGINT},</if>
-                <if test="list[0].url!=null">#{item.url,jdbcType=VARCHAR},</if>
-                <if test="list[0].sequence!=null">#{item.sequence,jdbcType=INTEGER},</if>
+                <if test="list[0].id!=null">#{item.id},</if>
+                <if test="list[0].updateTime!=null">#{item.updateTime},</if>
+                <if test="list[0].createTime!=null">#{item.createTime},</if>
+                <if test="list[0].itemId!=null">#{item.itemId},</if>
+                <if test="list[0].url!=null">#{item.url},</if>
+                <if test="list[0].sequence!=null">#{item.sequence},</if>
             </trim>
         </foreach>
     </insert>
@@ -158,7 +156,7 @@
     <insert id="batchUpsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemImagesDO"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO
-        item_images_0
+        item_images
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="list[0].id!=null">ID,</if>
             <if test="list[0].updateTime!=null">UPDATE_TIME,</if>
@@ -170,19 +168,18 @@
         values
         <foreach collection="list" item="item" separator=",">
             <trim prefix="(" suffix=")" suffixOverrides=",">
-                <if test="list[0].id!=null">#{item.id,jdbcType=BIGINT},</if>
-                <if test="list[0].updateTime!=null">#{item.updateTime,jdbcType=TIMESTAMP},</if>
-                <if test="list[0].createTime!=null">#{item.createTime,jdbcType=TIMESTAMP},</if>
-                <if test="list[0].itemId!=null">#{item.itemId,jdbcType=BIGINT},</if>
-                <if test="list[0].url!=null">#{item.url,jdbcType=VARCHAR},</if>
-                <if test="list[0].sequence!=null">#{item.sequence,jdbcType=INTEGER},</if>
+                <if test="list[0].id!=null">#{item.id},</if>
+                <if test="list[0].updateTime!=null">#{item.updateTime},</if>
+                <if test="list[0].createTime!=null">#{item.createTime},</if>
+                <if test="list[0].itemId!=null">#{item.itemId},</if>
+                <if test="list[0].url!=null">#{item.url},</if>
+                <if test="list[0].sequence!=null">#{item.sequence},</if>
             </trim>
         </foreach>
         ON DUPLICATE KEY UPDATE
         <trim suffixOverrides=",">
             <if test="list[0].updateTime!=null">UPDATE_TIME=values(UPDATE_TIME),</if>
             <if test="list[0].createTime!=null">CREATE_TIME=values(CREATE_TIME),</if>
-            <if test="list[0].itemId!=null">ITEM_ID=values(ITEM_ID),</if>
             <if test="list[0].url!=null">URL=values(URL),</if>
             <if test="list[0].sequence!=null">SEQUENCE=values(SEQUENCE),</if>
         </trim>
@@ -190,47 +187,40 @@
 
     <update id="batchUpdate" parameterType="com.clubfactory.item.center.core.dataobject.ItemImagesDO">
         update
-        item_images_0
+        item_images
         <trim prefix="set" suffixOverrides=",">
             <if test="list[0].updateTime!=null">
                 <trim prefix="UPDATE_TIME = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.updateTime,jdbcType=TIMESTAMP}
+                        when item_id=#{item.itemId} then #{item.updateTime}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].createTime!=null">
                 <trim prefix="CREATE_TIME = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.createTime,jdbcType=TIMESTAMP}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].itemId!=null">
-                <trim prefix="ITEM_ID = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.itemId,jdbcType=BIGINT}
+                        when item_id=#{item.itemId} then #{item.createTime}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].url!=null">
                 <trim prefix="URL = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.url,jdbcType=VARCHAR}
+                        when item_id=#{item.itemId} then #{item.url}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].sequence!=null">
                 <trim prefix="SEQUENCE = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.sequence,jdbcType=INTEGER}
+                        when item_id=#{item.itemId} then #{item.sequence}
                     </foreach>
                 </trim>
             </if>
         </trim>
-        where id in
+        where item_id in
         <foreach collection="list" index="index" item="item" separator="," open="(" close=")">
-            #{item.id}
+            #{item.itemId}
         </foreach>
     </update>
 

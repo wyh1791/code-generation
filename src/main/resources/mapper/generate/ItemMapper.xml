@@ -20,7 +20,7 @@
         <result property="videoUrl" column="VIDEO_URL"/><!--视频url-->
         <result property="videoCover" column="VIDEO_COVER"/><!--头图url-->
         <result property="orders" column="ORDERS"/><!--确认总销量-->
-        <result property="bspecifics" column="B_SPECIFICS"/><!--详细描述-->
+        <result property="specification" column="SPECIFICATION"/><!--详细描述-->
         <result property="itemProperty" column="ITEM_PROPERTY"/><!--商品属性-->
         <result property="searchKeywords" column="SEARCH_KEYWORDS"/><!---->
         <result property="sellerId" column="SELLER_ID"/><!---->
@@ -56,7 +56,7 @@
             VIDEO_URL,
             VIDEO_COVER,
             ORDERS,
-            B_SPECIFICS,
+            SPECIFICATION,
             ITEM_PROPERTY,
             SEARCH_KEYWORDS,
             SELLER_ID,
@@ -78,15 +78,14 @@
 
     <sql id="idCnd">
         <where>
-            <if test="id!=null">ID=#{id,jdbcType=BIGINT}</if>
-            <if test="id==null">1=0</if>
+            item_id=#{itemId}
         </where>
     </sql>
 
     <insert id="insert" parameterType="com.clubfactory.item.center.core.dataobject.ItemDO"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO
-        item_0
+        item
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id!=null">ID,</if>
             <if test="createTime!=null">CREATE_TIME,</if>
@@ -104,7 +103,7 @@
             <if test="videoUrl!=null">VIDEO_URL,</if>
             <if test="videoCover!=null">VIDEO_COVER,</if>
             <if test="orders!=null">ORDERS,</if>
-            <if test="bspecifics!=null">B_SPECIFICS,</if>
+            <if test="specification!=null">SPECIFICATION,</if>
             <if test="itemProperty!=null">ITEM_PROPERTY,</if>
             <if test="searchKeywords!=null">SEARCH_KEYWORDS,</if>
             <if test="sellerId!=null">SELLER_ID,</if>
@@ -122,45 +121,45 @@
             <if test="channel!=null">CHANNEL,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id!=null">#{id,jdbcType=BIGINT},</if>
-            <if test="createTime!=null">#{createTime,jdbcType=TIMESTAMP},</if>
-            <if test="updateTime!=null">#{updateTime,jdbcType=TIMESTAMP},</if>
-            <if test="isDelete!=null">#{isDelete,jdbcType=TINYINT},</if>
-            <if test="itemId!=null">#{itemId,jdbcType=BIGINT},</if>
-            <if test="productId!=null">#{productId,jdbcType=BIGINT},</if>
-            <if test="title!=null">#{title,jdbcType=VARCHAR},</if>
-            <if test="status!=null">#{status,jdbcType=TINYINT},</if>
-            <if test="inventoryStatus!=null">#{inventoryStatus,jdbcType=TINYINT},</if>
-            <if test="version!=null">#{version,jdbcType=BIGINT},</if>
-            <if test="categoryId!=null">#{categoryId,jdbcType=INTEGER},</if>
-            <if test="bizModel!=null">#{bizModel,jdbcType=INTEGER},</if>
-            <if test="imageUrl!=null">#{imageUrl,jdbcType=VARCHAR},</if>
-            <if test="videoUrl!=null">#{videoUrl,jdbcType=VARCHAR},</if>
-            <if test="videoCover!=null">#{videoCover,jdbcType=VARCHAR},</if>
-            <if test="orders!=null">#{orders,jdbcType=INTEGER},</if>
-            <if test="bspecifics!=null">#{bspecifics,jdbcType=LONGVARCHAR},</if>
-            <if test="itemProperty!=null">#{itemProperty,jdbcType=VARCHAR},</if>
-            <if test="searchKeywords!=null">#{searchKeywords,jdbcType=VARCHAR},</if>
-            <if test="sellerId!=null">#{sellerId,jdbcType=INTEGER},</if>
-            <if test="sellerName!=null">#{sellerName,jdbcType=VARCHAR},</if>
-            <if test="storeId!=null">#{storeId,jdbcType=INTEGER},</if>
-            <if test="features!=null">#{features,jdbcType=VARCHAR},</if>
-            <if test="feature!=null">#{feature,jdbcType=VARCHAR},</if>
-            <if test="tags!=null">#{tags,jdbcType=VARCHAR},</if>
-            <if test="illegalTags!=null">#{illegalTags,jdbcType=VARCHAR},</if>
-            <if test="skuMaxPrice!=null">#{skuMaxPrice,jdbcType=DECIMAL},</if>
-            <if test="skuMinPrice!=null">#{skuMinPrice,jdbcType=DECIMAL},</if>
-            <if test="currency!=null">#{currency,jdbcType=CHAR},</if>
-            <if test="forbiddenSaleNations!=null">#{forbiddenSaleNations,jdbcType=VARCHAR},</if>
-            <if test="description!=null">#{description,jdbcType=LONGVARCHAR},</if>
-            <if test="channel!=null">#{channel,jdbcType=VARCHAR},</if>
+            <if test="id!=null">#{id},</if>
+            <if test="createTime!=null">#{createTime},</if>
+            <if test="updateTime!=null">#{updateTime},</if>
+            <if test="isDelete!=null">#{isDelete},</if>
+            <if test="itemId!=null">#{itemId},</if>
+            <if test="productId!=null">#{productId},</if>
+            <if test="title!=null">#{title},</if>
+            <if test="status!=null">#{status},</if>
+            <if test="inventoryStatus!=null">#{inventoryStatus},</if>
+            <if test="version!=null">#{version},</if>
+            <if test="categoryId!=null">#{categoryId},</if>
+            <if test="bizModel!=null">#{bizModel},</if>
+            <if test="imageUrl!=null">#{imageUrl},</if>
+            <if test="videoUrl!=null">#{videoUrl},</if>
+            <if test="videoCover!=null">#{videoCover},</if>
+            <if test="orders!=null">#{orders},</if>
+            <if test="specification!=null">#{specification},</if>
+            <if test="itemProperty!=null">#{itemProperty},</if>
+            <if test="searchKeywords!=null">#{searchKeywords},</if>
+            <if test="sellerId!=null">#{sellerId},</if>
+            <if test="sellerName!=null">#{sellerName},</if>
+            <if test="storeId!=null">#{storeId},</if>
+            <if test="features!=null">#{features},</if>
+            <if test="feature!=null">#{feature},</if>
+            <if test="tags!=null">#{tags},</if>
+            <if test="illegalTags!=null">#{illegalTags},</if>
+            <if test="skuMaxPrice!=null">#{skuMaxPrice},</if>
+            <if test="skuMinPrice!=null">#{skuMinPrice},</if>
+            <if test="currency!=null">#{currency},</if>
+            <if test="forbiddenSaleNations!=null">#{forbiddenSaleNations},</if>
+            <if test="description!=null">#{description},</if>
+            <if test="channel!=null">#{channel},</if>
         </trim>
     </insert>
 
     <insert id="upsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemDO"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO
-        item_0
+        item
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id!=null">ID,</if>
             <if test="createTime!=null">CREATE_TIME,</if>
@@ -178,7 +177,7 @@
             <if test="videoUrl!=null">VIDEO_URL,</if>
             <if test="videoCover!=null">VIDEO_COVER,</if>
             <if test="orders!=null">ORDERS,</if>
-            <if test="bspecifics!=null">B_SPECIFICS,</if>
+            <if test="specification!=null">SPECIFICATION,</if>
             <if test="itemProperty!=null">ITEM_PROPERTY,</if>
             <if test="searchKeywords!=null">SEARCH_KEYWORDS,</if>
             <if test="sellerId!=null">SELLER_ID,</if>
@@ -196,115 +195,114 @@
             <if test="channel!=null">CHANNEL,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id!=null">#{id,jdbcType=BIGINT},</if>
-            <if test="createTime!=null">#{createTime,jdbcType=TIMESTAMP},</if>
-            <if test="updateTime!=null">#{updateTime,jdbcType=TIMESTAMP},</if>
-            <if test="isDelete!=null">#{isDelete,jdbcType=TINYINT},</if>
-            <if test="itemId!=null">#{itemId,jdbcType=BIGINT},</if>
-            <if test="productId!=null">#{productId,jdbcType=BIGINT},</if>
-            <if test="title!=null">#{title,jdbcType=VARCHAR},</if>
-            <if test="status!=null">#{status,jdbcType=TINYINT},</if>
-            <if test="inventoryStatus!=null">#{inventoryStatus,jdbcType=TINYINT},</if>
-            <if test="version!=null">#{version,jdbcType=BIGINT},</if>
-            <if test="categoryId!=null">#{categoryId,jdbcType=INTEGER},</if>
-            <if test="bizModel!=null">#{bizModel,jdbcType=INTEGER},</if>
-            <if test="imageUrl!=null">#{imageUrl,jdbcType=VARCHAR},</if>
-            <if test="videoUrl!=null">#{videoUrl,jdbcType=VARCHAR},</if>
-            <if test="videoCover!=null">#{videoCover,jdbcType=VARCHAR},</if>
-            <if test="orders!=null">#{orders,jdbcType=INTEGER},</if>
-            <if test="bspecifics!=null">#{bspecifics,jdbcType=LONGVARCHAR},</if>
-            <if test="itemProperty!=null">#{itemProperty,jdbcType=VARCHAR},</if>
-            <if test="searchKeywords!=null">#{searchKeywords,jdbcType=VARCHAR},</if>
-            <if test="sellerId!=null">#{sellerId,jdbcType=INTEGER},</if>
-            <if test="sellerName!=null">#{sellerName,jdbcType=VARCHAR},</if>
-            <if test="storeId!=null">#{storeId,jdbcType=INTEGER},</if>
-            <if test="features!=null">#{features,jdbcType=VARCHAR},</if>
-            <if test="feature!=null">#{feature,jdbcType=VARCHAR},</if>
-            <if test="tags!=null">#{tags,jdbcType=VARCHAR},</if>
-            <if test="illegalTags!=null">#{illegalTags,jdbcType=VARCHAR},</if>
-            <if test="skuMaxPrice!=null">#{skuMaxPrice,jdbcType=DECIMAL},</if>
-            <if test="skuMinPrice!=null">#{skuMinPrice,jdbcType=DECIMAL},</if>
-            <if test="currency!=null">#{currency,jdbcType=CHAR},</if>
-            <if test="forbiddenSaleNations!=null">#{forbiddenSaleNations,jdbcType=VARCHAR},</if>
-            <if test="description!=null">#{description,jdbcType=LONGVARCHAR},</if>
-            <if test="channel!=null">#{channel,jdbcType=VARCHAR},</if>
+            <if test="id!=null">#{id},</if>
+            <if test="createTime!=null">#{createTime},</if>
+            <if test="updateTime!=null">#{updateTime},</if>
+            <if test="isDelete!=null">#{isDelete},</if>
+            <if test="itemId!=null">#{itemId},</if>
+            <if test="productId!=null">#{productId},</if>
+            <if test="title!=null">#{title},</if>
+            <if test="status!=null">#{status},</if>
+            <if test="inventoryStatus!=null">#{inventoryStatus},</if>
+            <if test="version!=null">#{version},</if>
+            <if test="categoryId!=null">#{categoryId},</if>
+            <if test="bizModel!=null">#{bizModel},</if>
+            <if test="imageUrl!=null">#{imageUrl},</if>
+            <if test="videoUrl!=null">#{videoUrl},</if>
+            <if test="videoCover!=null">#{videoCover},</if>
+            <if test="orders!=null">#{orders},</if>
+            <if test="specification!=null">#{specification},</if>
+            <if test="itemProperty!=null">#{itemProperty},</if>
+            <if test="searchKeywords!=null">#{searchKeywords},</if>
+            <if test="sellerId!=null">#{sellerId},</if>
+            <if test="sellerName!=null">#{sellerName},</if>
+            <if test="storeId!=null">#{storeId},</if>
+            <if test="features!=null">#{features},</if>
+            <if test="feature!=null">#{feature},</if>
+            <if test="tags!=null">#{tags},</if>
+            <if test="illegalTags!=null">#{illegalTags},</if>
+            <if test="skuMaxPrice!=null">#{skuMaxPrice},</if>
+            <if test="skuMinPrice!=null">#{skuMinPrice},</if>
+            <if test="currency!=null">#{currency},</if>
+            <if test="forbiddenSaleNations!=null">#{forbiddenSaleNations},</if>
+            <if test="description!=null">#{description},</if>
+            <if test="channel!=null">#{channel},</if>
         </trim>
         ON DUPLICATE KEY UPDATE
         <trim suffixOverrides=",">
-            <if test="createTime!=null">CREATE_TIME=#{createTime,jdbcType=TIMESTAMP},</if>
-            <if test="updateTime!=null">UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP},</if>
-            <if test="isDelete!=null">IS_DELETE=#{isDelete,jdbcType=TINYINT},</if>
-            <if test="itemId!=null">ITEM_ID=#{itemId,jdbcType=BIGINT},</if>
-            <if test="productId!=null">PRODUCT_ID=#{productId,jdbcType=BIGINT},</if>
-            <if test="title!=null">TITLE=#{title,jdbcType=VARCHAR},</if>
-            <if test="status!=null">STATUS=#{status,jdbcType=TINYINT},</if>
-            <if test="inventoryStatus!=null">INVENTORY_STATUS=#{inventoryStatus,jdbcType=TINYINT},</if>
-            <if test="version!=null">VERSION=#{version,jdbcType=BIGINT},</if>
-            <if test="categoryId!=null">CATEGORY_ID=#{categoryId,jdbcType=INTEGER},</if>
-            <if test="bizModel!=null">BIZ_MODEL=#{bizModel,jdbcType=INTEGER},</if>
-            <if test="imageUrl!=null">IMAGE_URL=#{imageUrl,jdbcType=VARCHAR},</if>
-            <if test="videoUrl!=null">VIDEO_URL=#{videoUrl,jdbcType=VARCHAR},</if>
-            <if test="videoCover!=null">VIDEO_COVER=#{videoCover,jdbcType=VARCHAR},</if>
-            <if test="orders!=null">ORDERS=#{orders,jdbcType=INTEGER},</if>
-            <if test="bspecifics!=null">B_SPECIFICS=#{bspecifics,jdbcType=LONGVARCHAR},</if>
-            <if test="itemProperty!=null">ITEM_PROPERTY=#{itemProperty,jdbcType=VARCHAR},</if>
-            <if test="searchKeywords!=null">SEARCH_KEYWORDS=#{searchKeywords,jdbcType=VARCHAR},</if>
-            <if test="sellerId!=null">SELLER_ID=#{sellerId,jdbcType=INTEGER},</if>
-            <if test="sellerName!=null">SELLER_NAME=#{sellerName,jdbcType=VARCHAR},</if>
-            <if test="storeId!=null">STORE_ID=#{storeId,jdbcType=INTEGER},</if>
-            <if test="features!=null">FEATURES=#{features,jdbcType=VARCHAR},</if>
-            <if test="feature!=null">FEATURE=#{feature,jdbcType=VARCHAR},</if>
-            <if test="tags!=null">TAGS=#{tags,jdbcType=VARCHAR},</if>
-            <if test="illegalTags!=null">ILLEGAL_TAGS=#{illegalTags,jdbcType=VARCHAR},</if>
-            <if test="skuMaxPrice!=null">SKU_MAX_PRICE=#{skuMaxPrice,jdbcType=DECIMAL},</if>
-            <if test="skuMinPrice!=null">SKU_MIN_PRICE=#{skuMinPrice,jdbcType=DECIMAL},</if>
-            <if test="currency!=null">CURRENCY=#{currency,jdbcType=CHAR},</if>
-            <if test="forbiddenSaleNations!=null">FORBIDDEN_SALE_NATIONS=#{forbiddenSaleNations,jdbcType=VARCHAR},</if>
-            <if test="description!=null">DESCRIPTION=#{description,jdbcType=LONGVARCHAR},</if>
-            <if test="channel!=null">CHANNEL=#{channel,jdbcType=VARCHAR},</if>
+            <if test="createTime!=null">CREATE_TIME=#{createTime},</if>
+            <if test="updateTime!=null">UPDATE_TIME=#{updateTime},</if>
+            <if test="isDelete!=null">IS_DELETE=#{isDelete},</if>
+            <if test="productId!=null">PRODUCT_ID=#{productId},</if>
+            <if test="title!=null">TITLE=#{title},</if>
+            <if test="status!=null">STATUS=#{status},</if>
+            <if test="inventoryStatus!=null">INVENTORY_STATUS=#{inventoryStatus},</if>
+            <if test="version!=null">VERSION=#{version},</if>
+            <if test="categoryId!=null">CATEGORY_ID=#{categoryId},</if>
+            <if test="bizModel!=null">BIZ_MODEL=#{bizModel},</if>
+            <if test="imageUrl!=null">IMAGE_URL=#{imageUrl},</if>
+            <if test="videoUrl!=null">VIDEO_URL=#{videoUrl},</if>
+            <if test="videoCover!=null">VIDEO_COVER=#{videoCover},</if>
+            <if test="orders!=null">ORDERS=#{orders},</if>
+            <if test="specification!=null">SPECIFICATION=#{specification},</if>
+            <if test="itemProperty!=null">ITEM_PROPERTY=#{itemProperty},</if>
+            <if test="searchKeywords!=null">SEARCH_KEYWORDS=#{searchKeywords},</if>
+            <if test="sellerId!=null">SELLER_ID=#{sellerId},</if>
+            <if test="sellerName!=null">SELLER_NAME=#{sellerName},</if>
+            <if test="storeId!=null">STORE_ID=#{storeId},</if>
+            <if test="features!=null">FEATURES=#{features},</if>
+            <if test="feature!=null">FEATURE=#{feature},</if>
+            <if test="tags!=null">TAGS=#{tags},</if>
+            <if test="illegalTags!=null">ILLEGAL_TAGS=#{illegalTags},</if>
+            <if test="skuMaxPrice!=null">SKU_MAX_PRICE=#{skuMaxPrice},</if>
+            <if test="skuMinPrice!=null">SKU_MIN_PRICE=#{skuMinPrice},</if>
+            <if test="currency!=null">CURRENCY=#{currency},</if>
+            <if test="forbiddenSaleNations!=null">FORBIDDEN_SALE_NATIONS=#{forbiddenSaleNations},</if>
+            <if test="description!=null">DESCRIPTION=#{description},</if>
+            <if test="channel!=null">CHANNEL=#{channel},</if>
         </trim>
     </insert>
 
     <delete id="deleteByPrimaryKey">
-        DELETE FROM item_0
+        DELETE FROM item
         <include refid="idCnd"/>
     </delete>
 
     <update id="updateByPrimaryKey">
-        UPDATE item_0
+        UPDATE item
         <set>
-            <if test="id!=null">ID=#{id,jdbcType=BIGINT},</if>
-            <if test="createTime!=null">CREATE_TIME=#{createTime,jdbcType=TIMESTAMP},</if>
-            <if test="updateTime!=null">UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP},</if>
-            <if test="isDelete!=null">IS_DELETE=#{isDelete,jdbcType=TINYINT},</if>
-            <if test="itemId!=null">ITEM_ID=#{itemId,jdbcType=BIGINT},</if>
-            <if test="productId!=null">PRODUCT_ID=#{productId,jdbcType=BIGINT},</if>
-            <if test="title!=null">TITLE=#{title,jdbcType=VARCHAR},</if>
-            <if test="status!=null">STATUS=#{status,jdbcType=TINYINT},</if>
-            <if test="inventoryStatus!=null">INVENTORY_STATUS=#{inventoryStatus,jdbcType=TINYINT},</if>
-            <if test="version!=null">VERSION=#{version,jdbcType=BIGINT},</if>
-            <if test="categoryId!=null">CATEGORY_ID=#{categoryId,jdbcType=INTEGER},</if>
-            <if test="bizModel!=null">BIZ_MODEL=#{bizModel,jdbcType=INTEGER},</if>
-            <if test="imageUrl!=null">IMAGE_URL=#{imageUrl,jdbcType=VARCHAR},</if>
-            <if test="videoUrl!=null">VIDEO_URL=#{videoUrl,jdbcType=VARCHAR},</if>
-            <if test="videoCover!=null">VIDEO_COVER=#{videoCover,jdbcType=VARCHAR},</if>
-            <if test="orders!=null">ORDERS=#{orders,jdbcType=INTEGER},</if>
-            <if test="bspecifics!=null">B_SPECIFICS=#{bspecifics,jdbcType=LONGVARCHAR},</if>
-            <if test="itemProperty!=null">ITEM_PROPERTY=#{itemProperty,jdbcType=VARCHAR},</if>
-            <if test="searchKeywords!=null">SEARCH_KEYWORDS=#{searchKeywords,jdbcType=VARCHAR},</if>
-            <if test="sellerId!=null">SELLER_ID=#{sellerId,jdbcType=INTEGER},</if>
-            <if test="sellerName!=null">SELLER_NAME=#{sellerName,jdbcType=VARCHAR},</if>
-            <if test="storeId!=null">STORE_ID=#{storeId,jdbcType=INTEGER},</if>
-            <if test="features!=null">FEATURES=#{features,jdbcType=VARCHAR},</if>
-            <if test="feature!=null">FEATURE=#{feature,jdbcType=VARCHAR},</if>
-            <if test="tags!=null">TAGS=#{tags,jdbcType=VARCHAR},</if>
-            <if test="illegalTags!=null">ILLEGAL_TAGS=#{illegalTags,jdbcType=VARCHAR},</if>
-            <if test="skuMaxPrice!=null">SKU_MAX_PRICE=#{skuMaxPrice,jdbcType=DECIMAL},</if>
-            <if test="skuMinPrice!=null">SKU_MIN_PRICE=#{skuMinPrice,jdbcType=DECIMAL},</if>
-            <if test="currency!=null">CURRENCY=#{currency,jdbcType=CHAR},</if>
-            <if test="forbiddenSaleNations!=null">FORBIDDEN_SALE_NATIONS=#{forbiddenSaleNations,jdbcType=VARCHAR},</if>
-            <if test="description!=null">DESCRIPTION=#{description,jdbcType=LONGVARCHAR},</if>
-            <if test="channel!=null">CHANNEL=#{channel,jdbcType=VARCHAR},</if>
+            <if test="id!=null">ID=#{id},</if>
+            <if test="createTime!=null">CREATE_TIME=#{createTime},</if>
+            <if test="updateTime!=null">UPDATE_TIME=#{updateTime},</if>
+            <if test="isDelete!=null">IS_DELETE=#{isDelete},</if>
+            <if test="itemId!=null">ITEM_ID=#{itemId},</if>
+            <if test="productId!=null">PRODUCT_ID=#{productId},</if>
+            <if test="title!=null">TITLE=#{title},</if>
+            <if test="status!=null">STATUS=#{status},</if>
+            <if test="inventoryStatus!=null">INVENTORY_STATUS=#{inventoryStatus},</if>
+            <if test="version!=null">VERSION=#{version},</if>
+            <if test="categoryId!=null">CATEGORY_ID=#{categoryId},</if>
+            <if test="bizModel!=null">BIZ_MODEL=#{bizModel},</if>
+            <if test="imageUrl!=null">IMAGE_URL=#{imageUrl},</if>
+            <if test="videoUrl!=null">VIDEO_URL=#{videoUrl},</if>
+            <if test="videoCover!=null">VIDEO_COVER=#{videoCover},</if>
+            <if test="orders!=null">ORDERS=#{orders},</if>
+            <if test="specification!=null">SPECIFICATION=#{specification},</if>
+            <if test="itemProperty!=null">ITEM_PROPERTY=#{itemProperty},</if>
+            <if test="searchKeywords!=null">SEARCH_KEYWORDS=#{searchKeywords},</if>
+            <if test="sellerId!=null">SELLER_ID=#{sellerId},</if>
+            <if test="sellerName!=null">SELLER_NAME=#{sellerName},</if>
+            <if test="storeId!=null">STORE_ID=#{storeId},</if>
+            <if test="features!=null">FEATURES=#{features},</if>
+            <if test="feature!=null">FEATURE=#{feature},</if>
+            <if test="tags!=null">TAGS=#{tags},</if>
+            <if test="illegalTags!=null">ILLEGAL_TAGS=#{illegalTags},</if>
+            <if test="skuMaxPrice!=null">SKU_MAX_PRICE=#{skuMaxPrice},</if>
+            <if test="skuMinPrice!=null">SKU_MIN_PRICE=#{skuMinPrice},</if>
+            <if test="currency!=null">CURRENCY=#{currency},</if>
+            <if test="forbiddenSaleNations!=null">FORBIDDEN_SALE_NATIONS=#{forbiddenSaleNations},</if>
+            <if test="description!=null">DESCRIPTION=#{description},</if>
+            <if test="channel!=null">CHANNEL=#{channel},</if>
         </set>
         <include refid="idCnd"/>
     </update>
@@ -313,45 +311,45 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        item_0
+        item
         <include refid="idCnd"/>
     </select>
 
 
     <sql id="where_clause">
         <where>
-            <if test="id!=null">AND ID=#{id,jdbcType=BIGINT}</if>
-            <if test="createTime!=null">AND CREATE_TIME=#{createTime,jdbcType=TIMESTAMP}</if>
-            <if test="updateTime!=null">AND UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP}</if>
-            <if test="isDelete!=null">AND IS_DELETE=#{isDelete,jdbcType=TINYINT}</if>
-            <if test="itemId!=null">AND ITEM_ID=#{itemId,jdbcType=BIGINT}</if>
-            <if test="productId!=null">AND PRODUCT_ID=#{productId,jdbcType=BIGINT}</if>
-            <if test="title!=null">AND TITLE=#{title,jdbcType=VARCHAR}</if>
-            <if test="status!=null">AND STATUS=#{status,jdbcType=TINYINT}</if>
-            <if test="inventoryStatus!=null">AND INVENTORY_STATUS=#{inventoryStatus,jdbcType=TINYINT}</if>
-            <if test="version!=null">AND VERSION=#{version,jdbcType=BIGINT}</if>
-            <if test="categoryId!=null">AND CATEGORY_ID=#{categoryId,jdbcType=INTEGER}</if>
-            <if test="bizModel!=null">AND BIZ_MODEL=#{bizModel,jdbcType=INTEGER}</if>
-            <if test="imageUrl!=null">AND IMAGE_URL=#{imageUrl,jdbcType=VARCHAR}</if>
-            <if test="videoUrl!=null">AND VIDEO_URL=#{videoUrl,jdbcType=VARCHAR}</if>
-            <if test="videoCover!=null">AND VIDEO_COVER=#{videoCover,jdbcType=VARCHAR}</if>
-            <if test="orders!=null">AND ORDERS=#{orders,jdbcType=INTEGER}</if>
-            <if test="bspecifics!=null">AND B_SPECIFICS=#{bspecifics,jdbcType=LONGVARCHAR}</if>
-            <if test="itemProperty!=null">AND ITEM_PROPERTY=#{itemProperty,jdbcType=VARCHAR}</if>
-            <if test="searchKeywords!=null">AND SEARCH_KEYWORDS=#{searchKeywords,jdbcType=VARCHAR}</if>
-            <if test="sellerId!=null">AND SELLER_ID=#{sellerId,jdbcType=INTEGER}</if>
-            <if test="sellerName!=null">AND SELLER_NAME=#{sellerName,jdbcType=VARCHAR}</if>
-            <if test="storeId!=null">AND STORE_ID=#{storeId,jdbcType=INTEGER}</if>
-            <if test="features!=null">AND FEATURES=#{features,jdbcType=VARCHAR}</if>
-            <if test="feature!=null">AND FEATURE=#{feature,jdbcType=VARCHAR}</if>
-            <if test="tags!=null">AND TAGS=#{tags,jdbcType=VARCHAR}</if>
-            <if test="illegalTags!=null">AND ILLEGAL_TAGS=#{illegalTags,jdbcType=VARCHAR}</if>
-            <if test="skuMaxPrice!=null">AND SKU_MAX_PRICE=#{skuMaxPrice,jdbcType=DECIMAL}</if>
-            <if test="skuMinPrice!=null">AND SKU_MIN_PRICE=#{skuMinPrice,jdbcType=DECIMAL}</if>
-            <if test="currency!=null">AND CURRENCY=#{currency,jdbcType=CHAR}</if>
-            <if test="forbiddenSaleNations!=null">AND FORBIDDEN_SALE_NATIONS=#{forbiddenSaleNations,jdbcType=VARCHAR}</if>
-            <if test="description!=null">AND DESCRIPTION=#{description,jdbcType=LONGVARCHAR}</if>
-            <if test="channel!=null">AND CHANNEL=#{channel,jdbcType=VARCHAR}</if>
+            <if test="id!=null">AND ID=#{id}</if>
+            <if test="createTime!=null">AND CREATE_TIME=#{createTime}</if>
+            <if test="updateTime!=null">AND UPDATE_TIME=#{updateTime}</if>
+            <if test="isDelete!=null">AND IS_DELETE=#{isDelete}</if>
+            <if test="itemId!=null">AND ITEM_ID=#{itemId}</if>
+            <if test="productId!=null">AND PRODUCT_ID=#{productId}</if>
+            <if test="title!=null">AND TITLE=#{title}</if>
+            <if test="status!=null">AND STATUS=#{status}</if>
+            <if test="inventoryStatus!=null">AND INVENTORY_STATUS=#{inventoryStatus}</if>
+            <if test="version!=null">AND VERSION=#{version}</if>
+            <if test="categoryId!=null">AND CATEGORY_ID=#{categoryId}</if>
+            <if test="bizModel!=null">AND BIZ_MODEL=#{bizModel}</if>
+            <if test="imageUrl!=null">AND IMAGE_URL=#{imageUrl}</if>
+            <if test="videoUrl!=null">AND VIDEO_URL=#{videoUrl}</if>
+            <if test="videoCover!=null">AND VIDEO_COVER=#{videoCover}</if>
+            <if test="orders!=null">AND ORDERS=#{orders}</if>
+            <if test="specification!=null">AND SPECIFICATION=#{specification}</if>
+            <if test="itemProperty!=null">AND ITEM_PROPERTY=#{itemProperty}</if>
+            <if test="searchKeywords!=null">AND SEARCH_KEYWORDS=#{searchKeywords}</if>
+            <if test="sellerId!=null">AND SELLER_ID=#{sellerId}</if>
+            <if test="sellerName!=null">AND SELLER_NAME=#{sellerName}</if>
+            <if test="storeId!=null">AND STORE_ID=#{storeId}</if>
+            <if test="features!=null">AND FEATURES=#{features}</if>
+            <if test="feature!=null">AND FEATURE=#{feature}</if>
+            <if test="tags!=null">AND TAGS=#{tags}</if>
+            <if test="illegalTags!=null">AND ILLEGAL_TAGS=#{illegalTags}</if>
+            <if test="skuMaxPrice!=null">AND SKU_MAX_PRICE=#{skuMaxPrice}</if>
+            <if test="skuMinPrice!=null">AND SKU_MIN_PRICE=#{skuMinPrice}</if>
+            <if test="currency!=null">AND CURRENCY=#{currency}</if>
+            <if test="forbiddenSaleNations!=null">AND FORBIDDEN_SALE_NATIONS=#{forbiddenSaleNations}</if>
+            <if test="description!=null">AND DESCRIPTION=#{description}</if>
+            <if test="channel!=null">AND CHANNEL=#{channel}</if>
         </where>
     </sql>
 
@@ -359,7 +357,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        item_0
+        item
         <include refid="where_clause"/>
     </select>
 
@@ -367,7 +365,7 @@
     <insert id="batchInsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemDO"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO
-        item_0
+        item
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="list[0].id!=null">ID,</if>
             <if test="list[0].createTime!=null">CREATE_TIME,</if>
@@ -385,7 +383,7 @@
             <if test="list[0].videoUrl!=null">VIDEO_URL,</if>
             <if test="list[0].videoCover!=null">VIDEO_COVER,</if>
             <if test="list[0].orders!=null">ORDERS,</if>
-            <if test="list[0].bspecifics!=null">B_SPECIFICS,</if>
+            <if test="list[0].specification!=null">SPECIFICATION,</if>
             <if test="list[0].itemProperty!=null">ITEM_PROPERTY,</if>
             <if test="list[0].searchKeywords!=null">SEARCH_KEYWORDS,</if>
             <if test="list[0].sellerId!=null">SELLER_ID,</if>
@@ -405,38 +403,38 @@
         values
         <foreach collection="list" item="item" separator=",">
             <trim prefix="(" suffix=")" suffixOverrides=",">
-                <if test="list[0].id!=null">#{item.id,jdbcType=BIGINT},</if>
-                <if test="list[0].createTime!=null">#{item.createTime,jdbcType=TIMESTAMP},</if>
-                <if test="list[0].updateTime!=null">#{item.updateTime,jdbcType=TIMESTAMP},</if>
-                <if test="list[0].isDelete!=null">#{item.isDelete,jdbcType=TINYINT},</if>
-                <if test="list[0].itemId!=null">#{item.itemId,jdbcType=BIGINT},</if>
-                <if test="list[0].productId!=null">#{item.productId,jdbcType=BIGINT},</if>
-                <if test="list[0].title!=null">#{item.title,jdbcType=VARCHAR},</if>
-                <if test="list[0].status!=null">#{item.status,jdbcType=TINYINT},</if>
-                <if test="list[0].inventoryStatus!=null">#{item.inventoryStatus,jdbcType=TINYINT},</if>
-                <if test="list[0].version!=null">#{item.version,jdbcType=BIGINT},</if>
-                <if test="list[0].categoryId!=null">#{item.categoryId,jdbcType=INTEGER},</if>
-                <if test="list[0].bizModel!=null">#{item.bizModel,jdbcType=INTEGER},</if>
-                <if test="list[0].imageUrl!=null">#{item.imageUrl,jdbcType=VARCHAR},</if>
-                <if test="list[0].videoUrl!=null">#{item.videoUrl,jdbcType=VARCHAR},</if>
-                <if test="list[0].videoCover!=null">#{item.videoCover,jdbcType=VARCHAR},</if>
-                <if test="list[0].orders!=null">#{item.orders,jdbcType=INTEGER},</if>
-                <if test="list[0].bspecifics!=null">#{item.bspecifics,jdbcType=LONGVARCHAR},</if>
-                <if test="list[0].itemProperty!=null">#{item.itemProperty,jdbcType=VARCHAR},</if>
-                <if test="list[0].searchKeywords!=null">#{item.searchKeywords,jdbcType=VARCHAR},</if>
-                <if test="list[0].sellerId!=null">#{item.sellerId,jdbcType=INTEGER},</if>
-                <if test="list[0].sellerName!=null">#{item.sellerName,jdbcType=VARCHAR},</if>
-                <if test="list[0].storeId!=null">#{item.storeId,jdbcType=INTEGER},</if>
-                <if test="list[0].features!=null">#{item.features,jdbcType=VARCHAR},</if>
-                <if test="list[0].feature!=null">#{item.feature,jdbcType=VARCHAR},</if>
-                <if test="list[0].tags!=null">#{item.tags,jdbcType=VARCHAR},</if>
-                <if test="list[0].illegalTags!=null">#{item.illegalTags,jdbcType=VARCHAR},</if>
-                <if test="list[0].skuMaxPrice!=null">#{item.skuMaxPrice,jdbcType=DECIMAL},</if>
-                <if test="list[0].skuMinPrice!=null">#{item.skuMinPrice,jdbcType=DECIMAL},</if>
-                <if test="list[0].currency!=null">#{item.currency,jdbcType=CHAR},</if>
-                <if test="list[0].forbiddenSaleNations!=null">#{item.forbiddenSaleNations,jdbcType=VARCHAR},</if>
-                <if test="list[0].description!=null">#{item.description,jdbcType=LONGVARCHAR},</if>
-                <if test="list[0].channel!=null">#{item.channel,jdbcType=VARCHAR},</if>
+                <if test="list[0].id!=null">#{item.id},</if>
+                <if test="list[0].createTime!=null">#{item.createTime},</if>
+                <if test="list[0].updateTime!=null">#{item.updateTime},</if>
+                <if test="list[0].isDelete!=null">#{item.isDelete},</if>
+                <if test="list[0].itemId!=null">#{item.itemId},</if>
+                <if test="list[0].productId!=null">#{item.productId},</if>
+                <if test="list[0].title!=null">#{item.title},</if>
+                <if test="list[0].status!=null">#{item.status},</if>
+                <if test="list[0].inventoryStatus!=null">#{item.inventoryStatus},</if>
+                <if test="list[0].version!=null">#{item.version},</if>
+                <if test="list[0].categoryId!=null">#{item.categoryId},</if>
+                <if test="list[0].bizModel!=null">#{item.bizModel},</if>
+                <if test="list[0].imageUrl!=null">#{item.imageUrl},</if>
+                <if test="list[0].videoUrl!=null">#{item.videoUrl},</if>
+                <if test="list[0].videoCover!=null">#{item.videoCover},</if>
+                <if test="list[0].orders!=null">#{item.orders},</if>
+                <if test="list[0].specification!=null">#{item.specification},</if>
+                <if test="list[0].itemProperty!=null">#{item.itemProperty},</if>
+                <if test="list[0].searchKeywords!=null">#{item.searchKeywords},</if>
+                <if test="list[0].sellerId!=null">#{item.sellerId},</if>
+                <if test="list[0].sellerName!=null">#{item.sellerName},</if>
+                <if test="list[0].storeId!=null">#{item.storeId},</if>
+                <if test="list[0].features!=null">#{item.features},</if>
+                <if test="list[0].feature!=null">#{item.feature},</if>
+                <if test="list[0].tags!=null">#{item.tags},</if>
+                <if test="list[0].illegalTags!=null">#{item.illegalTags},</if>
+                <if test="list[0].skuMaxPrice!=null">#{item.skuMaxPrice},</if>
+                <if test="list[0].skuMinPrice!=null">#{item.skuMinPrice},</if>
+                <if test="list[0].currency!=null">#{item.currency},</if>
+                <if test="list[0].forbiddenSaleNations!=null">#{item.forbiddenSaleNations},</if>
+                <if test="list[0].description!=null">#{item.description},</if>
+                <if test="list[0].channel!=null">#{item.channel},</if>
             </trim>
         </foreach>
     </insert>
@@ -444,7 +442,7 @@
     <insert id="batchUpsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemDO"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO
-        item_0
+        item
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="list[0].id!=null">ID,</if>
             <if test="list[0].createTime!=null">CREATE_TIME,</if>
@@ -462,7 +460,7 @@
             <if test="list[0].videoUrl!=null">VIDEO_URL,</if>
             <if test="list[0].videoCover!=null">VIDEO_COVER,</if>
             <if test="list[0].orders!=null">ORDERS,</if>
-            <if test="list[0].bspecifics!=null">B_SPECIFICS,</if>
+            <if test="list[0].specification!=null">SPECIFICATION,</if>
             <if test="list[0].itemProperty!=null">ITEM_PROPERTY,</if>
             <if test="list[0].searchKeywords!=null">SEARCH_KEYWORDS,</if>
             <if test="list[0].sellerId!=null">SELLER_ID,</if>
@@ -482,38 +480,38 @@
         values
         <foreach collection="list" item="item" separator=",">
             <trim prefix="(" suffix=")" suffixOverrides=",">
-                <if test="list[0].id!=null">#{item.id,jdbcType=BIGINT},</if>
-                <if test="list[0].createTime!=null">#{item.createTime,jdbcType=TIMESTAMP},</if>
-                <if test="list[0].updateTime!=null">#{item.updateTime,jdbcType=TIMESTAMP},</if>
-                <if test="list[0].isDelete!=null">#{item.isDelete,jdbcType=TINYINT},</if>
-                <if test="list[0].itemId!=null">#{item.itemId,jdbcType=BIGINT},</if>
-                <if test="list[0].productId!=null">#{item.productId,jdbcType=BIGINT},</if>
-                <if test="list[0].title!=null">#{item.title,jdbcType=VARCHAR},</if>
-                <if test="list[0].status!=null">#{item.status,jdbcType=TINYINT},</if>
-                <if test="list[0].inventoryStatus!=null">#{item.inventoryStatus,jdbcType=TINYINT},</if>
-                <if test="list[0].version!=null">#{item.version,jdbcType=BIGINT},</if>
-                <if test="list[0].categoryId!=null">#{item.categoryId,jdbcType=INTEGER},</if>
-                <if test="list[0].bizModel!=null">#{item.bizModel,jdbcType=INTEGER},</if>
-                <if test="list[0].imageUrl!=null">#{item.imageUrl,jdbcType=VARCHAR},</if>
-                <if test="list[0].videoUrl!=null">#{item.videoUrl,jdbcType=VARCHAR},</if>
-                <if test="list[0].videoCover!=null">#{item.videoCover,jdbcType=VARCHAR},</if>
-                <if test="list[0].orders!=null">#{item.orders,jdbcType=INTEGER},</if>
-                <if test="list[0].bspecifics!=null">#{item.bspecifics,jdbcType=LONGVARCHAR},</if>
-                <if test="list[0].itemProperty!=null">#{item.itemProperty,jdbcType=VARCHAR},</if>
-                <if test="list[0].searchKeywords!=null">#{item.searchKeywords,jdbcType=VARCHAR},</if>
-                <if test="list[0].sellerId!=null">#{item.sellerId,jdbcType=INTEGER},</if>
-                <if test="list[0].sellerName!=null">#{item.sellerName,jdbcType=VARCHAR},</if>
-                <if test="list[0].storeId!=null">#{item.storeId,jdbcType=INTEGER},</if>
-                <if test="list[0].features!=null">#{item.features,jdbcType=VARCHAR},</if>
-                <if test="list[0].feature!=null">#{item.feature,jdbcType=VARCHAR},</if>
-                <if test="list[0].tags!=null">#{item.tags,jdbcType=VARCHAR},</if>
-                <if test="list[0].illegalTags!=null">#{item.illegalTags,jdbcType=VARCHAR},</if>
-                <if test="list[0].skuMaxPrice!=null">#{item.skuMaxPrice,jdbcType=DECIMAL},</if>
-                <if test="list[0].skuMinPrice!=null">#{item.skuMinPrice,jdbcType=DECIMAL},</if>
-                <if test="list[0].currency!=null">#{item.currency,jdbcType=CHAR},</if>
-                <if test="list[0].forbiddenSaleNations!=null">#{item.forbiddenSaleNations,jdbcType=VARCHAR},</if>
-                <if test="list[0].description!=null">#{item.description,jdbcType=LONGVARCHAR},</if>
-                <if test="list[0].channel!=null">#{item.channel,jdbcType=VARCHAR},</if>
+                <if test="list[0].id!=null">#{item.id},</if>
+                <if test="list[0].createTime!=null">#{item.createTime},</if>
+                <if test="list[0].updateTime!=null">#{item.updateTime},</if>
+                <if test="list[0].isDelete!=null">#{item.isDelete},</if>
+                <if test="list[0].itemId!=null">#{item.itemId},</if>
+                <if test="list[0].productId!=null">#{item.productId},</if>
+                <if test="list[0].title!=null">#{item.title},</if>
+                <if test="list[0].status!=null">#{item.status},</if>
+                <if test="list[0].inventoryStatus!=null">#{item.inventoryStatus},</if>
+                <if test="list[0].version!=null">#{item.version},</if>
+                <if test="list[0].categoryId!=null">#{item.categoryId},</if>
+                <if test="list[0].bizModel!=null">#{item.bizModel},</if>
+                <if test="list[0].imageUrl!=null">#{item.imageUrl},</if>
+                <if test="list[0].videoUrl!=null">#{item.videoUrl},</if>
+                <if test="list[0].videoCover!=null">#{item.videoCover},</if>
+                <if test="list[0].orders!=null">#{item.orders},</if>
+                <if test="list[0].specification!=null">#{item.specification},</if>
+                <if test="list[0].itemProperty!=null">#{item.itemProperty},</if>
+                <if test="list[0].searchKeywords!=null">#{item.searchKeywords},</if>
+                <if test="list[0].sellerId!=null">#{item.sellerId},</if>
+                <if test="list[0].sellerName!=null">#{item.sellerName},</if>
+                <if test="list[0].storeId!=null">#{item.storeId},</if>
+                <if test="list[0].features!=null">#{item.features},</if>
+                <if test="list[0].feature!=null">#{item.feature},</if>
+                <if test="list[0].tags!=null">#{item.tags},</if>
+                <if test="list[0].illegalTags!=null">#{item.illegalTags},</if>
+                <if test="list[0].skuMaxPrice!=null">#{item.skuMaxPrice},</if>
+                <if test="list[0].skuMinPrice!=null">#{item.skuMinPrice},</if>
+                <if test="list[0].currency!=null">#{item.currency},</if>
+                <if test="list[0].forbiddenSaleNations!=null">#{item.forbiddenSaleNations},</if>
+                <if test="list[0].description!=null">#{item.description},</if>
+                <if test="list[0].channel!=null">#{item.channel},</if>
             </trim>
         </foreach>
         ON DUPLICATE KEY UPDATE
@@ -521,7 +519,6 @@
             <if test="list[0].createTime!=null">CREATE_TIME=values(CREATE_TIME),</if>
             <if test="list[0].updateTime!=null">UPDATE_TIME=values(UPDATE_TIME),</if>
             <if test="list[0].isDelete!=null">IS_DELETE=values(IS_DELETE),</if>
-            <if test="list[0].itemId!=null">ITEM_ID=values(ITEM_ID),</if>
             <if test="list[0].productId!=null">PRODUCT_ID=values(PRODUCT_ID),</if>
             <if test="list[0].title!=null">TITLE=values(TITLE),</if>
             <if test="list[0].status!=null">STATUS=values(STATUS),</if>
@@ -533,7 +530,7 @@
             <if test="list[0].videoUrl!=null">VIDEO_URL=values(VIDEO_URL),</if>
             <if test="list[0].videoCover!=null">VIDEO_COVER=values(VIDEO_COVER),</if>
             <if test="list[0].orders!=null">ORDERS=values(ORDERS),</if>
-            <if test="list[0].bspecifics!=null">B_SPECIFICS=values(B_SPECIFICS),</if>
+            <if test="list[0].specification!=null">SPECIFICATION=values(SPECIFICATION),</if>
             <if test="list[0].itemProperty!=null">ITEM_PROPERTY=values(ITEM_PROPERTY),</if>
             <if test="list[0].searchKeywords!=null">SEARCH_KEYWORDS=values(SEARCH_KEYWORDS),</if>
             <if test="list[0].sellerId!=null">SELLER_ID=values(SELLER_ID),</if>
@@ -554,229 +551,222 @@
 
     <update id="batchUpdate" parameterType="com.clubfactory.item.center.core.dataobject.ItemDO">
         update
-        item_0
+        item
         <trim prefix="set" suffixOverrides=",">
             <if test="list[0].createTime!=null">
                 <trim prefix="CREATE_TIME = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.createTime,jdbcType=TIMESTAMP}
+                        when item_id=#{item.itemId} then #{item.createTime}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].updateTime!=null">
                 <trim prefix="UPDATE_TIME = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.updateTime,jdbcType=TIMESTAMP}
+                        when item_id=#{item.itemId} then #{item.updateTime}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].isDelete!=null">
                 <trim prefix="IS_DELETE = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.isDelete,jdbcType=TINYINT}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].itemId!=null">
-                <trim prefix="ITEM_ID = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.itemId,jdbcType=BIGINT}
+                        when item_id=#{item.itemId} then #{item.isDelete}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].productId!=null">
                 <trim prefix="PRODUCT_ID = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.productId,jdbcType=BIGINT}
+                        when item_id=#{item.itemId} then #{item.productId}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].title!=null">
                 <trim prefix="TITLE = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.title,jdbcType=VARCHAR}
+                        when item_id=#{item.itemId} then #{item.title}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].status!=null">
                 <trim prefix="STATUS = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.status,jdbcType=TINYINT}
+                        when item_id=#{item.itemId} then #{item.status}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].inventoryStatus!=null">
                 <trim prefix="INVENTORY_STATUS = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.inventoryStatus,jdbcType=TINYINT}
+                        when item_id=#{item.itemId} then #{item.inventoryStatus}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].version!=null">
                 <trim prefix="VERSION = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.version,jdbcType=BIGINT}
+                        when item_id=#{item.itemId} then #{item.version}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].categoryId!=null">
                 <trim prefix="CATEGORY_ID = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.categoryId,jdbcType=INTEGER}
+                        when item_id=#{item.itemId} then #{item.categoryId}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].bizModel!=null">
                 <trim prefix="BIZ_MODEL = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.bizModel,jdbcType=INTEGER}
+                        when item_id=#{item.itemId} then #{item.bizModel}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].imageUrl!=null">
                 <trim prefix="IMAGE_URL = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.imageUrl,jdbcType=VARCHAR}
+                        when item_id=#{item.itemId} then #{item.imageUrl}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].videoUrl!=null">
                 <trim prefix="VIDEO_URL = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.videoUrl,jdbcType=VARCHAR}
+                        when item_id=#{item.itemId} then #{item.videoUrl}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].videoCover!=null">
                 <trim prefix="VIDEO_COVER = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.videoCover,jdbcType=VARCHAR}
+                        when item_id=#{item.itemId} then #{item.videoCover}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].orders!=null">
                 <trim prefix="ORDERS = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.orders,jdbcType=INTEGER}
+                        when item_id=#{item.itemId} then #{item.orders}
                     </foreach>
                 </trim>
             </if>
-            <if test="list[0].bspecifics!=null">
-                <trim prefix="B_SPECIFICS = case" suffix="end,">
+            <if test="list[0].specification!=null">
+                <trim prefix="SPECIFICATION = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.bspecifics,jdbcType=LONGVARCHAR}
+                        when item_id=#{item.itemId} then #{item.specification}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].itemProperty!=null">
                 <trim prefix="ITEM_PROPERTY = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.itemProperty,jdbcType=VARCHAR}
+                        when item_id=#{item.itemId} then #{item.itemProperty}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].searchKeywords!=null">
                 <trim prefix="SEARCH_KEYWORDS = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.searchKeywords,jdbcType=VARCHAR}
+                        when item_id=#{item.itemId} then #{item.searchKeywords}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].sellerId!=null">
                 <trim prefix="SELLER_ID = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.sellerId,jdbcType=INTEGER}
+                        when item_id=#{item.itemId} then #{item.sellerId}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].sellerName!=null">
                 <trim prefix="SELLER_NAME = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.sellerName,jdbcType=VARCHAR}
+                        when item_id=#{item.itemId} then #{item.sellerName}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].storeId!=null">
                 <trim prefix="STORE_ID = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.storeId,jdbcType=INTEGER}
+                        when item_id=#{item.itemId} then #{item.storeId}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].features!=null">
                 <trim prefix="FEATURES = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.features,jdbcType=VARCHAR}
+                        when item_id=#{item.itemId} then #{item.features}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].feature!=null">
                 <trim prefix="FEATURE = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.feature,jdbcType=VARCHAR}
+                        when item_id=#{item.itemId} then #{item.feature}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].tags!=null">
                 <trim prefix="TAGS = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.tags,jdbcType=VARCHAR}
+                        when item_id=#{item.itemId} then #{item.tags}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].illegalTags!=null">
                 <trim prefix="ILLEGAL_TAGS = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.illegalTags,jdbcType=VARCHAR}
+                        when item_id=#{item.itemId} then #{item.illegalTags}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].skuMaxPrice!=null">
                 <trim prefix="SKU_MAX_PRICE = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.skuMaxPrice,jdbcType=DECIMAL}
+                        when item_id=#{item.itemId} then #{item.skuMaxPrice}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].skuMinPrice!=null">
                 <trim prefix="SKU_MIN_PRICE = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.skuMinPrice,jdbcType=DECIMAL}
+                        when item_id=#{item.itemId} then #{item.skuMinPrice}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].currency!=null">
                 <trim prefix="CURRENCY = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.currency,jdbcType=CHAR}
+                        when item_id=#{item.itemId} then #{item.currency}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].forbiddenSaleNations!=null">
                 <trim prefix="FORBIDDEN_SALE_NATIONS = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.forbiddenSaleNations,jdbcType=VARCHAR}
+                        when item_id=#{item.itemId} then #{item.forbiddenSaleNations}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].description!=null">
                 <trim prefix="DESCRIPTION = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.description,jdbcType=LONGVARCHAR}
+                        when item_id=#{item.itemId} then #{item.description}
                     </foreach>
                 </trim>
             </if>
             <if test="list[0].channel!=null">
                 <trim prefix="CHANNEL = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when id=#{item.id} then #{item.channel,jdbcType=VARCHAR}
+                        when item_id=#{item.itemId} then #{item.channel}
                     </foreach>
                 </trim>
             </if>
         </trim>
-        where id in
+        where item_id in
         <foreach collection="list" index="index" item="item" separator="," open="(" close=")">
-            #{item.id}
+            #{item.itemId}
         </foreach>
     </update>
 
