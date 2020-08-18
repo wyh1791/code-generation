@@ -4,23 +4,23 @@
 <mapper namespace="com.clubfactory.item.center.core.mapper.ItemSkuMapper">
 
     <resultMap id="BaseResultMap" type="com.clubfactory.item.center.core.dataobject.ItemSkuDO">
-        <id property="id" column="ID"/><!---->
-        <result property="createTime" column="CREATE_TIME"/><!---->
-        <result property="updateTime" column="UPDATE_TIME"/><!---->
-        <result property="isDelete" column="IS_DELETE"/><!--逻辑删除标示 1：删除-->
-        <result property="itemId" column="ITEM_ID"/><!--关联的item_id-->
-        <result property="itemSkuId" column="ITEM_SKU_ID"/><!--item_sku_id-->
-        <result property="productId" column="PRODUCT_ID"/><!--b端货品id-->
-        <result property="productSkuId" column="PRODUCT_SKU_ID"/><!--b端sku id-->
-        <result property="version" column="VERSION"/><!--item_sku版本号-->
-        <result property="status" column="STATUS"/><!--sku状态-->
-        <result property="inventoryStatus" column="INVENTORY_STATUS"/><!--库存状态,默认不售罄 dto不透出-->
-        <result property="imageUrl" column="IMAGE_URL"/><!--sku图片-->
-        <result property="feature" column="FEATURE"/><!--b端sku维度feature-->
-        <result property="weight" column="WEIGHT"/><!--可信赖的重量, 不管重量来源-->
-        <result property="merchantSkuCode" column="MERCHANT_SKU_CODE"/><!--seller_sku编码,大卖家才有-->
-        <result property="hsTable" column="HS_TABLE"/><!--多国hs_code, 税率-->
-        <result property="attributeInfo" column="ATTRIBUTE_INFO"/><!--sku属性kv串-->
+		<id property="id" column="ID"/><!---->
+		<result property="createTime" column="CREATE_TIME"/><!---->
+		<result property="updateTime" column="UPDATE_TIME"/><!---->
+		<result property="isDelete" column="IS_DELETE"/><!--逻辑删除标示 1：删除-->
+		<result property="itemId" column="ITEM_ID"/><!--关联的item_id-->
+		<result property="itemSkuId" column="ITEM_SKU_ID"/><!--item_sku_id-->
+		<result property="productId" column="PRODUCT_ID"/><!--b端货品id-->
+		<result property="productSkuId" column="PRODUCT_SKU_ID"/><!--b端sku id-->
+		<result property="version" column="VERSION"/><!--item_sku版本号-->
+		<result property="status" column="STATUS"/><!--sku状态-->
+		<result property="inventoryStatus" column="INVENTORY_STATUS"/><!--库存状态,默认不售罄 dto不透出-->
+		<result property="imageUrl" column="IMAGE_URL"/><!--sku图片-->
+		<result property="feature" column="FEATURE"/><!--b端sku维度feature-->
+		<result property="weight" column="WEIGHT"/><!--可信赖的重量, 不管重量来源-->
+		<result property="merchantSkuCode" column="MERCHANT_SKU_CODE"/><!--seller_sku编码,大卖家才有-->
+		<result property="hsTable" column="HS_TABLE"/><!--多国hs_code, 税率-->
+		<result property="attributeInfo" column="ATTRIBUTE_INFO"/><!--sku属性kv串-->
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -57,42 +57,42 @@
         INSERT INTO
         item_sku
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id!=null">ID,</if>
-            <if test="createTime!=null">CREATE_TIME,</if>
-            <if test="updateTime!=null">UPDATE_TIME,</if>
-            <if test="isDelete!=null">IS_DELETE,</if>
-            <if test="itemId!=null">ITEM_ID,</if>
-            <if test="itemSkuId!=null">ITEM_SKU_ID,</if>
-            <if test="productId!=null">PRODUCT_ID,</if>
-            <if test="productSkuId!=null">PRODUCT_SKU_ID,</if>
-            <if test="version!=null">VERSION,</if>
-            <if test="status!=null">STATUS,</if>
-            <if test="inventoryStatus!=null">INVENTORY_STATUS,</if>
-            <if test="imageUrl!=null">IMAGE_URL,</if>
-            <if test="feature!=null">FEATURE,</if>
-            <if test="weight!=null">WEIGHT,</if>
-            <if test="merchantSkuCode!=null">MERCHANT_SKU_CODE,</if>
-            <if test="hsTable!=null">HS_TABLE,</if>
-            <if test="attributeInfo!=null">ATTRIBUTE_INFO,</if>
+		<if test="id!=null">ID,</if>
+		<if test="createTime!=null">CREATE_TIME,</if>
+		<if test="updateTime!=null">UPDATE_TIME,</if>
+		<if test="isDelete!=null">IS_DELETE,</if>
+		<if test="itemId!=null">ITEM_ID,</if>
+		<if test="itemSkuId!=null">ITEM_SKU_ID,</if>
+		<if test="productId!=null">PRODUCT_ID,</if>
+		<if test="productSkuId!=null">PRODUCT_SKU_ID,</if>
+		<if test="version!=null">VERSION,</if>
+		<if test="status!=null">STATUS,</if>
+		<if test="inventoryStatus!=null">INVENTORY_STATUS,</if>
+		<if test="imageUrl!=null">IMAGE_URL,</if>
+		<if test="feature!=null">FEATURE,</if>
+		<if test="weight!=null">WEIGHT,</if>
+		<if test="merchantSkuCode!=null">MERCHANT_SKU_CODE,</if>
+		<if test="hsTable!=null">HS_TABLE,</if>
+		<if test="attributeInfo!=null">ATTRIBUTE_INFO,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id!=null">#{id},</if>
-            <if test="createTime!=null">#{createTime},</if>
-            <if test="updateTime!=null">#{updateTime},</if>
-            <if test="isDelete!=null">#{isDelete},</if>
-            <if test="itemId!=null">#{itemId},</if>
-            <if test="itemSkuId!=null">#{itemSkuId},</if>
-            <if test="productId!=null">#{productId},</if>
-            <if test="productSkuId!=null">#{productSkuId},</if>
-            <if test="version!=null">#{version},</if>
-            <if test="status!=null">#{status},</if>
-            <if test="inventoryStatus!=null">#{inventoryStatus},</if>
-            <if test="imageUrl!=null">#{imageUrl},</if>
-            <if test="feature!=null">#{feature},</if>
-            <if test="weight!=null">#{weight},</if>
-            <if test="merchantSkuCode!=null">#{merchantSkuCode},</if>
-            <if test="hsTable!=null">#{hsTable},</if>
-            <if test="attributeInfo!=null">#{attributeInfo},</if>
+		<if test="id!=null">#{id},</if>
+		<if test="createTime!=null">#{createTime},</if>
+		<if test="updateTime!=null">#{updateTime},</if>
+		<if test="isDelete!=null">#{isDelete},</if>
+		<if test="itemId!=null">#{itemId},</if>
+		<if test="itemSkuId!=null">#{itemSkuId},</if>
+		<if test="productId!=null">#{productId},</if>
+		<if test="productSkuId!=null">#{productSkuId},</if>
+		<if test="version!=null">#{version},</if>
+		<if test="status!=null">#{status},</if>
+		<if test="inventoryStatus!=null">#{inventoryStatus},</if>
+		<if test="imageUrl!=null">#{imageUrl},</if>
+		<if test="feature!=null">#{feature},</if>
+		<if test="weight!=null">#{weight},</if>
+		<if test="merchantSkuCode!=null">#{merchantSkuCode},</if>
+		<if test="hsTable!=null">#{hsTable},</if>
+		<if test="attributeInfo!=null">#{attributeInfo},</if>
         </trim>
     </insert>
 
@@ -101,60 +101,60 @@
         INSERT INTO
         item_sku
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id!=null">ID,</if>
-            <if test="createTime!=null">CREATE_TIME,</if>
-            <if test="updateTime!=null">UPDATE_TIME,</if>
-            <if test="isDelete!=null">IS_DELETE,</if>
-            <if test="itemId!=null">ITEM_ID,</if>
-            <if test="itemSkuId!=null">ITEM_SKU_ID,</if>
-            <if test="productId!=null">PRODUCT_ID,</if>
-            <if test="productSkuId!=null">PRODUCT_SKU_ID,</if>
-            <if test="version!=null">VERSION,</if>
-            <if test="status!=null">STATUS,</if>
-            <if test="inventoryStatus!=null">INVENTORY_STATUS,</if>
-            <if test="imageUrl!=null">IMAGE_URL,</if>
-            <if test="feature!=null">FEATURE,</if>
-            <if test="weight!=null">WEIGHT,</if>
-            <if test="merchantSkuCode!=null">MERCHANT_SKU_CODE,</if>
-            <if test="hsTable!=null">HS_TABLE,</if>
-            <if test="attributeInfo!=null">ATTRIBUTE_INFO,</if>
+		<if test="id!=null">ID,</if>
+		<if test="createTime!=null">CREATE_TIME,</if>
+		<if test="updateTime!=null">UPDATE_TIME,</if>
+		<if test="isDelete!=null">IS_DELETE,</if>
+		<if test="itemId!=null">ITEM_ID,</if>
+		<if test="itemSkuId!=null">ITEM_SKU_ID,</if>
+		<if test="productId!=null">PRODUCT_ID,</if>
+		<if test="productSkuId!=null">PRODUCT_SKU_ID,</if>
+		<if test="version!=null">VERSION,</if>
+		<if test="status!=null">STATUS,</if>
+		<if test="inventoryStatus!=null">INVENTORY_STATUS,</if>
+		<if test="imageUrl!=null">IMAGE_URL,</if>
+		<if test="feature!=null">FEATURE,</if>
+		<if test="weight!=null">WEIGHT,</if>
+		<if test="merchantSkuCode!=null">MERCHANT_SKU_CODE,</if>
+		<if test="hsTable!=null">HS_TABLE,</if>
+		<if test="attributeInfo!=null">ATTRIBUTE_INFO,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id!=null">#{id},</if>
-            <if test="createTime!=null">#{createTime},</if>
-            <if test="updateTime!=null">#{updateTime},</if>
-            <if test="isDelete!=null">#{isDelete},</if>
-            <if test="itemId!=null">#{itemId},</if>
-            <if test="itemSkuId!=null">#{itemSkuId},</if>
-            <if test="productId!=null">#{productId},</if>
-            <if test="productSkuId!=null">#{productSkuId},</if>
-            <if test="version!=null">#{version},</if>
-            <if test="status!=null">#{status},</if>
-            <if test="inventoryStatus!=null">#{inventoryStatus},</if>
-            <if test="imageUrl!=null">#{imageUrl},</if>
-            <if test="feature!=null">#{feature},</if>
-            <if test="weight!=null">#{weight},</if>
-            <if test="merchantSkuCode!=null">#{merchantSkuCode},</if>
-            <if test="hsTable!=null">#{hsTable},</if>
-            <if test="attributeInfo!=null">#{attributeInfo},</if>
+		<if test="id!=null">#{id},</if>
+		<if test="createTime!=null">#{createTime},</if>
+		<if test="updateTime!=null">#{updateTime},</if>
+		<if test="isDelete!=null">#{isDelete},</if>
+		<if test="itemId!=null">#{itemId},</if>
+		<if test="itemSkuId!=null">#{itemSkuId},</if>
+		<if test="productId!=null">#{productId},</if>
+		<if test="productSkuId!=null">#{productSkuId},</if>
+		<if test="version!=null">#{version},</if>
+		<if test="status!=null">#{status},</if>
+		<if test="inventoryStatus!=null">#{inventoryStatus},</if>
+		<if test="imageUrl!=null">#{imageUrl},</if>
+		<if test="feature!=null">#{feature},</if>
+		<if test="weight!=null">#{weight},</if>
+		<if test="merchantSkuCode!=null">#{merchantSkuCode},</if>
+		<if test="hsTable!=null">#{hsTable},</if>
+		<if test="attributeInfo!=null">#{attributeInfo},</if>
         </trim>
         ON DUPLICATE KEY UPDATE
         <trim suffixOverrides=",">
-            <if test="createTime!=null">CREATE_TIME=#{createTime},</if>
-            <if test="updateTime!=null">UPDATE_TIME=#{updateTime},</if>
-            <if test="isDelete!=null">IS_DELETE=#{isDelete},</if>
-            <if test="itemSkuId!=null">ITEM_SKU_ID=#{itemSkuId},</if>
-            <if test="productId!=null">PRODUCT_ID=#{productId},</if>
-            <if test="productSkuId!=null">PRODUCT_SKU_ID=#{productSkuId},</if>
-            <if test="version!=null">VERSION=#{version},</if>
-            <if test="status!=null">STATUS=#{status},</if>
-            <if test="inventoryStatus!=null">INVENTORY_STATUS=#{inventoryStatus},</if>
-            <if test="imageUrl!=null">IMAGE_URL=#{imageUrl},</if>
-            <if test="feature!=null">FEATURE=#{feature},</if>
-            <if test="weight!=null">WEIGHT=#{weight},</if>
-            <if test="merchantSkuCode!=null">MERCHANT_SKU_CODE=#{merchantSkuCode},</if>
-            <if test="hsTable!=null">HS_TABLE=#{hsTable},</if>
-            <if test="attributeInfo!=null">ATTRIBUTE_INFO=#{attributeInfo},</if>
+        <if test="createTime!=null">CREATE_TIME=#{createTime},</if>
+        <if test="updateTime!=null">UPDATE_TIME=#{updateTime},</if>
+        <if test="isDelete!=null">IS_DELETE=#{isDelete},</if>
+        <if test="itemSkuId!=null">ITEM_SKU_ID=#{itemSkuId},</if>
+        <if test="productId!=null">PRODUCT_ID=#{productId},</if>
+        <if test="productSkuId!=null">PRODUCT_SKU_ID=#{productSkuId},</if>
+        <if test="version!=null">VERSION=#{version},</if>
+        <if test="status!=null">STATUS=#{status},</if>
+        <if test="inventoryStatus!=null">INVENTORY_STATUS=#{inventoryStatus},</if>
+        <if test="imageUrl!=null">IMAGE_URL=#{imageUrl},</if>
+        <if test="feature!=null">FEATURE=#{feature},</if>
+        <if test="weight!=null">WEIGHT=#{weight},</if>
+        <if test="merchantSkuCode!=null">MERCHANT_SKU_CODE=#{merchantSkuCode},</if>
+        <if test="hsTable!=null">HS_TABLE=#{hsTable},</if>
+        <if test="attributeInfo!=null">ATTRIBUTE_INFO=#{attributeInfo},</if>
         </trim>
     </insert>
 
@@ -166,23 +166,23 @@
     <update id="updateByPrimaryKey">
         UPDATE item_sku
         <set>
-            <if test="id!=null">ID=#{id},</if>
-            <if test="createTime!=null">CREATE_TIME=#{createTime},</if>
-            <if test="updateTime!=null">UPDATE_TIME=#{updateTime},</if>
-            <if test="isDelete!=null">IS_DELETE=#{isDelete},</if>
-            <if test="itemId!=null">ITEM_ID=#{itemId},</if>
-            <if test="itemSkuId!=null">ITEM_SKU_ID=#{itemSkuId},</if>
-            <if test="productId!=null">PRODUCT_ID=#{productId},</if>
-            <if test="productSkuId!=null">PRODUCT_SKU_ID=#{productSkuId},</if>
-            <if test="version!=null">VERSION=#{version},</if>
-            <if test="status!=null">STATUS=#{status},</if>
-            <if test="inventoryStatus!=null">INVENTORY_STATUS=#{inventoryStatus},</if>
-            <if test="imageUrl!=null">IMAGE_URL=#{imageUrl},</if>
-            <if test="feature!=null">FEATURE=#{feature},</if>
-            <if test="weight!=null">WEIGHT=#{weight},</if>
-            <if test="merchantSkuCode!=null">MERCHANT_SKU_CODE=#{merchantSkuCode},</if>
-            <if test="hsTable!=null">HS_TABLE=#{hsTable},</if>
-            <if test="attributeInfo!=null">ATTRIBUTE_INFO=#{attributeInfo},</if>
+		<if test="id!=null">ID=#{id},</if>
+		<if test="createTime!=null">CREATE_TIME=#{createTime},</if>
+		<if test="updateTime!=null">UPDATE_TIME=#{updateTime},</if>
+		<if test="isDelete!=null">IS_DELETE=#{isDelete},</if>
+		<if test="itemId!=null">ITEM_ID=#{itemId},</if>
+		<if test="itemSkuId!=null">ITEM_SKU_ID=#{itemSkuId},</if>
+		<if test="productId!=null">PRODUCT_ID=#{productId},</if>
+		<if test="productSkuId!=null">PRODUCT_SKU_ID=#{productSkuId},</if>
+		<if test="version!=null">VERSION=#{version},</if>
+		<if test="status!=null">STATUS=#{status},</if>
+		<if test="inventoryStatus!=null">INVENTORY_STATUS=#{inventoryStatus},</if>
+		<if test="imageUrl!=null">IMAGE_URL=#{imageUrl},</if>
+		<if test="feature!=null">FEATURE=#{feature},</if>
+		<if test="weight!=null">WEIGHT=#{weight},</if>
+		<if test="merchantSkuCode!=null">MERCHANT_SKU_CODE=#{merchantSkuCode},</if>
+		<if test="hsTable!=null">HS_TABLE=#{hsTable},</if>
+		<if test="attributeInfo!=null">ATTRIBUTE_INFO=#{attributeInfo},</if>
         </set>
         <include refid="idCnd"/>
     </update>
@@ -198,23 +198,23 @@
 
     <sql id="where_clause">
         <where>
-            <if test="id!=null">AND ID=#{id}</if>
-            <if test="createTime!=null">AND CREATE_TIME=#{createTime}</if>
-            <if test="updateTime!=null">AND UPDATE_TIME=#{updateTime}</if>
-            <if test="isDelete!=null">AND IS_DELETE=#{isDelete}</if>
-            <if test="itemId!=null">AND ITEM_ID=#{itemId}</if>
-            <if test="itemSkuId!=null">AND ITEM_SKU_ID=#{itemSkuId}</if>
-            <if test="productId!=null">AND PRODUCT_ID=#{productId}</if>
-            <if test="productSkuId!=null">AND PRODUCT_SKU_ID=#{productSkuId}</if>
-            <if test="version!=null">AND VERSION=#{version}</if>
-            <if test="status!=null">AND STATUS=#{status}</if>
-            <if test="inventoryStatus!=null">AND INVENTORY_STATUS=#{inventoryStatus}</if>
-            <if test="imageUrl!=null">AND IMAGE_URL=#{imageUrl}</if>
-            <if test="feature!=null">AND FEATURE=#{feature}</if>
-            <if test="weight!=null">AND WEIGHT=#{weight}</if>
-            <if test="merchantSkuCode!=null">AND MERCHANT_SKU_CODE=#{merchantSkuCode}</if>
-            <if test="hsTable!=null">AND HS_TABLE=#{hsTable}</if>
-            <if test="attributeInfo!=null">AND ATTRIBUTE_INFO=#{attributeInfo}</if>
+        <if test="id!=null">AND ID=#{id}</if>
+        <if test="createTime!=null">AND CREATE_TIME=#{createTime}</if>
+        <if test="updateTime!=null">AND UPDATE_TIME=#{updateTime}</if>
+        <if test="isDelete!=null">AND IS_DELETE=#{isDelete}</if>
+        <if test="itemId!=null">AND ITEM_ID=#{itemId}</if>
+        <if test="itemSkuId!=null">AND ITEM_SKU_ID=#{itemSkuId}</if>
+        <if test="productId!=null">AND PRODUCT_ID=#{productId}</if>
+        <if test="productSkuId!=null">AND PRODUCT_SKU_ID=#{productSkuId}</if>
+        <if test="version!=null">AND VERSION=#{version}</if>
+        <if test="status!=null">AND STATUS=#{status}</if>
+        <if test="inventoryStatus!=null">AND INVENTORY_STATUS=#{inventoryStatus}</if>
+        <if test="imageUrl!=null">AND IMAGE_URL=#{imageUrl}</if>
+        <if test="feature!=null">AND FEATURE=#{feature}</if>
+        <if test="weight!=null">AND WEIGHT=#{weight}</if>
+        <if test="merchantSkuCode!=null">AND MERCHANT_SKU_CODE=#{merchantSkuCode}</if>
+        <if test="hsTable!=null">AND HS_TABLE=#{hsTable}</if>
+        <if test="attributeInfo!=null">AND ATTRIBUTE_INFO=#{attributeInfo}</if>
         </where>
     </sql>
 
@@ -230,46 +230,46 @@
     <insert id="batchInsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemSkuDO"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO
-        item_sku
+    item_sku
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="list[0].id!=null">ID,</if>
-            <if test="list[0].createTime!=null">CREATE_TIME,</if>
-            <if test="list[0].updateTime!=null">UPDATE_TIME,</if>
-            <if test="list[0].isDelete!=null">IS_DELETE,</if>
-            <if test="list[0].itemId!=null">ITEM_ID,</if>
-            <if test="list[0].itemSkuId!=null">ITEM_SKU_ID,</if>
-            <if test="list[0].productId!=null">PRODUCT_ID,</if>
-            <if test="list[0].productSkuId!=null">PRODUCT_SKU_ID,</if>
-            <if test="list[0].version!=null">VERSION,</if>
-            <if test="list[0].status!=null">STATUS,</if>
-            <if test="list[0].inventoryStatus!=null">INVENTORY_STATUS,</if>
-            <if test="list[0].imageUrl!=null">IMAGE_URL,</if>
-            <if test="list[0].feature!=null">FEATURE,</if>
-            <if test="list[0].weight!=null">WEIGHT,</if>
-            <if test="list[0].merchantSkuCode!=null">MERCHANT_SKU_CODE,</if>
-            <if test="list[0].hsTable!=null">HS_TABLE,</if>
-            <if test="list[0].attributeInfo!=null">ATTRIBUTE_INFO,</if>
+    <if test="list[0].id!=null">ID,</if>
+    <if test="list[0].createTime!=null">CREATE_TIME,</if>
+    <if test="list[0].updateTime!=null">UPDATE_TIME,</if>
+    <if test="list[0].isDelete!=null">IS_DELETE,</if>
+    <if test="list[0].itemId!=null">ITEM_ID,</if>
+    <if test="list[0].itemSkuId!=null">ITEM_SKU_ID,</if>
+    <if test="list[0].productId!=null">PRODUCT_ID,</if>
+    <if test="list[0].productSkuId!=null">PRODUCT_SKU_ID,</if>
+    <if test="list[0].version!=null">VERSION,</if>
+    <if test="list[0].status!=null">STATUS,</if>
+    <if test="list[0].inventoryStatus!=null">INVENTORY_STATUS,</if>
+    <if test="list[0].imageUrl!=null">IMAGE_URL,</if>
+    <if test="list[0].feature!=null">FEATURE,</if>
+    <if test="list[0].weight!=null">WEIGHT,</if>
+    <if test="list[0].merchantSkuCode!=null">MERCHANT_SKU_CODE,</if>
+    <if test="list[0].hsTable!=null">HS_TABLE,</if>
+    <if test="list[0].attributeInfo!=null">ATTRIBUTE_INFO,</if>
         </trim>
         values
         <foreach collection="list" item="item" separator=",">
             <trim prefix="(" suffix=")" suffixOverrides=",">
-                <if test="list[0].id!=null">#{item.id},</if>
-                <if test="list[0].createTime!=null">#{item.createTime},</if>
-                <if test="list[0].updateTime!=null">#{item.updateTime},</if>
-                <if test="list[0].isDelete!=null">#{item.isDelete},</if>
-                <if test="list[0].itemId!=null">#{item.itemId},</if>
-                <if test="list[0].itemSkuId!=null">#{item.itemSkuId},</if>
-                <if test="list[0].productId!=null">#{item.productId},</if>
-                <if test="list[0].productSkuId!=null">#{item.productSkuId},</if>
-                <if test="list[0].version!=null">#{item.version},</if>
-                <if test="list[0].status!=null">#{item.status},</if>
-                <if test="list[0].inventoryStatus!=null">#{item.inventoryStatus},</if>
-                <if test="list[0].imageUrl!=null">#{item.imageUrl},</if>
-                <if test="list[0].feature!=null">#{item.feature},</if>
-                <if test="list[0].weight!=null">#{item.weight},</if>
-                <if test="list[0].merchantSkuCode!=null">#{item.merchantSkuCode},</if>
-                <if test="list[0].hsTable!=null">#{item.hsTable},</if>
-                <if test="list[0].attributeInfo!=null">#{item.attributeInfo},</if>
+    <if test="list[0].id!=null">#{item.id},</if>
+    <if test="list[0].createTime!=null">#{item.createTime},</if>
+    <if test="list[0].updateTime!=null">#{item.updateTime},</if>
+    <if test="list[0].isDelete!=null">#{item.isDelete},</if>
+    <if test="list[0].itemId!=null">#{item.itemId},</if>
+    <if test="list[0].itemSkuId!=null">#{item.itemSkuId},</if>
+    <if test="list[0].productId!=null">#{item.productId},</if>
+    <if test="list[0].productSkuId!=null">#{item.productSkuId},</if>
+    <if test="list[0].version!=null">#{item.version},</if>
+    <if test="list[0].status!=null">#{item.status},</if>
+    <if test="list[0].inventoryStatus!=null">#{item.inventoryStatus},</if>
+    <if test="list[0].imageUrl!=null">#{item.imageUrl},</if>
+    <if test="list[0].feature!=null">#{item.feature},</if>
+    <if test="list[0].weight!=null">#{item.weight},</if>
+    <if test="list[0].merchantSkuCode!=null">#{item.merchantSkuCode},</if>
+    <if test="list[0].hsTable!=null">#{item.hsTable},</if>
+    <if test="list[0].attributeInfo!=null">#{item.attributeInfo},</if>
             </trim>
         </foreach>
     </insert>
@@ -277,46 +277,46 @@
     <insert id="batchUpsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemSkuDO"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO
-        item_sku
+    item_sku
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="list[0].id!=null">ID,</if>
-            <if test="list[0].createTime!=null">CREATE_TIME,</if>
-            <if test="list[0].updateTime!=null">UPDATE_TIME,</if>
-            <if test="list[0].isDelete!=null">IS_DELETE,</if>
-            <if test="list[0].itemId!=null">ITEM_ID,</if>
-            <if test="list[0].itemSkuId!=null">ITEM_SKU_ID,</if>
-            <if test="list[0].productId!=null">PRODUCT_ID,</if>
-            <if test="list[0].productSkuId!=null">PRODUCT_SKU_ID,</if>
-            <if test="list[0].version!=null">VERSION,</if>
-            <if test="list[0].status!=null">STATUS,</if>
-            <if test="list[0].inventoryStatus!=null">INVENTORY_STATUS,</if>
-            <if test="list[0].imageUrl!=null">IMAGE_URL,</if>
-            <if test="list[0].feature!=null">FEATURE,</if>
-            <if test="list[0].weight!=null">WEIGHT,</if>
-            <if test="list[0].merchantSkuCode!=null">MERCHANT_SKU_CODE,</if>
-            <if test="list[0].hsTable!=null">HS_TABLE,</if>
-            <if test="list[0].attributeInfo!=null">ATTRIBUTE_INFO,</if>
+    <if test="list[0].id!=null">ID,</if>
+    <if test="list[0].createTime!=null">CREATE_TIME,</if>
+    <if test="list[0].updateTime!=null">UPDATE_TIME,</if>
+    <if test="list[0].isDelete!=null">IS_DELETE,</if>
+    <if test="list[0].itemId!=null">ITEM_ID,</if>
+    <if test="list[0].itemSkuId!=null">ITEM_SKU_ID,</if>
+    <if test="list[0].productId!=null">PRODUCT_ID,</if>
+    <if test="list[0].productSkuId!=null">PRODUCT_SKU_ID,</if>
+    <if test="list[0].version!=null">VERSION,</if>
+    <if test="list[0].status!=null">STATUS,</if>
+    <if test="list[0].inventoryStatus!=null">INVENTORY_STATUS,</if>
+    <if test="list[0].imageUrl!=null">IMAGE_URL,</if>
+    <if test="list[0].feature!=null">FEATURE,</if>
+    <if test="list[0].weight!=null">WEIGHT,</if>
+    <if test="list[0].merchantSkuCode!=null">MERCHANT_SKU_CODE,</if>
+    <if test="list[0].hsTable!=null">HS_TABLE,</if>
+    <if test="list[0].attributeInfo!=null">ATTRIBUTE_INFO,</if>
         </trim>
         values
         <foreach collection="list" item="item" separator=",">
             <trim prefix="(" suffix=")" suffixOverrides=",">
-                <if test="list[0].id!=null">#{item.id},</if>
-                <if test="list[0].createTime!=null">#{item.createTime},</if>
-                <if test="list[0].updateTime!=null">#{item.updateTime},</if>
-                <if test="list[0].isDelete!=null">#{item.isDelete},</if>
-                <if test="list[0].itemId!=null">#{item.itemId},</if>
-                <if test="list[0].itemSkuId!=null">#{item.itemSkuId},</if>
-                <if test="list[0].productId!=null">#{item.productId},</if>
-                <if test="list[0].productSkuId!=null">#{item.productSkuId},</if>
-                <if test="list[0].version!=null">#{item.version},</if>
-                <if test="list[0].status!=null">#{item.status},</if>
-                <if test="list[0].inventoryStatus!=null">#{item.inventoryStatus},</if>
-                <if test="list[0].imageUrl!=null">#{item.imageUrl},</if>
-                <if test="list[0].feature!=null">#{item.feature},</if>
-                <if test="list[0].weight!=null">#{item.weight},</if>
-                <if test="list[0].merchantSkuCode!=null">#{item.merchantSkuCode},</if>
-                <if test="list[0].hsTable!=null">#{item.hsTable},</if>
-                <if test="list[0].attributeInfo!=null">#{item.attributeInfo},</if>
+    <if test="list[0].id!=null">#{item.id},</if>
+    <if test="list[0].createTime!=null">#{item.createTime},</if>
+    <if test="list[0].updateTime!=null">#{item.updateTime},</if>
+    <if test="list[0].isDelete!=null">#{item.isDelete},</if>
+    <if test="list[0].itemId!=null">#{item.itemId},</if>
+    <if test="list[0].itemSkuId!=null">#{item.itemSkuId},</if>
+    <if test="list[0].productId!=null">#{item.productId},</if>
+    <if test="list[0].productSkuId!=null">#{item.productSkuId},</if>
+    <if test="list[0].version!=null">#{item.version},</if>
+    <if test="list[0].status!=null">#{item.status},</if>
+    <if test="list[0].inventoryStatus!=null">#{item.inventoryStatus},</if>
+    <if test="list[0].imageUrl!=null">#{item.imageUrl},</if>
+    <if test="list[0].feature!=null">#{item.feature},</if>
+    <if test="list[0].weight!=null">#{item.weight},</if>
+    <if test="list[0].merchantSkuCode!=null">#{item.merchantSkuCode},</if>
+    <if test="list[0].hsTable!=null">#{item.hsTable},</if>
+    <if test="list[0].attributeInfo!=null">#{item.attributeInfo},</if>
             </trim>
         </foreach>
         ON DUPLICATE KEY UPDATE
@@ -341,117 +341,117 @@
 
     <update id="batchUpdate" parameterType="com.clubfactory.item.center.core.dataobject.ItemSkuDO">
         update
-        item_sku
+    item_sku
         <trim prefix="set" suffixOverrides=",">
-            <if test="list[0].createTime!=null">
-                <trim prefix="CREATE_TIME = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.createTime}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].updateTime!=null">
-                <trim prefix="UPDATE_TIME = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.updateTime}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].isDelete!=null">
-                <trim prefix="IS_DELETE = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.isDelete}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].itemSkuId!=null">
-                <trim prefix="ITEM_SKU_ID = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.itemSkuId}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].productId!=null">
-                <trim prefix="PRODUCT_ID = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.productId}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].productSkuId!=null">
-                <trim prefix="PRODUCT_SKU_ID = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.productSkuId}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].version!=null">
-                <trim prefix="VERSION = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.version}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].status!=null">
-                <trim prefix="STATUS = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.status}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].inventoryStatus!=null">
-                <trim prefix="INVENTORY_STATUS = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.inventoryStatus}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].imageUrl!=null">
-                <trim prefix="IMAGE_URL = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.imageUrl}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].feature!=null">
-                <trim prefix="FEATURE = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.feature}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].weight!=null">
-                <trim prefix="WEIGHT = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.weight}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].merchantSkuCode!=null">
-                <trim prefix="MERCHANT_SKU_CODE = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.merchantSkuCode}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].hsTable!=null">
-                <trim prefix="HS_TABLE = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.hsTable}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].attributeInfo!=null">
-                <trim prefix="ATTRIBUTE_INFO = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.attributeInfo}
-                    </foreach>
-                </trim>
-            </if>
+        <if test="list[0].createTime!=null">
+            <trim prefix="CREATE_TIME = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.createTime}
+                </foreach>
+            </trim>
+        </if>
+        <if test="list[0].updateTime!=null">
+            <trim prefix="UPDATE_TIME = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.updateTime}
+                </foreach>
+            </trim>
+        </if>
+        <if test="list[0].isDelete!=null">
+            <trim prefix="IS_DELETE = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.isDelete}
+                </foreach>
+            </trim>
+        </if>
+        <if test="list[0].itemSkuId!=null">
+            <trim prefix="ITEM_SKU_ID = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.itemSkuId}
+                </foreach>
+            </trim>
+        </if>
+        <if test="list[0].productId!=null">
+            <trim prefix="PRODUCT_ID = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.productId}
+                </foreach>
+            </trim>
+        </if>
+        <if test="list[0].productSkuId!=null">
+            <trim prefix="PRODUCT_SKU_ID = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.productSkuId}
+                </foreach>
+            </trim>
+        </if>
+        <if test="list[0].version!=null">
+            <trim prefix="VERSION = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.version}
+                </foreach>
+            </trim>
+        </if>
+        <if test="list[0].status!=null">
+            <trim prefix="STATUS = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.status}
+                </foreach>
+            </trim>
+        </if>
+        <if test="list[0].inventoryStatus!=null">
+            <trim prefix="INVENTORY_STATUS = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.inventoryStatus}
+                </foreach>
+            </trim>
+        </if>
+        <if test="list[0].imageUrl!=null">
+            <trim prefix="IMAGE_URL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.imageUrl}
+                </foreach>
+            </trim>
+        </if>
+        <if test="list[0].feature!=null">
+            <trim prefix="FEATURE = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.feature}
+                </foreach>
+            </trim>
+        </if>
+        <if test="list[0].weight!=null">
+            <trim prefix="WEIGHT = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.weight}
+                </foreach>
+            </trim>
+        </if>
+        <if test="list[0].merchantSkuCode!=null">
+            <trim prefix="MERCHANT_SKU_CODE = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.merchantSkuCode}
+                </foreach>
+            </trim>
+        </if>
+        <if test="list[0].hsTable!=null">
+            <trim prefix="HS_TABLE = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.hsTable}
+                </foreach>
+            </trim>
+        </if>
+        <if test="list[0].attributeInfo!=null">
+            <trim prefix="ATTRIBUTE_INFO = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.attributeInfo}
+                </foreach>
+            </trim>
+        </if>
         </trim>
         where item_id in
         <foreach collection="list" index="index" item="item" separator="," open="(" close=")">
-            #{item.itemId}
+#{item.itemId}
         </foreach>
     </update>
 

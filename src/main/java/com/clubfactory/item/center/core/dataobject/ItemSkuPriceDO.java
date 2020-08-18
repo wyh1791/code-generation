@@ -1,6 +1,6 @@
 /**
 *@Author: wyh
-*@Date: 2020-08-12
+*@Date: 2020-08-18
 */
 package com.clubfactory.item.center.core.dataobject;
 
@@ -14,7 +14,7 @@ import lombok.experimental.Accessors;
 * @ClassName: ItemSkuPrice
 * @Description:
 * @author wyh
-* @date 2020-08-12
+* @date 2020-08-18
 */
 @Data
 @Accessors(chain = true)

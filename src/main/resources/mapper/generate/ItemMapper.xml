@@ -17,7 +17,8 @@
         <result property="version" column="VERSION"/><!--item商品版本号-->
         <result property="categoryId" column="CATEGORY_ID"/><!--后台叶子类目id-->
         <result property="bizModel" column="BIZ_MODEL"/><!--业务模式-->
-        <result property="imageUrl" column="IMAGE_URL"/><!--主图url-->
+        <result property="mainImage" column="MAIN_IMAGE"/><!--商品主图-->
+        <result property="images" column="IMAGES"/><!--轮播图-->
         <result property="videoUrl" column="VIDEO_URL"/><!--视频url-->
         <result property="videoCover" column="VIDEO_COVER"/><!--头图url-->
         <result property="orders" column="ORDERS"/><!--确认总销量-->
@@ -54,7 +55,8 @@
             VERSION,
             CATEGORY_ID,
             BIZ_MODEL,
-            IMAGE_URL,
+            MAIN_IMAGE,
+            IMAGES,
             VIDEO_URL,
             VIDEO_COVER,
             ORDERS,
@@ -102,7 +104,8 @@
             <if test="version!=null">VERSION,</if>
             <if test="categoryId!=null">CATEGORY_ID,</if>
             <if test="bizModel!=null">BIZ_MODEL,</if>
-            <if test="imageUrl!=null">IMAGE_URL,</if>
+            <if test="mainImage!=null">MAIN_IMAGE,</if>
+            <if test="images!=null">IMAGES,</if>
             <if test="videoUrl!=null">VIDEO_URL,</if>
             <if test="videoCover!=null">VIDEO_COVER,</if>
             <if test="orders!=null">ORDERS,</if>
@@ -137,7 +140,8 @@
             <if test="version!=null">#{version},</if>
             <if test="categoryId!=null">#{categoryId},</if>
             <if test="bizModel!=null">#{bizModel},</if>
-            <if test="imageUrl!=null">#{imageUrl},</if>
+            <if test="mainImage!=null">#{mainImage},</if>
+            <if test="images!=null">#{images},</if>
             <if test="videoUrl!=null">#{videoUrl},</if>
             <if test="videoCover!=null">#{videoCover},</if>
             <if test="orders!=null">#{orders},</if>
@@ -178,7 +182,8 @@
             <if test="version!=null">VERSION,</if>
             <if test="categoryId!=null">CATEGORY_ID,</if>
             <if test="bizModel!=null">BIZ_MODEL,</if>
-            <if test="imageUrl!=null">IMAGE_URL,</if>
+            <if test="mainImage!=null">MAIN_IMAGE,</if>
+            <if test="images!=null">IMAGES,</if>
             <if test="videoUrl!=null">VIDEO_URL,</if>
             <if test="videoCover!=null">VIDEO_COVER,</if>
             <if test="orders!=null">ORDERS,</if>
@@ -213,7 +218,8 @@
             <if test="version!=null">#{version},</if>
             <if test="categoryId!=null">#{categoryId},</if>
             <if test="bizModel!=null">#{bizModel},</if>
-            <if test="imageUrl!=null">#{imageUrl},</if>
+            <if test="mainImage!=null">#{mainImage},</if>
+            <if test="images!=null">#{images},</if>
             <if test="videoUrl!=null">#{videoUrl},</if>
             <if test="videoCover!=null">#{videoCover},</if>
             <if test="orders!=null">#{orders},</if>
@@ -247,7 +253,8 @@
             <if test="version!=null">VERSION=#{version},</if>
             <if test="categoryId!=null">CATEGORY_ID=#{categoryId},</if>
             <if test="bizModel!=null">BIZ_MODEL=#{bizModel},</if>
-            <if test="imageUrl!=null">IMAGE_URL=#{imageUrl},</if>
+            <if test="mainImage!=null">MAIN_IMAGE=#{mainImage},</if>
+            <if test="images!=null">IMAGES=#{images},</if>
             <if test="videoUrl!=null">VIDEO_URL=#{videoUrl},</if>
             <if test="videoCover!=null">VIDEO_COVER=#{videoCover},</if>
             <if test="orders!=null">ORDERS=#{orders},</if>
@@ -291,7 +298,8 @@
             <if test="version!=null">VERSION=#{version},</if>
             <if test="categoryId!=null">CATEGORY_ID=#{categoryId},</if>
             <if test="bizModel!=null">BIZ_MODEL=#{bizModel},</if>
-            <if test="imageUrl!=null">IMAGE_URL=#{imageUrl},</if>
+            <if test="mainImage!=null">MAIN_IMAGE=#{mainImage},</if>
+            <if test="images!=null">IMAGES=#{images},</if>
             <if test="videoUrl!=null">VIDEO_URL=#{videoUrl},</if>
             <if test="videoCover!=null">VIDEO_COVER=#{videoCover},</if>
             <if test="orders!=null">ORDERS=#{orders},</if>
@@ -339,7 +347,8 @@
             <if test="version!=null">AND VERSION=#{version}</if>
             <if test="categoryId!=null">AND CATEGORY_ID=#{categoryId}</if>
             <if test="bizModel!=null">AND BIZ_MODEL=#{bizModel}</if>
-            <if test="imageUrl!=null">AND IMAGE_URL=#{imageUrl}</if>
+            <if test="mainImage!=null">AND MAIN_IMAGE=#{mainImage}</if>
+            <if test="images!=null">AND IMAGES=#{images}</if>
             <if test="videoUrl!=null">AND VIDEO_URL=#{videoUrl}</if>
             <if test="videoCover!=null">AND VIDEO_COVER=#{videoCover}</if>
             <if test="orders!=null">AND ORDERS=#{orders}</if>
@@ -389,7 +398,8 @@
             <if test="list[0].version!=null">VERSION,</if>
             <if test="list[0].categoryId!=null">CATEGORY_ID,</if>
             <if test="list[0].bizModel!=null">BIZ_MODEL,</if>
-            <if test="list[0].imageUrl!=null">IMAGE_URL,</if>
+            <if test="list[0].mainImage!=null">MAIN_IMAGE,</if>
+            <if test="list[0].images!=null">IMAGES,</if>
             <if test="list[0].videoUrl!=null">VIDEO_URL,</if>
             <if test="list[0].videoCover!=null">VIDEO_COVER,</if>
             <if test="list[0].orders!=null">ORDERS,</if>
@@ -426,7 +436,8 @@
                 <if test="list[0].version!=null">#{item.version},</if>
                 <if test="list[0].categoryId!=null">#{item.categoryId},</if>
                 <if test="list[0].bizModel!=null">#{item.bizModel},</if>
-                <if test="list[0].imageUrl!=null">#{item.imageUrl},</if>
+                <if test="list[0].mainImage!=null">#{item.mainImage},</if>
+                <if test="list[0].images!=null">#{item.images},</if>
                 <if test="list[0].videoUrl!=null">#{item.videoUrl},</if>
                 <if test="list[0].videoCover!=null">#{item.videoCover},</if>
                 <if test="list[0].orders!=null">#{item.orders},</if>
@@ -468,7 +479,8 @@
             <if test="list[0].version!=null">VERSION,</if>
             <if test="list[0].categoryId!=null">CATEGORY_ID,</if>
             <if test="list[0].bizModel!=null">BIZ_MODEL,</if>
-            <if test="list[0].imageUrl!=null">IMAGE_URL,</if>
+            <if test="list[0].mainImage!=null">MAIN_IMAGE,</if>
+            <if test="list[0].images!=null">IMAGES,</if>
             <if test="list[0].videoUrl!=null">VIDEO_URL,</if>
             <if test="list[0].videoCover!=null">VIDEO_COVER,</if>
             <if test="list[0].orders!=null">ORDERS,</if>
@@ -505,7 +517,8 @@
                 <if test="list[0].version!=null">#{item.version},</if>
                 <if test="list[0].categoryId!=null">#{item.categoryId},</if>
                 <if test="list[0].bizModel!=null">#{item.bizModel},</if>
-                <if test="list[0].imageUrl!=null">#{item.imageUrl},</if>
+                <if test="list[0].mainImage!=null">#{item.mainImage},</if>
+                <if test="list[0].images!=null">#{item.images},</if>
                 <if test="list[0].videoUrl!=null">#{item.videoUrl},</if>
                 <if test="list[0].videoCover!=null">#{item.videoCover},</if>
                 <if test="list[0].orders!=null">#{item.orders},</if>
@@ -540,7 +553,8 @@
             <if test="list[0].version!=null">VERSION=values(VERSION),</if>
             <if test="list[0].categoryId!=null">CATEGORY_ID=values(CATEGORY_ID),</if>
             <if test="list[0].bizModel!=null">BIZ_MODEL=values(BIZ_MODEL),</if>
-            <if test="list[0].imageUrl!=null">IMAGE_URL=values(IMAGE_URL),</if>
+            <if test="list[0].mainImage!=null">MAIN_IMAGE=values(MAIN_IMAGE),</if>
+            <if test="list[0].images!=null">IMAGES=values(IMAGES),</if>
             <if test="list[0].videoUrl!=null">VIDEO_URL=values(VIDEO_URL),</if>
             <if test="list[0].videoCover!=null">VIDEO_COVER=values(VIDEO_COVER),</if>
             <if test="list[0].orders!=null">ORDERS=values(ORDERS),</if>
@@ -644,10 +658,17 @@
                     </foreach>
                 </trim>
             </if>
-            <if test="list[0].imageUrl!=null">
-                <trim prefix="IMAGE_URL = case" suffix="end,">
+            <if test="list[0].mainImage!=null">
+                <trim prefix="MAIN_IMAGE = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.imageUrl}
+                        when item_id=#{item.itemId} then #{item.mainImage}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].images!=null">
+                <trim prefix="IMAGES = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when item_id=#{item.itemId} then #{item.images}
                     </foreach>
                 </trim>
             </if>

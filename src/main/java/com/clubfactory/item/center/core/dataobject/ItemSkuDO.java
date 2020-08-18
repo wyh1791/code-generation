@@ -1,20 +1,20 @@
 /**
 *@Author: wyh
-*@Date: 2020-08-12
+*@Date: 2020-08-18
 */
 package com.clubfactory.item.center.core.dataobject;
 
-import lombok.Data;
-import lombok.experimental.Accessors;
-
 import java.io.Serializable;
 import java.util.Date;
+import java.math.BigDecimal;
+import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
 * @ClassName: ItemSku
 * @Description:
 * @author wyh
-* @date 2020-08-12
+* @date 2020-08-18
 */
 @Data
 @Accessors(chain = true)
