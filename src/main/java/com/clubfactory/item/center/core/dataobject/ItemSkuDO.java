@@ -1,20 +1,20 @@
 /**
 *@Author: wyh
-*@Date: 2020-08-05
+*@Date: 2020-08-12
 */
 package com.clubfactory.item.center.core.dataobject;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.math.BigDecimal;
 import lombok.Data;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
 * @ClassName: ItemSku
 * @Description:
 * @author wyh
-* @date 2020-08-05
+* @date 2020-08-12
 */
 @Data
 @Accessors(chain = true)
@@ -89,7 +89,7 @@ public class ItemSkuDO implements Serializable{
     /**
      * 可信赖的重量, 不管重量来源
      */
-	private Long confirmWeight;
+	private Long weight;
 
     /**
      * seller_sku编码,大卖家才有

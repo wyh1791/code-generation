@@ -4,12 +4,12 @@
 <mapper namespace="com.clubfactory.item.center.core.mapper.ItemImagesMapper">
 
     <resultMap id="BaseResultMap" type="com.clubfactory.item.center.core.dataobject.ItemImagesDO">
-        <id property="id" column="ID"/><!--id-->
-        <result property="updateTime" column="UPDATE_TIME"/><!--更新时间精确到毫秒-->
-        <result property="createTime" column="CREATE_TIME"/><!---->
-        <result property="itemId" column="ITEM_ID"/><!--item_id-->
-        <result property="url" column="URL"/><!--图片url-->
-        <result property="sequence" column="SEQUENCE"/><!--图片序号, 从大到小排列-->
+		<id property="id" column="ID"/><!--id-->
+		<result property="updateTime" column="UPDATE_TIME"/><!--更新时间精确到毫秒-->
+		<result property="createTime" column="CREATE_TIME"/><!---->
+		<result property="itemId" column="ITEM_ID"/><!--item_id-->
+		<result property="url" column="URL"/><!--图片url-->
+		<result property="sequence" column="SEQUENCE"/><!--图片序号, 从大到小排列-->
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -35,20 +35,20 @@
         INSERT INTO
         item_images
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id!=null">ID,</if>
-            <if test="updateTime!=null">UPDATE_TIME,</if>
-            <if test="createTime!=null">CREATE_TIME,</if>
-            <if test="itemId!=null">ITEM_ID,</if>
-            <if test="url!=null">URL,</if>
-            <if test="sequence!=null">SEQUENCE,</if>
+		<if test="id!=null">ID,</if>
+		<if test="updateTime!=null">UPDATE_TIME,</if>
+		<if test="createTime!=null">CREATE_TIME,</if>
+		<if test="itemId!=null">ITEM_ID,</if>
+		<if test="url!=null">URL,</if>
+		<if test="sequence!=null">SEQUENCE,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id!=null">#{id},</if>
-            <if test="updateTime!=null">#{updateTime},</if>
-            <if test="createTime!=null">#{createTime},</if>
-            <if test="itemId!=null">#{itemId},</if>
-            <if test="url!=null">#{url},</if>
-            <if test="sequence!=null">#{sequence},</if>
+		<if test="id!=null">#{id},</if>
+		<if test="updateTime!=null">#{updateTime},</if>
+		<if test="createTime!=null">#{createTime},</if>
+		<if test="itemId!=null">#{itemId},</if>
+		<if test="url!=null">#{url},</if>
+		<if test="sequence!=null">#{sequence},</if>
         </trim>
     </insert>
 
@@ -57,27 +57,27 @@
         INSERT INTO
         item_images
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id!=null">ID,</if>
-            <if test="updateTime!=null">UPDATE_TIME,</if>
-            <if test="createTime!=null">CREATE_TIME,</if>
-            <if test="itemId!=null">ITEM_ID,</if>
-            <if test="url!=null">URL,</if>
-            <if test="sequence!=null">SEQUENCE,</if>
+		<if test="id!=null">ID,</if>
+		<if test="updateTime!=null">UPDATE_TIME,</if>
+		<if test="createTime!=null">CREATE_TIME,</if>
+		<if test="itemId!=null">ITEM_ID,</if>
+		<if test="url!=null">URL,</if>
+		<if test="sequence!=null">SEQUENCE,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id!=null">#{id},</if>
-            <if test="updateTime!=null">#{updateTime},</if>
-            <if test="createTime!=null">#{createTime},</if>
-            <if test="itemId!=null">#{itemId},</if>
-            <if test="url!=null">#{url},</if>
-            <if test="sequence!=null">#{sequence},</if>
+		<if test="id!=null">#{id},</if>
+		<if test="updateTime!=null">#{updateTime},</if>
+		<if test="createTime!=null">#{createTime},</if>
+		<if test="itemId!=null">#{itemId},</if>
+		<if test="url!=null">#{url},</if>
+		<if test="sequence!=null">#{sequence},</if>
         </trim>
         ON DUPLICATE KEY UPDATE
         <trim suffixOverrides=",">
-            <if test="updateTime!=null">UPDATE_TIME=#{updateTime},</if>
-            <if test="createTime!=null">CREATE_TIME=#{createTime},</if>
-            <if test="url!=null">URL=#{url},</if>
-            <if test="sequence!=null">SEQUENCE=#{sequence},</if>
+        <if test="updateTime!=null">UPDATE_TIME=#{updateTime},</if>
+        <if test="createTime!=null">CREATE_TIME=#{createTime},</if>
+        <if test="url!=null">URL=#{url},</if>
+        <if test="sequence!=null">SEQUENCE=#{sequence},</if>
         </trim>
     </insert>
 
@@ -89,12 +89,12 @@
     <update id="updateByPrimaryKey">
         UPDATE item_images
         <set>
-            <if test="id!=null">ID=#{id},</if>
-            <if test="updateTime!=null">UPDATE_TIME=#{updateTime},</if>
-            <if test="createTime!=null">CREATE_TIME=#{createTime},</if>
-            <if test="itemId!=null">ITEM_ID=#{itemId},</if>
-            <if test="url!=null">URL=#{url},</if>
-            <if test="sequence!=null">SEQUENCE=#{sequence},</if>
+		<if test="id!=null">ID=#{id},</if>
+		<if test="updateTime!=null">UPDATE_TIME=#{updateTime},</if>
+		<if test="createTime!=null">CREATE_TIME=#{createTime},</if>
+		<if test="itemId!=null">ITEM_ID=#{itemId},</if>
+		<if test="url!=null">URL=#{url},</if>
+		<if test="sequence!=null">SEQUENCE=#{sequence},</if>
         </set>
         <include refid="idCnd"/>
     </update>
@@ -110,12 +110,12 @@
 
     <sql id="where_clause">
         <where>
-            <if test="id!=null">AND ID=#{id}</if>
-            <if test="updateTime!=null">AND UPDATE_TIME=#{updateTime}</if>
-            <if test="createTime!=null">AND CREATE_TIME=#{createTime}</if>
-            <if test="itemId!=null">AND ITEM_ID=#{itemId}</if>
-            <if test="url!=null">AND URL=#{url}</if>
-            <if test="sequence!=null">AND SEQUENCE=#{sequence}</if>
+        <if test="id!=null">AND ID=#{id}</if>
+        <if test="updateTime!=null">AND UPDATE_TIME=#{updateTime}</if>
+        <if test="createTime!=null">AND CREATE_TIME=#{createTime}</if>
+        <if test="itemId!=null">AND ITEM_ID=#{itemId}</if>
+        <if test="url!=null">AND URL=#{url}</if>
+        <if test="sequence!=null">AND SEQUENCE=#{sequence}</if>
         </where>
     </sql>
 
@@ -131,24 +131,24 @@
     <insert id="batchInsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemImagesDO"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO
-        item_images
+    item_images
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="list[0].id!=null">ID,</if>
-            <if test="list[0].updateTime!=null">UPDATE_TIME,</if>
-            <if test="list[0].createTime!=null">CREATE_TIME,</if>
-            <if test="list[0].itemId!=null">ITEM_ID,</if>
-            <if test="list[0].url!=null">URL,</if>
-            <if test="list[0].sequence!=null">SEQUENCE,</if>
+    <if test="list[0].id!=null">ID,</if>
+    <if test="list[0].updateTime!=null">UPDATE_TIME,</if>
+    <if test="list[0].createTime!=null">CREATE_TIME,</if>
+    <if test="list[0].itemId!=null">ITEM_ID,</if>
+    <if test="list[0].url!=null">URL,</if>
+    <if test="list[0].sequence!=null">SEQUENCE,</if>
         </trim>
         values
         <foreach collection="list" item="item" separator=",">
             <trim prefix="(" suffix=")" suffixOverrides=",">
-                <if test="list[0].id!=null">#{item.id},</if>
-                <if test="list[0].updateTime!=null">#{item.updateTime},</if>
-                <if test="list[0].createTime!=null">#{item.createTime},</if>
-                <if test="list[0].itemId!=null">#{item.itemId},</if>
-                <if test="list[0].url!=null">#{item.url},</if>
-                <if test="list[0].sequence!=null">#{item.sequence},</if>
+    <if test="list[0].id!=null">#{item.id},</if>
+    <if test="list[0].updateTime!=null">#{item.updateTime},</if>
+    <if test="list[0].createTime!=null">#{item.createTime},</if>
+    <if test="list[0].itemId!=null">#{item.itemId},</if>
+    <if test="list[0].url!=null">#{item.url},</if>
+    <if test="list[0].sequence!=null">#{item.sequence},</if>
             </trim>
         </foreach>
     </insert>
@@ -156,24 +156,24 @@
     <insert id="batchUpsert" parameterType="com.clubfactory.item.center.core.dataobject.ItemImagesDO"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO
-        item_images
+    item_images
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="list[0].id!=null">ID,</if>
-            <if test="list[0].updateTime!=null">UPDATE_TIME,</if>
-            <if test="list[0].createTime!=null">CREATE_TIME,</if>
-            <if test="list[0].itemId!=null">ITEM_ID,</if>
-            <if test="list[0].url!=null">URL,</if>
-            <if test="list[0].sequence!=null">SEQUENCE,</if>
+    <if test="list[0].id!=null">ID,</if>
+    <if test="list[0].updateTime!=null">UPDATE_TIME,</if>
+    <if test="list[0].createTime!=null">CREATE_TIME,</if>
+    <if test="list[0].itemId!=null">ITEM_ID,</if>
+    <if test="list[0].url!=null">URL,</if>
+    <if test="list[0].sequence!=null">SEQUENCE,</if>
         </trim>
         values
         <foreach collection="list" item="item" separator=",">
             <trim prefix="(" suffix=")" suffixOverrides=",">
-                <if test="list[0].id!=null">#{item.id},</if>
-                <if test="list[0].updateTime!=null">#{item.updateTime},</if>
-                <if test="list[0].createTime!=null">#{item.createTime},</if>
-                <if test="list[0].itemId!=null">#{item.itemId},</if>
-                <if test="list[0].url!=null">#{item.url},</if>
-                <if test="list[0].sequence!=null">#{item.sequence},</if>
+    <if test="list[0].id!=null">#{item.id},</if>
+    <if test="list[0].updateTime!=null">#{item.updateTime},</if>
+    <if test="list[0].createTime!=null">#{item.createTime},</if>
+    <if test="list[0].itemId!=null">#{item.itemId},</if>
+    <if test="list[0].url!=null">#{item.url},</if>
+    <if test="list[0].sequence!=null">#{item.sequence},</if>
             </trim>
         </foreach>
         ON DUPLICATE KEY UPDATE
@@ -187,40 +187,40 @@
 
     <update id="batchUpdate" parameterType="com.clubfactory.item.center.core.dataobject.ItemImagesDO">
         update
-        item_images
+    item_images
         <trim prefix="set" suffixOverrides=",">
-            <if test="list[0].updateTime!=null">
-                <trim prefix="UPDATE_TIME = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.updateTime}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].createTime!=null">
-                <trim prefix="CREATE_TIME = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.createTime}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].url!=null">
-                <trim prefix="URL = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.url}
-                    </foreach>
-                </trim>
-            </if>
-            <if test="list[0].sequence!=null">
-                <trim prefix="SEQUENCE = case" suffix="end,">
-                    <foreach collection="list" item="item" index="index">
-                        when item_id=#{item.itemId} then #{item.sequence}
-                    </foreach>
-                </trim>
-            </if>
+        <if test="list[0].updateTime!=null">
+            <trim prefix="UPDATE_TIME = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.updateTime}
+                </foreach>
+            </trim>
+        </if>
+        <if test="list[0].createTime!=null">
+            <trim prefix="CREATE_TIME = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.createTime}
+                </foreach>
+            </trim>
+        </if>
+        <if test="list[0].url!=null">
+            <trim prefix="URL = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.url}
+                </foreach>
+            </trim>
+        </if>
+        <if test="list[0].sequence!=null">
+            <trim prefix="SEQUENCE = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when item_id=#{item.itemId} then #{item.sequence}
+                </foreach>
+            </trim>
+        </if>
         </trim>
         where item_id in
         <foreach collection="list" index="index" item="item" separator="," open="(" close=")">
-            #{item.itemId}
+#{item.itemId}
         </foreach>
     </update>
 

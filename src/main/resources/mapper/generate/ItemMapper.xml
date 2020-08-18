@@ -10,6 +10,7 @@
         <result property="isDelete" column="IS_DELETE"/><!--逻辑删除标示 1：删除-->
         <result property="itemId" column="ITEM_ID"/><!--分表按照product_id进行-->
         <result property="productId" column="PRODUCT_ID"/><!--b端货品id-->
+        <result property="productNo" column="PRODUCT_NO"/><!--货品货品-->
         <result property="title" column="TITLE"/><!--商品标题-->
         <result property="status" column="STATUS"/><!--商品状态-->
         <result property="inventoryStatus" column="INVENTORY_STATUS"/><!--商品库存状态,0:不售罄;1:售罄-->
@@ -46,6 +47,7 @@
             IS_DELETE,
             ITEM_ID,
             PRODUCT_ID,
+            PRODUCT_NO,
             TITLE,
             STATUS,
             INVENTORY_STATUS,
@@ -93,6 +95,7 @@
             <if test="isDelete!=null">IS_DELETE,</if>
             <if test="itemId!=null">ITEM_ID,</if>
             <if test="productId!=null">PRODUCT_ID,</if>
+            <if test="productNo!=null">PRODUCT_NO,</if>
             <if test="title!=null">TITLE,</if>
             <if test="status!=null">STATUS,</if>
             <if test="inventoryStatus!=null">INVENTORY_STATUS,</if>
@@ -127,6 +130,7 @@
             <if test="isDelete!=null">#{isDelete},</if>
             <if test="itemId!=null">#{itemId},</if>
             <if test="productId!=null">#{productId},</if>
+            <if test="productNo!=null">#{productNo},</if>
             <if test="title!=null">#{title},</if>
             <if test="status!=null">#{status},</if>
             <if test="inventoryStatus!=null">#{inventoryStatus},</if>
@@ -167,6 +171,7 @@
             <if test="isDelete!=null">IS_DELETE,</if>
             <if test="itemId!=null">ITEM_ID,</if>
             <if test="productId!=null">PRODUCT_ID,</if>
+            <if test="productNo!=null">PRODUCT_NO,</if>
             <if test="title!=null">TITLE,</if>
             <if test="status!=null">STATUS,</if>
             <if test="inventoryStatus!=null">INVENTORY_STATUS,</if>
@@ -201,6 +206,7 @@
             <if test="isDelete!=null">#{isDelete},</if>
             <if test="itemId!=null">#{itemId},</if>
             <if test="productId!=null">#{productId},</if>
+            <if test="productNo!=null">#{productNo},</if>
             <if test="title!=null">#{title},</if>
             <if test="status!=null">#{status},</if>
             <if test="inventoryStatus!=null">#{inventoryStatus},</if>
@@ -234,6 +240,7 @@
             <if test="updateTime!=null">UPDATE_TIME=#{updateTime},</if>
             <if test="isDelete!=null">IS_DELETE=#{isDelete},</if>
             <if test="productId!=null">PRODUCT_ID=#{productId},</if>
+            <if test="productNo!=null">PRODUCT_NO=#{productNo},</if>
             <if test="title!=null">TITLE=#{title},</if>
             <if test="status!=null">STATUS=#{status},</if>
             <if test="inventoryStatus!=null">INVENTORY_STATUS=#{inventoryStatus},</if>
@@ -277,6 +284,7 @@
             <if test="isDelete!=null">IS_DELETE=#{isDelete},</if>
             <if test="itemId!=null">ITEM_ID=#{itemId},</if>
             <if test="productId!=null">PRODUCT_ID=#{productId},</if>
+            <if test="productNo!=null">PRODUCT_NO=#{productNo},</if>
             <if test="title!=null">TITLE=#{title},</if>
             <if test="status!=null">STATUS=#{status},</if>
             <if test="inventoryStatus!=null">INVENTORY_STATUS=#{inventoryStatus},</if>
@@ -324,6 +332,7 @@
             <if test="isDelete!=null">AND IS_DELETE=#{isDelete}</if>
             <if test="itemId!=null">AND ITEM_ID=#{itemId}</if>
             <if test="productId!=null">AND PRODUCT_ID=#{productId}</if>
+            <if test="productNo!=null">AND PRODUCT_NO=#{productNo}</if>
             <if test="title!=null">AND TITLE=#{title}</if>
             <if test="status!=null">AND STATUS=#{status}</if>
             <if test="inventoryStatus!=null">AND INVENTORY_STATUS=#{inventoryStatus}</if>
@@ -373,6 +382,7 @@
             <if test="list[0].isDelete!=null">IS_DELETE,</if>
             <if test="list[0].itemId!=null">ITEM_ID,</if>
             <if test="list[0].productId!=null">PRODUCT_ID,</if>
+            <if test="list[0].productNo!=null">PRODUCT_NO,</if>
             <if test="list[0].title!=null">TITLE,</if>
             <if test="list[0].status!=null">STATUS,</if>
             <if test="list[0].inventoryStatus!=null">INVENTORY_STATUS,</if>
@@ -409,6 +419,7 @@
                 <if test="list[0].isDelete!=null">#{item.isDelete},</if>
                 <if test="list[0].itemId!=null">#{item.itemId},</if>
                 <if test="list[0].productId!=null">#{item.productId},</if>
+                <if test="list[0].productNo!=null">#{item.productNo},</if>
                 <if test="list[0].title!=null">#{item.title},</if>
                 <if test="list[0].status!=null">#{item.status},</if>
                 <if test="list[0].inventoryStatus!=null">#{item.inventoryStatus},</if>
@@ -450,6 +461,7 @@
             <if test="list[0].isDelete!=null">IS_DELETE,</if>
             <if test="list[0].itemId!=null">ITEM_ID,</if>
             <if test="list[0].productId!=null">PRODUCT_ID,</if>
+            <if test="list[0].productNo!=null">PRODUCT_NO,</if>
             <if test="list[0].title!=null">TITLE,</if>
             <if test="list[0].status!=null">STATUS,</if>
             <if test="list[0].inventoryStatus!=null">INVENTORY_STATUS,</if>
@@ -486,6 +498,7 @@
                 <if test="list[0].isDelete!=null">#{item.isDelete},</if>
                 <if test="list[0].itemId!=null">#{item.itemId},</if>
                 <if test="list[0].productId!=null">#{item.productId},</if>
+                <if test="list[0].productNo!=null">#{item.productNo},</if>
                 <if test="list[0].title!=null">#{item.title},</if>
                 <if test="list[0].status!=null">#{item.status},</if>
                 <if test="list[0].inventoryStatus!=null">#{item.inventoryStatus},</if>
@@ -520,6 +533,7 @@
             <if test="list[0].updateTime!=null">UPDATE_TIME=values(UPDATE_TIME),</if>
             <if test="list[0].isDelete!=null">IS_DELETE=values(IS_DELETE),</if>
             <if test="list[0].productId!=null">PRODUCT_ID=values(PRODUCT_ID),</if>
+            <if test="list[0].productNo!=null">PRODUCT_NO=values(PRODUCT_NO),</if>
             <if test="list[0].title!=null">TITLE=values(TITLE),</if>
             <if test="list[0].status!=null">STATUS=values(STATUS),</if>
             <if test="list[0].inventoryStatus!=null">INVENTORY_STATUS=values(INVENTORY_STATUS),</if>
@@ -578,6 +592,13 @@
                 <trim prefix="PRODUCT_ID = case" suffix="end,">
                     <foreach collection="list" item="item" index="index">
                         when item_id=#{item.itemId} then #{item.productId}
+                    </foreach>
+                </trim>
+            </if>
+            <if test="list[0].productNo!=null">
+                <trim prefix="PRODUCT_NO = case" suffix="end,">
+                    <foreach collection="list" item="item" index="index">
+                        when item_id=#{item.itemId} then #{item.productNo}
                     </foreach>
                 </trim>
             </if>

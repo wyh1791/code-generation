@@ -1,6 +1,6 @@
 /**
 *@Author: wyh
-*@Date: 2020-08-05
+*@Date: 2020-08-12
 */
 package com.clubfactory.item.center.core.dataobject;
 
@@ -15,7 +15,7 @@ import java.util.Date;
 * @ClassName: Item
 * @Description:
 * @author wyh
-* @date 2020-08-05
+* @date 2020-08-12
 */
 @Data
 @Accessors(chain = true)
@@ -51,6 +51,11 @@ public class ItemDO implements Serializable{
      * b端货品id
      */
 	private Long productId;
+
+    /**
+     * 货品货品
+     */
+	private String productNo;
 
     /**
      * 商品标题
