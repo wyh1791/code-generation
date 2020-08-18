@@ -1,110 +1,90 @@
-/**
-*@Author: wyh
-*@Date: 2020-08-18
-*/
+
 package com.clubfactory.item.center.core.dataobject;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.math.BigDecimal;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
-* @ClassName: ItemSku
-* @Description:
-* @author wyh
-* @date 2020-08-18
-*/
+ * @author wyh
+ * @ClassName: ItemSku
+ * @Description:
+ * @date 2020-08-18
+ */
 @Data
 @Accessors(chain = true)
-public class ItemSkuDO implements Serializable{
-
-
-    /**
-     * 
-     */
-	private Long id;
+public class ItemSkuDO implements Serializable {
 
     /**
-     * 
+     *
      */
-	private Date createTime;
-
+    private Long id;
     /**
-     * 
+     *
      */
-	private Date updateTime;
-
+    private Date createTime;
+    /**
+     *
+     */
+    private Date updateTime;
     /**
      * 逻辑删除标示 1：删除
      */
-	private Integer isDelete;
-
+    private Integer isDelete;
     /**
      * 关联的item_id
      */
-	private Long itemId;
-
+    private Long itemId;
     /**
      * item_sku_id
      */
-	private Long itemSkuId;
-
+    private Long itemSkuId;
     /**
      * b端货品id
      */
-	private Long productId;
-
+    private Long productId;
     /**
      * b端sku id
      */
-	private Long productSkuId;
-
+    private Long productSkuId;
     /**
      * item_sku版本号
      */
-	private Long version;
-
+    private Long version;
     /**
      * sku状态
      */
-	private Integer status;
-
+    private Integer status;
     /**
      * 库存状态,默认不售罄 dto不透出
      */
-	private Integer inventoryStatus;
-
+    private Integer inventoryStatus;
     /**
      * sku图片
      */
-	private String imageUrl;
-
+    private String imageUrl;
     /**
      * b端sku维度feature
      */
-	private String feature;
-
+    private String feature;
     /**
      * 可信赖的重量, 不管重量来源
      */
-	private Long weight;
-
+    private Long weight;
     /**
      * seller_sku编码,大卖家才有
      */
-	private String merchantSkuCode;
-
+    private String merchantSkuCode;
     /**
      * 多国hs_code, 税率
      */
-	private String hsTable;
-
+    private String hsTable;
     /**
      * sku属性kv串
      */
-	private String attributeInfo;
+    private String attributeInfo;
 
 }
 

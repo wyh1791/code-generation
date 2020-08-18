@@ -41,7 +41,6 @@ public class RapidGenerator {
         GeneratorProperties.setProperty("javaPath", projectPath + JAVA_PATH);
         GeneratorProperties.setProperty("mybatisXMLPath", projectPath + MYBATIS_XML_PATH);
         GeneratorProperties.setProperty("basepackage", BASE_PACKAGE);
-        GeneratorProperties.setProperty("forceBigDecimals", "true");
         //设置自己的名字
         GeneratorProperties.setProperty("author", author);
         GeneratorProperties.setProperty("createTime", DateUtil.nowFormat(DateUtil.YMD));
