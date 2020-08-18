@@ -10,10 +10,7 @@
 -->
 ${gg.setOverride(true)}<#t/>
 ${gg.setOutputFile(javaPath+"/dataobject/"+className+"DO.java")}<#t/>
-/**
-*@Author: ${author}
-*@Date: ${createTime}
-*/
+
 package ${basepackage}.dataobject;
 
 import java.io.Serializable;
@@ -33,7 +30,6 @@ import lombok.experimental.Accessors;
 public class ${className}DO implements Serializable{
 
 	<#list table.columns as column>
-
     /**
      * ${(column.remarks)!}
      */
